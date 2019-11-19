@@ -1,0 +1,70 @@
+{%- include 'bold-product' with product, hide_action: 'break', output: 'none' -%}
+
+
+<div class="gba-size_chart sizechart_close">
+	<div class="size_chart-wrapper">
+      <div class="content">
+        {% for tag in product.tags %}
+        	{% if tag contains 'Size Guide' %}
+        		<img src="{{tag | remove: 'Size Guide ' }}" />
+        	{% endif %}
+        {% endfor %}
+		<div class="arrow sizechart_close">{% include 'icon-close' %}</div>
+      </div>
+  </div>
+</div>
+      
+      
+
+{% schema %}
+  {
+    "name": "Size Chart Settings",
+    "settings": [
+      {
+      	"type":"image_picker",
+      	"id":"mens",
+      	"label":"Mens Size Chart"
+      },
+      {
+      	"type":"image_picker",
+      	"id":"womens",
+      	"label":"Womens Size Chart"
+      },
+      {
+      	"type":"image_picker",
+      	"id":"boat",
+      	"label":"Boat Coat Size Chart"
+      },
+      {
+      	"type":"image_picker",
+      	"id":"colony",
+      	"label":"Colony Cap Men Size Chart"
+      },
+      {
+      	"type":"image_picker",
+      	"id":"colony_women",
+      	"label":"Colony Cap Women Size Chart"
+      },
+      {
+      	"type":"image_picker",
+      	"id":"baby",
+      	"label":"Baby Size Chart"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+    $(document).ready(function(){
+		$('.sizechart').click(function(){
+     		$('.gba-size_chart').fadeIn(); 
+      	});
+      
+      	$('.sizechart_close').click(function(){
+      		$('.gba-size_chart').fadeOut();
+      	});
+    });
+{% endjavascript %}

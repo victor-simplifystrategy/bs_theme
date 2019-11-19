@@ -1,0 +1,53 @@
+<div class="video-responsive" id="not-iphone">
+<iframe src="" data-src="https://player.vimeo.com/video/{{section.settings.video_id}}?background=1&loop=1&autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
+
+<div class="video-responsive" id="iphone">
+<iframe src="" data-src="https://player.vimeo.com/video/{{section.settings.video_id}}?api=1&title=0&byline=0&controls=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
+
+<style>
+.video-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.video-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+</style>
+<style>.homepage-hero-content-overlay-wrapper::before{opacity: {{ section.settings.video_overlay_opacity }} !important;}.homepage-hero-content-video-image-block{background:url('{{ section.settings.image | img_url : '1024x1024' }}');}</style>
+<script>
+$(document).ready(function() {
+	var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+
+	if (iOS) {
+		$('body').addClass('iOS');
+    }
+});
+</script>
+
+{% schema %}
+{
+"name":"Vimeo Video",
+"class":"homepage-section--video-wrapper show-on-scroll",
+    "settings":[
+		{
+			"type":"text",
+			"id":"video_id",
+			"label":"Vimeo Video ID"
+		}
+    ],
+    "presets":[
+        {
+        "name":"Vimeo Video",
+        "category":"Video"
+        }
+    ]
+}
+{% endschema %}

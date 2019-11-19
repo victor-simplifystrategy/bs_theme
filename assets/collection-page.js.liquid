@@ -1,0 +1,90 @@
+
+/*=============================================
+// Collection Page Images
+==============================================*/ 
+
+
+$(window).on('resize load', function(){
+  
+  $('.grid-view-item').each(function(index){
+    
+    var $screen = new screen();
+    
+    if($screen.desktop()){
+      var desktopCarousel = $(this).find('.desktopImages');
+      desktopCarousel.attr('data-slider-id', 'desk' + index);
+      desktopCarousel.closest('.grid__item').find('.desktopSwatch').attr('data-slider-id', 'desk' + index);
+
+
+
+      
+    var cats = {};
+    var list = $('[data-desktop]',this).filter(function(){
+        var category = $(this).data("desktop");
+
+        if(cats[category]){
+            return false;   
+        } else {
+            cats[category] = true;
+            return true;
+        }
+    }).addClass('first');      
+
+
+
+      desktopCarousel.owlCarousel({
+        items:1,
+        mouseDrag: false,
+        freeDrag: false,
+        pullDrag: false,
+        touchDrag: false,
+      	lazyLoad:true,        
+        thumbs: true, 
+        animateIn: 'fadeIn',
+        animateOut: 'fadeOut',      
+        thumbsPrerendered: true,        
+        nav: false,
+        thumbContainerClass: 'desktopSwatch',  
+      });
+      
+      
+    }else{
+      
+      var mobileCarousel = $(this).find('.mobileImages');
+      mobileCarousel.attr('data-slider-id', index);  
+	  mobileCarousel.closest('.grid__item').find('.mobileSwatch').attr('data-slider-id', index);
+
+
+    var cats = {};
+    var list = $('[data-mobile]',this).filter(function(){
+        var category = $(this).data("mobile");
+
+        if(cats[category]){
+            return false;   
+        } else {
+            cats[category] = true;
+            return true;
+        }
+    }).addClass('first');    
+
+      mobileCarousel.owlCarousel({
+        items:1,
+        mouseDrag: false,
+        freeDrag: false,
+        pullDrag: false,
+        touchDrag: false,
+      	lazyLoad:true,        
+        thumbs: true, 
+        animateIn: 'fadeIn',
+        animateOut: 'fadeOut',      
+        thumbsPrerendered: true, 
+        nav: false,
+        thumbContainerClass: 'mobileSwatch',  
+      }); 
+      
+      
+    }
+    
+    
+  });  
+});

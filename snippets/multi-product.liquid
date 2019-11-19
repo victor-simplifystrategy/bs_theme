@@ -1,0 +1,130 @@
+
+{% comment %}
+	Add in all the variants from the current product.
+{% endcomment %}
+{% assign productVariants = product.variants %}
+
+{% comment %}
+	Grab the option names of the current product
+{% endcomment %}
+{% assign productOptionNames = product.options | json %}
+
+{% comment %}
+	First add all the handles of the other products that need to be bundled in.
+	The strip is just added for safety, in case you add a space after that comma in error.
+	Notice that there is no check to see if the options match. You should do that...
+{% endcomment %}
+
+{% for tag in product.tags %}
+	{% if tag contains 'Add Product' %}
+		{% assign extraHandle = tag | remove:'Add Product' | remove: ' ' %}
+	{% endif %}
+{% endfor %}
+
+
+{% assign productList = extraHandle  | replace:' ' | split:',' %}
+
+{% for productListHandle in productList %}
+
+	{% comment %}
+		Grab a product
+	{% endcomment %}
+	{% assign productListItem = all_products[productListHandle] %}
+
+	{% comment %}
+		Grab the option names of the additional product
+	{% endcomment %}	
+	{% assign productListOption = productListItem.options | json %}
+
+	{% comment %}
+		Do nothing more if the option names don't match
+	{% endcomment %}
+	{% unless productListOption == productOptionNames %}{% continue %}{% endunless %}
+
+
+	{% comment %}
+		Update our master variant list with the additional variants
+	{% endcomment %}
+
+	{% assign productVariants = productVariants | concat:productListItem.variants %}
+	{% assign optionList = optionList | concat: productListItem.options_with_values %}
+	{% assign optionListSimple = optionListSimple | concat: productListItem.options %}
+	{% assign finalOptionList = optionList | concat: product.options_with_values | uniq %}
+{% endfor %}
+
+
+
+{% capture productObject  %}
+{
+		"id": {{ product.id | json }},
+		"title": {{ product.title | json }},
+		"handle": {{ product.handle | json }},
+		"description": {{ product.description | json }},
+		"vendor": {{ product.vendor | json }},
+		"type": {{ product.type | json }},
+		"tags": {{ product.tags | json }},
+		"price": {{ product.price | json }},
+		"price_min": {{ product.price_min | json }},
+		"price_max": {{ product.price_max | json }},
+		"available": {{ product.available | json }},
+		"price_varies": {{ product.price_varies | json }},
+		"compare_at_price": {{ product.compare_at_price | json }},
+		"compare_at_price_min": {{ product.compare_at_price_min | json }},
+		"compare_at_price_max": {{ product.compare_at_price_max | json }},
+		"compare_at_price_varies": {{ product.compare_at_price_varies | json }},
+		"variants": {{ productVariants | json }}, 
+		"images": {{ product.images | json }},
+		"featured_image": {{ product.featured_image | json }},
+		"options": {{ product.options | json }},
+		"url": {{ product.url | json }}
+}
+{% endcapture %}
+{% comment %}
+	We should now have a pretty big list of variants so let's push all of them out into a standard <select> element, ready for the option selector code to kick in.
+{% endcomment %}
+          <select name="id" id="productSelect-{{ section.id }}" class="product-single__variants original-select no-js" autocomplete="off">
+	{% for variant in productVariants %}
+                <option id="{{variant.option1}}{{variant.option2}}{{variant.option3}}" data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+	{% endfor %}
+</select>
+
+<script>
+  
+	/* 
+		build a new product json output for the option selectors to use.
+		Since the product json can be used by other apps and scripts let's just recreate the whole thing from scratch, using out new variant list instead of the default ones.
+	*/
+	var productJson = {
+		id: {{ product.id | json }},
+		title: {{ product.title | json }},
+		handle: {{ product.handle | json }},
+		description: {{ product.description | json }},
+		vendor: {{ product.vendor | json }},
+		type: {{ product.type | json }},
+		tags: {{ product.tags | json }},
+		price: {{ product.price | json }},
+		price_min: {{ product.price_min | json }},
+		price_max: {{ product.price_max | json }},
+		available: {{ product.available | json }},
+		price_varies: {{ product.price_varies | json }},
+		compare_at_price: {{ product.compare_at_price | json }},
+		compare_at_price_min: {{ product.compare_at_price_min | json }},
+		compare_at_price_max: {{ product.compare_at_price_max | json }},
+		compare_at_price_varies: {{ product.compare_at_price_varies | json }},
+		variants: {{ productVariants | json }}, /* this is our new master list - assuming it works! */ 
+		images: {{ product.images | json }},
+		featured_image: {{ product.featured_image | json }},
+		options: {{ product.options | json }},
+		url: {{ product.url | json }}
+	};
+  
+	/* 
+	This should really be your selectCallback function but I've thrown this in just for testing only...
+	*/
+	var selectCallback = function(variant, selector) {
+		console.log(variant, selector);
+		return;
+	};
+
+</script>
+

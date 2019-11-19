@@ -1,0 +1,82 @@
+
+<div class="wrapper main-content" >
+
+<div id="masonry">
+
+
+
+{% capture page_handle %}blog-{{blog.handle}}{% endcapture %}
+{% include 'hypervisual', hypervisual_object: pages[page_handle] %}
+
+
+
+    {% comment %}
+      Loop through each article in your blog. This is limited to what you set for pagination above.
+
+      For more info on article liquid tags:
+        - http://docs.shopify.com/themes/liquid-variables/article
+    {% endcomment %}
+  	<div id="ajaxCall">
+    {% for article in blog.articles  %} <!-- START FOR -->
+  		<div class=" article">
+
+
+
+      	<div class="post">
+		
+          	{% for tag in article.tags %}
+          		{% if tag contains 'link:'%}
+          			{% assign articleLink = tag  %}
+          		{% endif %}
+          	{% endfor %}
+	        
+          	<div>
+              <a {% if articleLink contains 'link:'%}href="{{articleLink | remove:'link:' }}" target="_blank"{% else %}href="{{ article.url }}"{% endif %}>
+                <div class="overlayContainer">
+                  <div class="overlayContents">
+	                  <h2>{{ article.title }}</h2>
+                  </div>
+                </div>                
+                <div class="image">
+		            {% if article.image %}{{ article.image | img_url: 'master' | img_tag: article.title }}{% endif %}          
+                </div>   
+              </a>
+          	</div>
+	        
+
+   	      
+
+	        {% comment %}
+	          Add a surrounding div with class 'rte' to anything that will come from the rich text editor.
+	          Since this is just a listing page, you can either use the excerpt or truncate the full article.
+	        {% endcomment %}
+	        <!--<div class="rte">
+	            {{ article.excerpt_or_content | truncatewords: 100 }}
+	        </div>-->
+
+			<!--<p><a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }} &rarr;</a></p>-->
+		</div>
+
+  </div>
+    {% endfor %} <!-- END FOR -->
+  	</div>
+
+
+
+
+</div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

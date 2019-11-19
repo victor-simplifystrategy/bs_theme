@@ -1,0 +1,255 @@
+<div class="homepage-sections-wrapper homepage-sections-wrapper--{{ section.settings.colors }}">
+	{% if section.settings.image != blank %}
+  	<img src="{{section.settings.image | img_url:'master' }}"  class="christmasBow" />
+  	{% endif %}  
+  <div class="grid grid--center">
+
+    <div class="homepage-hero-content--video {{ section.settings.width_classes }}">
+
+        <!-- <div class="homepage-hero-content-overlay-wrapper"> -->
+
+            <!-- <div class="homepage-hero-content-video-image-block js__hide-on-play"></div>-->
+
+            <!--
+            <div class="homepage-hero-content-video-text-block js__hide-on-play">
+                {% if section.settings.title != blank %}
+                    <h2>{{ section.settings.title | escape }}</h2>
+                {% endif %}
+
+                {% if section.settings.richtext != '' %}
+                    {{ section.settings.richtext }}
+                {% endif %}
+
+               
+            </div>
+            -->
+
+            {% if section.settings.url contains 'youtube' %}
+                <div class="embed-container">
+                    <div class="homepage-hero-youtube-video" id="homepage-hero-youtube-video-{{ section.id }}"
+                         data-homepage-hero-video-link="{{ section.settings.url.id }}"
+                         data-homepage-hero-video-autoplay="{% if section.settings.autoplay %}true{% else %}false{% endif %}"
+                         data-homepage-hero-video-loop="{% if section.settings.loop %}true{% else %}false{% endif %}"
+                         data-homepage-hero-video-mute="{% if section.settings.mute %}true{% else %}false{% endif %}">
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if section.settings.url != blank %}
+                <div class="embed-container">    
+                    <div class="main-video" >
+                      <div class="video-container">
+                        <video id="main-video" autoplay loop playsinline webkit-playsinline muted class="video-player" preload="none" poster="{{section.settings.video | img_url:'master'}}">
+                          <source data-src="{{section.settings.url }}" type="video/mp4" />
+                        </video>
+    <div class="unmute"></div>
+                        
+                      </div>
+                    </div>
+                </div>
+            {% endif %}
+      		
+      
+
+            {% if section.settings.selfHosted_url != blank %}
+                <div class="embed-container">    
+                    <div class="main-video" style="padding-bottom: 56%;">
+                      <div class="video-container">
+                        <video id="main-video" style="width:100%;" autoplay loop playsinline webkit-playsinline muted class="video-player" poster="https://cdn.shopify.com/s/files/1/1407/3982/files/testvideo_c8ea2fff-86fb-47cf-9751-8e8395f69635_1400x1400.jpg?v=1507841821">
+                          <source src="https://player.vimeo.com/external/237992752.hd.mp4?s=65c5f0b757471abb3664a15fa063d59efec3609c&profile_id=175" type="video/mp4" />
+                        </video>
+                        
+                      </div>
+                    </div>
+                </div>
+            {% endif %}
+
+
+        <!-- </div> -->
+
+    </div>
+
+</div>
+
+</div>
+
+<style>.homepage-hero-content-overlay-wrapper::before{opacity: {{ section.settings.video_overlay_opacity }} !important;}.homepage-hero-content-video-image-block{background:url('{{ section.settings.image | img_url : '1024x1024' }}');}</style>
+
+{% schema %}
+{
+"name":"Video",
+"class":"homepage-section--video-wrapper show-on-scroll",
+    "settings":[
+            {
+            "type":"text",
+            "id":"title",
+            "label":"Heading"
+            },
+            {
+            "type":"richtext",
+            "id":"richtext",
+            "label":"Description",
+            "info":"Optional"
+            },
+            {
+            "type":"select",
+            "id":"colors",
+            "label":"Color scheme",
+            "default":"white",
+            "options":[
+                {
+                "value":"white",
+                "label":"White"
+                },
+                {
+                "value":"light",
+                "label":"Light"
+                },
+                {
+                "value":"accent",
+                "label":"Feature"
+                },
+                {
+                "value":"dark",
+                "label":"Dark"
+                }
+            ]
+        },
+        {
+        "type":"select",
+        "id":"width_classes",
+        "label":"Width",
+        "default":"grid__item extra-large--one-whole",
+            "options":[
+                {
+                "value":"grid__item extra-large--one-whole",
+                "label":"100%"
+                },
+                {
+                "value":"grid__item extra-large--three-quarters",
+                "label":"75%"
+                },
+                {
+                "value":"grid__item extra-large--one-half",
+                "label":"50%"
+                }
+            ]
+        },
+        {
+            "id":"video",
+            "type":"image_picker",
+            "label":"Upload Video Cover"
+        },
+        {
+            "id":"url",
+            "type":"text",
+            "label":"Video URL"
+        },
+        {
+            "type":"checkbox",
+            "id":"autoplay",
+            "label":"Autoplay",
+            "default":false
+        },
+        {
+            "type":"checkbox",
+            "id":"loop",
+            "label":"Loop",
+            "default":true
+        },
+        {
+            "type":"checkbox",
+            "id":"mute",
+            "label":"Mute",
+            "default":false
+        },
+        {
+            "type":"image_picker",
+            "id":"image",
+            "label":"Overlayed Image"
+        },
+        {
+        "type":"select",
+        "id":"video_overlay_opacity",
+        "label":"Opacity",
+        "default":"0.5",
+        "options":[
+        {
+        "label":"95%",
+        "value":"0.95"
+        },
+        {
+        "label":"90%",
+        "value":"0.9"
+        },
+        {
+        "label":"85%",
+        "value":"0.85"
+        },
+        {
+        "label":"80%",
+        "value":"0.8"
+        },
+        {
+        "label":"75%",
+        "value":"0.75"
+        },
+        {
+        "label":"70%",
+        "value":"0.7"
+        },
+        {
+        "label":"65%",
+        "value":"0.65"
+        },
+        {
+        "label":"60%",
+        "value":"0.6"
+        },
+        {
+        "label":"55%",
+        "value":"0.55"
+        },
+        {
+        "label":"50%",
+        "value":"0.5"
+        },
+        {
+        "label":"45%",
+        "value":"0.45"
+        },
+        {
+        "label":"40%",
+        "value":"0.4"
+        },
+        {
+        "label":"35%",
+        "value":"0.35"
+      },
+        {
+        "label":"30%",
+        "value":"0.3"
+        },
+        {
+        "label":"25%",
+        "value":"0.25"
+        },
+        {
+        "label":"20%",
+        "value":"0.2"
+        },
+        {
+        "label":"0%",
+        "value":"0"
+        }
+        ]
+        }
+    ],
+    "presets":[
+        {
+        "name":"Video",
+        "category":"Video"
+        }
+    ]
+}
+{% endschema %}

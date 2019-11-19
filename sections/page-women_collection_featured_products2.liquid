@@ -1,0 +1,49 @@
+<div class="gba-alternating_products">
+  <h2>{{section.settings.title}}</h2>
+  <div class="gba-alternating_product_images">
+	{% assign handle = section.settings.collection_handle %}
+    {% for product in collections[handle].products %}
+    	{% include 'collection-single-item-squares' %}
+    {% endfor%}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Featured Products",
+    "settings": [
+	{
+		"type":"text",
+		"id":"title",
+		"label":"Section Title"
+	},
+	{
+		"type":"select",
+		"id":"columns",
+		"label":"Columns per row",
+		"options":[
+			{
+			"group":"Columns per row",
+			"label":"3",
+			"value":"one_third"
+			},
+			{
+			"group":"Columns per row",
+			"label":"4",
+			"value":"one_fourth"
+			}
+		]
+	},
+	{
+		"type":"collection",
+		"id":"collection_handle",
+		"label":"Collection"
+	}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

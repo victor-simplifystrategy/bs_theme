@@ -1,0 +1,118 @@
+/*========================================
+// Product Page Images 
+=========================================*/
+
+$(window).on('resize load', function(){
+  
+  var productPageSize = new screen();
+  
+  
+  var cats = {};
+  var list = $( '[data-cat]' ).filter(function(){
+      var category = $(this).data("cat");
+
+      if(cats[category]){
+          return false;   
+      } else {
+          cats[category] = true;
+          return true;
+      }
+  }).addClass('active');
+
+  
+  $('[data-cat]').each(function(){
+    if($(this).hasClass('active')){
+       var isFirst = $(this).attr('data-cat');
+       $(this).attr('data-hash', isFirst);
+    }
+  });
+  
+  if(!productPageSize.desktop()){
+    var productPageSlider = $('#product-images-mobile');
+    productPageSlider.on('initialized.owl.carousel changed.owl.carousel', function(e) {
+    if (!e.namespace)  {
+      return;
+    }
+    var carousel = e.relatedTarget;
+    $('#slider-counter').text(carousel.relative(carousel.current()) + 1 + '/' + carousel.items().length);
+  }).owlCarousel({
+      URLhashListener: true,
+      items: 1,
+      mouseDrag: true,
+      lazyLoad: true,
+      touchDrag: true,
+      lazyLoadEager:1,
+      loop:true,
+	  navContainer: '.owl-stage-outer',      
+      nav: true,
+      onLoadLazy: function(elem){
+        	console.log(elem);
+          elem.element.addClass("lazy-loaded");
+      },      
+      navText: ['<img src="{{'prev.png' | asset_img_url: 'master'}}" />', '<img src="{{'next.png' | asset_img_url: 'master'}}" />']
+
+    });    
+  }else{
+    $('.product-single__photos img').each(function(){
+    	var photoSrc = $(this).attr('data-src');
+      	$(this).attr('src', photoSrc);
+    });
+  }
+  
+
+  
+}).resize();  
+                
+                
+
+                
+                
+                
+                
+/*=============================================
+Video Popup
+==============================================*/
+                
+$('.video-trigger').on('click', function(){
+	$('.videoPopup').fadeIn();
+	$('.videoPopup video').get(0).play();
+});
+	
+$('.videoPopup .overlay-trigger, .close-video-popup').on('click', function(){
+	$('.videoPopup').fadeOut();  
+	$('.videoPopup video').get(0).pause();
+                
+});
+
+
+
+/*================================
+Tie Dye Popup
+=================================*/
+
+$('#faux-addToCart').on('click', function(){
+  let sunsetChecked = $('.swatch-element.Sunset input').is(':checked');
+  let sunriseChecked = $('.swatch-element.Sunrise input').is(':checked');
+
+  if(sunsetChecked || sunriseChecked){
+    $('.tie-dye-popup').fadeIn();
+  }
+});
+
+  
+$('.tie-dye-popup .tie-dye-popup__close, .tie-dye-popup').on('click', function(){
+  $('.tie-dye-popup').fadeOut();
+});
+                
+                
+                
+
+
+$('body').on('click', '.bold_option_value_element .bold_option_value_swatch span', function(){
+	 $('body').find('.bold_option_checkbox input').prop('checked', true).trigger('click');    
+});
+                
+                
+$('body').on('click', '.bold_swatch_selected .bold_option_value_swatch span', function(){
+	 $('body').find('.bold_option_checkbox input').prop('checked', false).trigger('click');    
+});                

@@ -1,0 +1,268 @@
+
+<div id="swatch_page" class="formSection">
+
+  <h3 style="text-align:Center;">Enter to Win</h3>
+<form id="email_signup" class="klaviyo_bare_embed_MknYKD" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">  
+  <input type="hidden" name="g" value="NVKLMh">
+  <input type="hidden" name="$fields" value="Name, Address_Line_1, Address_Line_2, Instagram, Country, State, City, Zip"/>  	
+  <div class="swatch-form sweepstakes">
+    
+    <div class="sweepstakesForm">
+    <div class="column">
+      <div class="swatch-form__item">
+    	<input class="required" type="email" value="" name="email" id="k_id_email" placeholder="Enter your email *" />
+      </div><!-- Form Item -->       
+      <div class="swatch-form__item">
+      	<input class="required" type="text" name="Name" placeholder="Name*" />
+      </div><!-- Form Item -->       
+      <div class="swatch-form__item">
+      	<input class="required" type="text" name="Instagram" placeholder="Instagram Handle *" />
+      </div><!-- Form Item -->        
+      <div class="swatch-form__item">
+      	<input class="required" type="text" name="Address_Line_1" placeholder="Address Line 1*" />
+      </div><!-- Form Item -->       
+      <div class="swatch-form__item">
+      	<input type="text" name="Address_Line_2" placeholder="Address Line 2" />
+      </div><!-- Form Item -->         
+      
+    </div>
+    <div class="column">
+      <div class="swatch-form__item">
+      	<input class="required" type="text" name="City" placeholder="City *" />
+      </div><!-- Form Item -->         
+      <div class="swatch-form__item">
+      	<input class="required" type="text" name="State" placeholder="State *" />
+      </div><!-- Form Item -->       
+      <div class="swatch-form__item">
+      	<input class="required" type="text" name="Zip" placeholder="Zip Code*" />
+      </div><!-- Form Item -->       
+      <div class="swatch-form__item">
+      	<input class="required" type="text" name="Country" placeholder="Country *" />
+      </div><!-- Form Item -->     
+    </div>
+  </div>
+      
+
+      <div class="swatch-form__item swatch-form__item-checkbox">
+        <input type="checkbox" id="swatch-form__both" /><label for="swatch-form__both">Join our email list</label>
+      </div>  
+    
+      <div class="swatch-form__item swatch-from__item-submit">
+    	<button id="first_submit" type="submit" style="display:none;" class="klaviyo_submit_button">Subscribe</button>
+          <a id="faux-submit" class="klaviyo_submit_button">Enter Sweepstakes</a>
+
+    </div>
+      <div class="swatch-disclaimer">
+          * Please note that all fields are required
+      </div>      
+      
+  	</div><!-- Swatch Form -->
+  
+
+  </form>
+  
+    <div class="rte">
+      {{ page.content }}
+    </div>
+</div>
+
+
+<!-- Master List --> 
+<form id="email_signup2" style="display:none;" class=" klaviyo_bare_embed_MknYKD" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">  
+  <input type="hidden" name="g" value="LW6VmH">
+  <input type="hidden" name="$fields" value="Name, Address_Line_1, Address_Line_2, Instagram,  Country, State, City, Zip"/>  	
+  <div class="swatch-form">
+      <div class="swatch-form__item">
+    	<input class="required" type="email" value="" name="email" id="k_id_email" placeholder="Enter your email" />
+      </div><!-- Form Item -->       
+      <div class="swatch-form__item">
+      	<input class="required" type="text" name="Name" placeholder="Name*" />
+      </div><!-- Form Item -->       
+      <div class="swatch-form__item">
+      	<input class="required" type="text" name="Instagram" placeholder="Instagram Handle *" />
+      </div><!-- Form Item -->         
+      <div class="swatch-form__item">
+      	<input class="required" type="text" name="Address_Line_1" placeholder="Address Line 1*" />
+      </div><!-- Form Item -->       
+      <div class="swatch-form__item">
+      	<input type="text" name="Address_Line_2" placeholder="Address Line 2" />
+      </div><!-- Form Item -->       
+      <div class="swatch-form__item">
+      	<input class="required" type="text" name="Country" placeholder="Country *" />
+      </div><!-- Form Item -->       
+      <div class="swatch-form__item">
+      	<input class="required" type="text" name="State" placeholder="State *" />
+      </div><!-- Form Item -->       
+      <div class="swatch-form__item">
+      	<input class="required" type="text" name="City" placeholder="City *" />
+      </div><!-- Form Item -->       
+      <div class="swatch-form__item">
+      	<input class="required" type="text" name="Zip" placeholder="Zip Code*" />
+      </div><!-- Form Item -->       
+
+
+      <div class="swatch-form__item swatch-from__item-submit">
+    	<button id="second_submit" type="submit" style="display:none;" class="klaviyo_submit_button">Subscribe</button>
+      </div>
+      <div class="swatch-disclaimer">
+          * Please note that all fields are required
+      </div>      
+      <a id="faux-submit">Submit</a>
+      
+  	</div><!-- Swatch Form -->
+  
+  <div class="klaviyo_messages">
+    <div class="success_message" style="display:none;"></div>
+    <div class="error_message" style="display:none;"></div>
+    </div>  
+  </form>
+
+
+
+
+<script>
+
+  // Close popup
+  $('#swatch-popup__close').on('click', function(){
+  	$(this).closest('.swatch-popup').fadeOut();
+  });
+  
+   
+// Check for blanks 
+  
+  function check_blanks(){
+      var valid = true;
+
+      $('#email_signup input.required').each(function() {
+        
+        var input=$(this);
+        var is_not_empty=input.val();
+        if(is_not_empty){
+          input.removeClass("invalid").addClass("valid");
+          valid = true;
+        }
+        else{
+          input.removeClass("valid").addClass("invalid");
+          valid = false;
+          
+        }
+      
+    }); 
+          	return valid;
+
+  }  
+  
+  
+  // Check for both lists 
+  function bothSubmit(){
+    var results;
+    var bothStatus = $('#swatch-form__both').is(":checked");
+ 	
+    if(bothStatus){
+    	return results = true;
+    }else{
+    	return results = false;
+    }
+  }
+  
+
+  // Submit Second Form 
+  
+  function secondSubmit(){
+
+  }
+  
+  // Validation 
+  $('#faux-submit').on('click', function(){
+    
+    var gtg =  check_blanks();
+    
+    var both = bothSubmit();
+
+    
+    if(both){
+      if(gtg){
+       $('#second_submit').trigger('click');
+       $('#first_submit').trigger('click');
+
+      }
+    }else{
+      if(gtg){
+      	 $('#first_submit').trigger('click');
+        setTimeout(function(){
+          			window.location.replace("https://bleusalt.com/pages/high-camp-confirmation");
+
+        }, 500)
+      }
+    } 
+
+
+    
+    
+  });
+  
+ 
+// Mirror Forms 
+ $('#email_signup input[name="Name"]').change(function() {
+    $('#email_signup2 input[name="Name"]').val($(this).val());
+});
+  
+  
+ $('#email_signup input[name="email"]').change(function() {
+    $('#email_signup2 input[name="email"]').val($(this).val());
+});  
+  
+ $('#email_signup input[name="Instagram"]').change(function() {
+    $('#email_signup2 input[name="Instagram"]').val($(this).val());
+});  
+    
+  
+ $('#email_signup input[name="Address_line_1"]').change(function() {
+    $('#email_signup2 input[name="Address_line_1"]').val($(this).val());
+});  
+  
+ $('#email_signup input[name="Address_line_2"]').change(function() {
+    $('#email_signup2 input[name="Address_line_2"]').val($(this).val());
+});  
+  
+ $('#email_signup input[name="Country"]').change(function() {
+    $('#email_signup2 input[name="Country"]').val($(this).val());
+});  
+  
+ $('#email_signup input[name="City"]').change(function() {
+    $('#email_signup2 input[name="City"]').val($(this).val());
+});  
+  
+ $('#email_signup input[name="State"]').change(function() {
+    $('#email_signup2 input[name="State"]').val($(this).val());
+});  
+  
+ $('#email_signup input[name="Zip"]').change(function() {
+    $('#email_signup2 input[name="Zip"]').val($(this).val());
+});  
+ 
+</script>
+
+<script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+<script type="text/javascript">
+  KlaviyoSubscribe.attachToForms('#email_signup', {
+   
+    success: function ($forms) {
+      console.log('testing');
+     // `$form` is a jQuery wrapper around the form that was submitted. This makes it easy to get the email address or form fields.
+       		fbq('track', 'Lead');
+
+
+     }    
+  });
+  
+    KlaviyoSubscribe.attachToForms('#email_signup2', {
+    hide_form_on_success: true,
+    success: function ($form) {
+     // `$form` is a jQuery wrapper around the form that was submitted. This makes it easy to get the email address or form fields.
+       		fbq('track', 'Lead');
+			window.location.replace("https://bleusalt.com/pages/high-camp-confirmation");
+     }      
+
+  });
+</script>

@@ -1,0 +1,651 @@
+<div data-section-id="{{ section.id }}" data-section-type="header-section" class="header-section--wrapper">
+	{% if settings.blackFridaySwitch == true %}
+	  {% if section.settings.enable_social_icons %}
+
+		  <div id="sharing" class="gba-socialHack social-sharing is-clean" data-permalink="{{ permalinkURL }}">
+
+			  <ul id="sm-icons" class="clearfix">
+
+                  {% if settings.sm_facebook_link != blank %}
+					  <li id="sm-facebook">
+						  <a href="{{settings.sm_facebook_link}}" target="_blank">
+							  <i class="fa fa-facebook fa-2x"></i>
+						  </a>
+					  </li>
+                  {% endif %}
+
+                  {% if settings.sm_twitter_link != blank %}
+					  <li id="sm-twitter">
+						  <a href="{{settings.sm_twitter_link}}" target="_blank">
+							  <i class="fa fa-twitter fa-2x"></i>
+						  </a>
+					  </li>
+                  {% endif %}
+
+                  {% if settings.sm_youtube_link != blank %}
+					  <li id="sm-youtube">
+						  <a href="{{settings.sm_youtube_link}}" target="_blank">
+							  <i class="fa fa-youtube fa-2x"></i>
+						  </a>
+					  </li>
+                  {% endif %}
+
+                  {% if settings.sm_flickr_link != blank %}
+					  <li id="sm-flickr">
+						  <a href="{{settings.sm_flickr_link}}" target="_blank">
+							  <i class="fa fa-flickr fa-2x"></i>
+						  </a>
+                        
+					  </li>
+                  {% endif %}
+
+                  {% if settings.sm_pinterest_link != blank %}
+					  <li id="sm-pinterest">
+						  <a href="{{settings.sm_pinterest_link}}" target="_blank">
+							  <i class="fa fa-pinterest fa-2x"></i>
+						  </a>
+					  </li>
+                  {% endif %}
+
+                  {% if settings.sm_instagram_link != blank %}
+					  <li id="sm-instagram">
+						  <a href="{{settings.sm_instagram_link}}" target="_blank">
+							  <i class="fa fa-instagram fa-2x"></i>
+						  </a>
+					  </li>
+                  {% endif %}
+
+			  </ul>
+
+		  </div>
+
+	  {% endif %}  
+  	{% endif %}
+    <header class="site-header medium--hide stickIt small--hide{% if section.settings.sticky_header %} {% endif %} {% if section.settings.logo-placement == 'above' %}logo_above{% endif %}">
+     
+      
+      <div class="wrapper">
+
+        {% if section.settings.logo-placement == 'left' %}
+
+        <div class="grid--full grid--table">
+          <div class="grid__item large--one-quarter">
+              <div class="site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
+
+              	{% if template == 'index' %}
+              	  <h1 class="site-header__logo" id="site-title" itemscope itemtype="http://schema.org/Organization">
+              	{% else %}
+              	  <div class="site-header__logo h1" id="site-title" itemscope itemtype="http://schema.org/Organization">
+              	{% endif %}
+              	  {% if section.settings.logo %}
+              	    <a href="/" itemprop="url" class="site-header__logo-image">
+                      {% capture image_size %}{{ section.settings.logo_max_width | escape }}x{% endcapture %}
+              	      <img src="{{ section.settings.logo | img_url: image_size }}"
+              	           srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+              	           alt="{{ section.settings.logo.alt | default: shop.name }}"
+              	           itemprop="logo">
+              	    </a>
+              	  {% else %}
+              	    <a class="site-header__logo-link" href="/" itemprop="url">{{ shop.name }}</a>
+              	  {% endif %}
+              	{% if template == 'index' %}
+              	  </h1>
+              	{% else %}
+              	  </div>
+              	{% endif %}
+
+              </div>
+          </div>
+          <div class="grid__item large--three-quarters large--text-right medium-down--hide">
+
+			<div class="top-links header-font">
+
+				<ul class="site-nav" id="AccessibleNav">
+					{% for link in linklists[section.settings.main_linklist].links %}
+
+						{% assign child_list_handle = link.title | handleize %}
+
+						{% if linklists[child_list_handle].links != blank %}
+							<li class="site-nav--has-dropdown" aria-haspopup="true">
+								<a  {% unless link.title == 'shop' %} href="{{ link.url }}"{% endunless%} class="site-nav__link {% if link.title == 'shop' %}js-drawer-open-left-link{% endif%}">
+									{% if link.title == 'shop' %}<img src="{{'button.jpg' | asset_img_url:'master'}}" />{% else %}{{ link.title }}{% endif %}
+									<span class="icon icon-arrow-down" aria-hidden="true"></span>
+								</a>
+
+								<ul class="site-nav__dropdown">
+									{% for childlink in linklists[child_list_handle].links %}
+										{% assign grandchild_list_handle = childlink.title | handleize %}
+										{% if linklists[grandchild_list_handle].links != blank %}
+											<li class="site-nav--has-dropdown" aria-haspopup="true">
+												<a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
+												<ul class="site-nav__subdropdown">
+													{% for grandchildlink in linklists[grandchild_list_handle].links %}
+														<li>
+															<a href="{{ grandchildlink.url }}" class="site-nav__link">{{ grandchildlink.title | escape }}</a>
+														</li>
+													{% endfor %}
+												</ul>
+											</li>
+										{% else %}
+											<li>
+												<a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
+											</li>
+										{% endif %}
+									{% endfor %}
+								</ul>
+							</li>
+
+							{% else %}
+
+							<li>
+								<a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+							</li>
+
+						{% endif %}
+
+					{% endfor %}
+				</ul>
+
+				<ul class="top-links--icon-links">
+                  <li>
+                    <a href="https://bleusalt.com/pages/feel-to-believe">Free Swatch</a>>
+                  </li>
+					{% if settings.show_multiple_currencies %}
+						<li class="currency-picker--wrapper">
+
+							<select class="currency-picker" name="currencies">
+								{% assign codes = 'USD,EUR,GBP,CAD,ARS,AUD,BBD,BDT,BSD,BHD,BRL,BOB,BND,BGN,ILS,MMK,KYD,CLP,CNY,COP,CRC,HRK,CZK,DKK,DOP,XCD,EGP,XPF,FJD,GHS,GTQ,GYD,GEL,HKD,HUF,ISK,INR,IDR,NIS,JMD,JPY,JOD,KZT,KES,KWD,LVL,LTL,MXN,MYR,MUR,MDL,MAD,MNT,MZN,ANG,NZD,NGN,NOK,OMR,PKR,PYG,PEN,PHP,PLN,QAR,RON,RUB,SAR,RSD,SCR,SGD,SYP,ZAR,KRW,LKR,SEK,CHF,TWD,THB,TZS,TTD,TRY,UAH,AED,UYU,VEB,VND,ZMK' | split: ',' %}
+								{% assign supported_codes = settings.supported_currencies | split: ' ' %}
+								<option value="{{ shop.currency }}" selected="selected">{{ shop.currency }}</option>
+								{% for code in supported_codes %}
+									{% if code != shop.currency and codes contains code %}
+										<option value="{{ code }}">{{ code }}</option>
+									{% endif %}
+								{% endfor %}
+							</select>
+
+						</li>
+					{% endif %}
+
+                    {% if section.settings.enable_search %}
+					<li>
+						<a href="/search" class="search-button">
+							<i class="fa fa-search fa-lg"></i>
+						</a>
+					</li>
+                    {%  endif %}
+
+
+					{% if shop.customer_accounts_enabled %}
+						{% if customer %}
+							<li>
+								<a href="/account" title="{{ 'layout.customer.account' | t }}">
+									<i class="fa fa-user fa-lg"></i>
+								</a>
+							</li>
+						{% else %}
+							<li>
+								<a href="/account/login" title="{{ 'layout.customer.log_in' | t }}" class="log-in-button">
+									<i class="fa fa-user fa-lg"></i>
+								</a>
+							</li>
+						{% endif %}
+					{% endif %}
+
+					<li>
+						<a href="/cart" class="site-header__cart-toggle{% if settings.ajax_cart_method == "drawer" %} js-drawer-open-right-link{% endif %}" aria-controls="CartDrawer" aria-expanded="false">
+							<i class="fa fa-shopping-cart fa-lg"></i>
+              <span class="site-header__cart-indicator {% if cart.item_count == 0 %}hide{% endif %}"></span>
+						</a>
+					</li>
+
+				</ul>
+			</div>
+
+          </div>
+
+      {% endif %}
+
+      {% if section.settings.logo-placement == 'center' %}
+
+      <div class="grid--full grid--table">
+
+        <div class="grid__item large--five-twelfths">
+
+          <div class="top-links header-font">
+
+            <ul class="site-nav" id="AccessibleNav">
+              {% for link in linklists[section.settings.main_linklist].links %}
+
+                {% assign child_list_handle = link.title | handleize %}
+
+                {% if linklists[child_list_handle].links != blank %}
+                  <li class="site-nav--has-dropdown" aria-haspopup="true">
+					<a  {% unless link.title == 'Shop' %} href="{{ link.url }}"{% endunless%} class="site-nav__link {% if link.title == 'Shop' %}js-drawer-open-left-link{% endif%}">
+					  {% if link.title == 'Shop' %}<img style="vertical-align:middle; margin-right:10px;" src="{{'button.jpg' | asset_img_url:'master'}}" /> Shop{% else %}{{ link.title }}{% endif %}
+                      <!-- <span class="icon icon-arrow-down" aria-hidden="true"></span> -->
+                    </a>
+					
+                    {% unless link.title == 'Shop' %}
+                    <ul class="site-nav__dropdown">
+                      {% for childlink in linklists[child_list_handle].links %}
+                        {% assign grandchild_list_handle = childlink.title | handleize %}
+                        {% if linklists[grandchild_list_handle].links != blank %}
+                          <li class="site-nav--has-dropdown" aria-haspopup="true">
+                            <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
+                            <ul class="site-nav__subdropdown">
+                              {% for grandchildlink in linklists[grandchild_list_handle].links %}
+                                <li>
+                                  <a href="{{ grandchildlink.url }}" class="site-nav__link">{{ grandchildlink.title | escape }}</a>
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          </li>
+                        {% else %}
+                          <li>
+                            <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
+                          </li>
+                        {% endif %}
+                      {% endfor %}
+                    </ul>
+                    {% endunless %}
+                  </li>
+
+                  {% else %}
+
+                  <li>
+                    <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+                  </li>
+
+                {% endif %}
+
+              {% endfor %}
+            </ul>
+
+          </div>
+
+        </div>
+
+
+        <div class="grid__item large--two-twelfths">
+            <div class="site-header__logo large--center" itemscope itemtype="http://schema.org/Organization">
+
+              {% if template == 'index' %}
+                <h1 class="site-header__logo" id="site-title" itemscope itemtype="http://schema.org/Organization">
+              {% else %}
+                <div class="site-header__logo h1" id="site-title" itemscope itemtype="http://schema.org/Organization">
+              {% endif %}
+                {% if section.settings.logo %}
+                  <a href="/" itemprop="url" class="site-header__logo-image">
+                    {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+            	      <img src="{{ section.settings.logo | img_url: image_size }}"
+            	           srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+            	           alt="{{ section.settings.logo.alt | default: shop.name }}"
+            	           itemprop="logo">
+                  </a>
+                {% else %}
+                  <a class="site-header__logo-link" href="/" itemprop="url">{{ shop.name }}</a>
+                {% endif %}
+              {% if template == 'index' %}
+                </h1>
+              {% else %}
+                </div>
+              {% endif %}
+
+            </div>
+        </div>
+        <div class="grid__item large--five-twelfths large--text-right medium-down--hide">
+          {% comment %}
+            Show number of items in the cart and total cost in the /cart link
+
+            Ajax Cart Notes:
+              - #cartCount updates the total number of items in the cart
+              - #cartCost updates the total cost of the cart
+              - Documentation:  http://shopify.com/timber#ajax-cart
+          {% endcomment %}
+    <div class="top-links header-font">
+
+      <ul class="top-links--icon-links">
+                  <li>
+                    <a href="https://bleusalt.com/pages/feel-to-believe">Free Swatch</a>
+                  </li>
+        {% if settings.show_multiple_currencies %}
+          <li class="currency-picker--wrapper">
+
+            <select class="currency-picker" name="currencies">
+              {% assign codes = 'USD,EUR,GBP,CAD,ARS,AUD,BBD,BDT,BSD,BHD,BRL,BOB,BND,BGN,ILS,MMK,KYD,CLP,CNY,COP,CRC,HRK,CZK,DKK,DOP,XCD,EGP,XPF,FJD,GHS,GTQ,GYD,GEL,HKD,HUF,ISK,INR,IDR,NIS,JMD,JPY,JOD,KZT,KES,KWD,LVL,LTL,MXN,MYR,MUR,MDL,MAD,MNT,MZN,ANG,NZD,NGN,NOK,OMR,PKR,PYG,PEN,PHP,PLN,QAR,RON,RUB,SAR,RSD,SCR,SGD,SYP,ZAR,KRW,LKR,SEK,CHF,TWD,THB,TZS,TTD,TRY,UAH,AED,UYU,VEB,VND,ZMK' | split: ',' %}
+              {% assign supported_codes = settings.supported_currencies | split: ' ' %}
+              <option value="{{ shop.currency }}" selected="selected">{{ shop.currency }}</option>
+              {% for code in supported_codes %}
+                {% if code != shop.currency and codes contains code %}
+                  <option value="{{ code }}">{{ code }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+
+          </li>
+        {% endif %}
+
+        {% if section.settings.enable_search %}
+        <li>
+          <a href="/search" class="search-button">
+            <i class="fa fa-search fa-lg"></i>
+          </a>
+        </li>
+        {% endif %}
+
+        {% if shop.customer_accounts_enabled %}
+          {% if customer %}
+            <li>
+              <a href="/account" title="{{ 'layout.customer.account' | t }}">
+                <i class="fa fa-user fa-lg"></i>
+              </a>
+            </li>
+          {% else %}
+            <li>
+              <a href="/account/login" title="{{ 'layout.customer.log_in' | t }}" class="log-in-button">
+                <i class="fa fa-user fa-lg"></i>
+              </a>
+            </li>
+          {% endif %}
+        {% endif %}
+
+        <li>
+          <a href="/cart" class="site-header__cart-toggle{% if settings.ajax_cart_method == "drawer" %} js-drawer-open-right-link{% endif %}" aria-controls="CartDrawer" aria-expanded="false">
+            <i class="fa fa-shopping-cart fa-lg"></i>
+                    <span class="site-header__cart-indicator {% if cart.item_count == 0 %}hide{% endif %}"></span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+        </div>
+
+    {% endif %}
+
+            {% if section.settings.logo-placement == 'above' %}
+
+            <div class="grid--full grid--center">
+                <div class="grid__item large--one-whole">
+                    <div class="site-header__logo large--center" itemscope itemtype="http://schema.org/Organization">
+
+                        {% if template == 'index' %}
+                        <h1 class="site-header__logo" id="site-title" itemscope itemtype="http://schema.org/Organization">
+                            {% else %}
+                            <div class="site-header__logo h1" id="site-title" itemscope itemtype="http://schema.org/Organization">
+                                {% endif %}
+                                {% if section.settings.logo %}
+                                    <a href="/" itemprop="url" class="site-header__logo-image">
+                                        {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+                                        <img src="{{ section.settings.logo | img_url: image_size }}"
+                                             srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                                             alt="{{ section.settings.logo.alt | default: shop.name }}"
+                                             itemprop="logo">
+                                    </a>
+                                {% else %}
+                                    <a class="site-header__logo-link" href="/" itemprop="url">{{ shop.name }}</a>
+                                {% endif %}
+                                {% if template == 'index' %}
+                        </h1>
+                        {% else %}
+                    </div>
+                    {% endif %}
+
+                </div>
+            </div>
+            <div class="grid__item large--one-whole">
+
+                <div class="top-links header-font">
+
+                    <ul class="site-nav" id="AccessibleNav">
+                        {% for link in linklists[section.settings.main_linklist].links %}
+
+                            {% assign child_list_handle = link.title | handleize %}
+
+                            {% if linklists[child_list_handle].links != blank %}
+                                <li class="site-nav--has-dropdown" aria-haspopup="true">
+                                    <a href="{{ link.url }}" class="site-nav__link">
+                                        {{ link.title }}
+                                        <span class="icon icon-arrow-down" aria-hidden="true"></span>
+                                    </a>
+
+                                    <ul class="site-nav__dropdown">
+                                        {% for childlink in linklists[child_list_handle].links %}
+                                            {% assign grandchild_list_handle = childlink.title | handleize %}
+                                            {% if linklists[grandchild_list_handle].links != blank %}
+                                                <li class="site-nav--has-dropdown" aria-haspopup="true">
+                                                    <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
+                                                    <ul class="site-nav__subdropdown">
+                                                        {% for grandchildlink in linklists[grandchild_list_handle].links %}
+                                                            <li>
+                                                                <a href="{{ grandchildlink.url }}" class="site-nav__link">{{ grandchildlink.title | escape }}</a>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </li>
+                                            {% else %}
+                                                <li>
+                                                    <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
+                                                </li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+
+                            {% else %}
+
+                                <li>
+                                    <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+                                </li>
+
+                            {% endif %}
+
+                        {% endfor %}
+                    </ul>
+
+                </div>
+
+            </div>
+
+                {% comment %}
+                Show number of items in the cart and total cost in the /cart link
+
+                Ajax Cart Notes:
+                - #cartCount updates the total number of items in the cart
+                - #cartCost updates the total cost of the cart
+                - Documentation:  http://shopify.com/timber#ajax-cart
+                {% endcomment %}
+                <div class="top-links header-font">
+
+                    <ul class="top-links--icon-links">
+                  <li>
+                    <a href="https://bleusalt.com/pages/feel-to-believe">Free Swatch</a>>
+                  </li>
+                        {% if settings.show_multiple_currencies %}
+                            <li class="currency-picker--wrapper">
+
+                                <select class="currency-picker" name="currencies">
+                                    {% assign codes = 'USD,EUR,GBP,CAD,ARS,AUD,BBD,BDT,BSD,BHD,BRL,BOB,BND,BGN,ILS,MMK,KYD,CLP,CNY,COP,CRC,HRK,CZK,DKK,DOP,XCD,EGP,XPF,FJD,GHS,GTQ,GYD,GEL,HKD,HUF,ISK,INR,IDR,NIS,JMD,JPY,JOD,KZT,KES,KWD,LVL,LTL,MXN,MYR,MUR,MDL,MAD,MNT,MZN,ANG,NZD,NGN,NOK,OMR,PKR,PYG,PEN,PHP,PLN,QAR,RON,RUB,SAR,RSD,SCR,SGD,SYP,ZAR,KRW,LKR,SEK,CHF,TWD,THB,TZS,TTD,TRY,UAH,AED,UYU,VEB,VND,ZMK' | split: ',' %}
+                                    {% assign supported_codes = settings.supported_currencies | split: ' ' %}
+                                    <option value="{{ shop.currency }}" selected="selected">{{ shop.currency }}</option>
+                                    {% for code in supported_codes %}
+                                        {% if code != shop.currency and codes contains code %}
+                                            <option value="{{ code }}">{{ code }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+
+                            </li>
+                        {% endif %}
+
+                        {% if section.settings.enable_search %}
+                            <li>
+                                <a href="/search" class="search-button">
+                                    <i class="fa fa-search fa-lg"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% if shop.customer_accounts_enabled %}
+                            {% if customer %}
+                                <li>
+                                    <a href="/account" title="{{ 'layout.customer.account' | t }}">
+                                        <i class="fa fa-user fa-lg"></i>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a href="/account/login" title="{{ 'layout.customer.log_in' | t }}" class="log-in-button">
+                                        <i class="fa fa-user fa-lg"></i>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+
+                        <li>
+                            <a href="/cart" class="site-header__cart-toggle{% if settings.ajax_cart_method == "drawer" %} js-drawer-open-right-link{% endif %}" aria-controls="CartDrawer" aria-expanded="false">
+                                <i class="fa fa-shopping-cart fa-lg"></i>
+                                <span class="site-header__cart-indicator {% if cart.item_count == 0 %}hide{% endif %}"></span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                {% endif %}
+
+      </div>
+    </header>  
+  
+	<nav class="nav-bar mobile-nav-bar-wrapper stickIt large--hide medium-down--show">
+  <div class="wrapper">
+    <div class="showMe large--hide medium-down--show">
+      <div class="mobile-grid--table">
+        <div class="grid__item one-sixth">
+          <div class="site-nav--mobile">
+            <button type="button" class="icon-fallback-text site-nav__link js-drawer-open-left-link" aria-controls="NavDrawer" aria-expanded="false">
+              <i class="fa fa-bars fa-2x"></i>
+              <span class="fallback-text">{{ 'layout.navigation.menu' | t }}</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid__item four-sixths">
+          {% if template == 'index' %}
+          	  <h1 class="site-header__logo" id="site-title" itemscope itemtype="http://schema.org/Organization">
+          	{% else %}
+          	  <div class="site-header__logo h1" id="site-title" itemscope itemtype="http://schema.org/Organization">
+          	{% endif %}
+          	  {% if section.settings.logo_mobile%}
+          	    <a href="/" itemprop="url" class="site-header__logo-image">
+          	      {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+          	      <img src="{{ section.settings.logo_mobile | img_url: image_size }}"
+          	           srcset="{{ section.settings.logo_mobile | img_url: image_size }} 1x, {{ section.settings.logo_mobile | img_url: image_size, scale: 2 }} 2x"
+          	           alt="{{ section.settings.logo_mobile.alt | default: shop.name }}"
+          	           itemprop="logo">
+          	    </a>
+          	  {% else %}
+          	    <a class="site-header__logo-link" href="/" itemprop="url">{{ shop.name }}</a>
+          	  {% endif %}
+          	{% if template == 'index' %}
+          	  </h1>
+          	{% else %}
+          	  </div>
+          	{% endif %}
+        </div>
+
+        <div class="grid__item one-sixth text-right">
+          <div class="site-nav--mobile">
+            <a href="/cart" class="{% if settings.ajax_cart_method == 'drawer' %}js-drawer-open-right-link {% endif %}site-nav__link" aria-controls="CartDrawer" aria-expanded="false">
+              <span class="icon-fallback-text">
+                <i class="fa fa-shopping-cart fa-2x"></i>
+                <span class="site-header__cart-indicator {% if cart.item_count == 0 %}hide{% endif %}"></span>
+                <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <div id="offsetBlock"></div>
+
+</div>
+
+<style>#site-title{padding: {{ section.settings.logo_padding }}px 0;}</style>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+	{
+	"type": "checkbox",
+	"id": "enable_social_icons",
+	"label": "Enable social icons",
+	"default": true
+	},
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_mobile",
+      "label": "Logo image"
+    },        
+    {
+      "type": "text",
+      "id": "logo_max_width",
+      "label": "Custom logo width (in pixels)",
+      "default": "100",
+      "info": "300 x 125px (recommended)"
+    },
+    {
+      "type": "text",
+      "id": "logo_padding",
+      "label": "Padding around logo (in pixels)",
+      "default": "10"
+    },
+    {
+      "type": "link_list",
+      "id": "main_linklist",
+      "label": "Main menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_header",
+      "label": "Enable 'sticky' header",
+      "default": true
+    },
+    {
+    "type": "checkbox",
+    "id": "enable_search",
+    "label": "Enable search",
+    "default": true
+    },
+    {
+      "type": "select",
+      "id": "logo-placement",
+      "label": "Logo placement",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+        "value": "above",
+        "label": "Above"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

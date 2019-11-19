@@ -1,0 +1,59 @@
+<div style="position:relative;">
+<div class="owl-carousel dempsey" data-slider-id="1">
+  {% for block in section.blocks %}
+  <div>  
+  <img style="max-width:100%;" src="{{block.settings.image | img_url:'1000x'}}" />
+  </div>
+  {% endfor %}
+</div>
+<div class="owl-thumbnails" data-slider-id="1">
+  {% for block in section.blocks %}
+  <button class="owl-thumb-item">
+    <img  src="{{block.settings.image | img_url:'100x'}}" />
+  </button>	
+  {% endfor %}  
+
+</div>
+</div>  
+<script> 
+  $(document).ready(function(){
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+		items:1,
+        thumbs: true,
+      	navContainer: '.owl-stage-outer',
+        thumbsPrerendered: true, 
+	    thumbContainerClass: 'owl-thumbnails',  
+      	lazyLoad: false,
+        navText: ['<img src="{{'prev.png' | asset_img_url: 'master'}}" />', '<img src="{{'next.png' | asset_img_url: 'master'}}" />']
+    })
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Slider",
+    "blocks": [
+		{
+			"name":"Slide",
+			"type":"slide",
+
+			"settings":[
+			{
+			"type":"image_picker",
+			"id":"image",
+			"label":"Slide Image" 
+			}
+			]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

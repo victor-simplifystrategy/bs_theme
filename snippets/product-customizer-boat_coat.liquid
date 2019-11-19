@@ -1,0 +1,64 @@
+<div id="parka-customizer">
+  <div class="wrapper">
+    <div class="content">
+      <div class="content-wrapper">
+      <div class="modal-header">
+        customize your own boat coat
+		<div class="customizer__progressBar step1">
+          <div class="customizer__progressBar-circles">
+            <div class="customizer__progressBar-step" >
+              <div class="customizer__progressBar-step_circle active" id="step1">1</div>
+            </div>
+            <div class="customizer__progressBar-step" >
+              <div class="customizer__progressBar-step_circle" id="step2">2</div>
+            </div>
+            <div class="customizer__progressBar-step">
+              <div class="customizer__progressBar-step_circle" id="step3">3</div>
+            </div>
+            <div class="customizer__progressBar-step">
+              <div class="customizer__progressBar-step_circle" id="step4">4</div>
+            </div>       
+          </div>
+          <div class="customizer__progressBar-meter">
+            <div class="customizer__progressBar-bar">
+              <div class="blue-progress"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        
+          <div id="errorCodeContainer"></div>      
+
+        <div class="customerizer-box">
+
+          <div class="parkaPreview">
+              {%include 'boat_coat-vector'%}    
+          </div> 
+          <div id="customizer-tabs">
+            {% section 'product-customizer-boat_coat-text-customizer' %}
+            {% section 'product-customizer-boat_coat-coat_color' %}
+            {% section 'product-customizer-boat_coat-text_color' %}
+          </div>          
+		  <div class="clearfix"></div>
+      	</div>
+        <div class="modal-footer">
+          <button id="save-parka-customizer" class="button parka-save button__blue" style="display:none;">Finish</button>
+          <button  class="button parka-next button__blue">Next</button>
+          <button  class="button parka-prev button__blue" style="display:none;">Back</button>      
+          <button id="close-parka-customizer" class="button button__grey">Close</button>
+          
+          <div class="clearfix"></div>
+        </div> 
+      </div>
+    </div>
+      
+      <div class="customization-confirmation ">
+          <div class="closeThis"> X Close </div>        
+        <div class="customization-confirmation__wrapper">
+          Your item has been saved. Close this window and then select your size and quantity then click "add to cart" to purchase.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

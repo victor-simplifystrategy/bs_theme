@@ -1,0 +1,43 @@
+<div class="owl-carousel">
+  {% for block in section.blocks %}
+  	<img class="owl-lazy" data-src="{{block.settings.image | img_url:'800x'}}" />
+  {% endfor %}
+</div>
+<script> 
+  $(document).ready(function(){
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+		items:1,
+      	lazyLoad: true,
+        navText: ['<img src="{{'next.png' | asset_img_url: 'master'}}" />', '<img src="{{'prev.png' | asset_img_url: 'master'}}" />']
+    })
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Slider",
+    "blocks": [
+		{
+			"name":"Slide",
+			"type":"slide",
+
+			"settings":[
+			{
+			"type":"image_picker",
+			"id":"image",
+			"label":"Slide Image" 
+			}
+			]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

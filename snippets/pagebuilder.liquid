@@ -1,0 +1,425 @@
+{% for block in section.blocks %}
+
+{% if block.type == 'text_section' %}
+
+  <!-- Text Section -->
+  <div class="gba-section_text gba_section contained">
+    <h2 class="section_title">{{block.settings.title}}</h2>
+    <div class="align-{{block.settings.text_alignment}} section_content">{{block.settings.text}}</div>
+  </div>
+  <!-- Text Section Ends -->
+
+{% elsif block.type == 'text_element' %}
+
+  <!-- Image with text_element -->
+  <div class="gba-textElement {{block.settings.full_width}} align-{{block.settings.text_alignment}}">
+	<{{block.settings.formatting}}>{{block.settings.text | strip_html }}</{{block.settings.formatting}}>
+  </div>
+  <!-- Image with text element -->
+    
+
+{% elsif block.type == 'html_block' %}
+
+  <!-- Image with text_element -->
+  <div class="gba-textElement {{block.settings.full_width}} align-{{block.settings.text_alignment}}">
+	{{block.settings.raw_html}}	
+  </div>
+  <!-- Image with text element -->    
+    
+{% elsif block.type == 'simple_image' %}
+
+  <!-- Image with text_element -->
+  <div class="gba-simpleImage {{block.settings.full_width}} align-{{block.settings.image_alignment}}">
+	<img src="{{block.settings.image | img_url:'master'}}" />
+  </div>
+  <!-- Image with text element -->  
+    
+{% elsif block.type == 'video' %}
+
+  <!-- Image with text_element -->
+  <div class="gba-video {{block.settings.full_width}} width-{{block.settings.video_width}}">
+    <video style="width:100%;" id="pagebuilder_main-video" autoplay loop playsinline muted webkit-playsinline class="video-player" poster="{{block.settings.video_cover | img_url:'master'}}">
+      <source src="{{block.settings.video_url }}" type="video/mp4" />
+    </video>  
+    <div class="unmute"></div>
+  </div>
+  <!-- Image with text element --> 
+    
+    
+{% elsif block.type == 'video_no_auto' %}
+
+  <!-- Image with text_element -->
+  <div class="gba-video no-auto {{block.settings.full_width}} width-{{block.settings.video_width}}">
+    <video style="width:100%;" id="pagebuilder_main-video"  loop playsinline muted webkit-playsinline class="video-player" poster="{{block.settings.video_cover | img_url:'master'}}">
+      <source data-src="{{block.settings.video_url }}" type="video/mp4" />
+    </video>  
+    <div class="playButton"></div>
+  </div>
+  <!-- Image with text element -->      
+
+
+  {% elsif block.type == 'video_no_auto_reverse' %}
+
+  <div class="gba-video gba-video-reverse w_overlay no-auto {{block.settings.full_width}} width-{{block.settings.video_width}}">
+      <img class="gba-video-reverse__image" src="{{block.settings.video_cover | img_url:'master'}}" />
+
+      <div class="playButton">
+          <span class="playButton__text">{{block.settings.text}}</span>
+        <span class="play"></span>
+      </div>
+    </div>
+
+<div class="gba-video__popup">
+    <a class="gba-video__popup-close">{% include 'icon-close' %}</a>
+    <div class="gba-video__popup-wrapper">
+      <div class="gba-video-container">
+          <video style="width:100%;" id="pagebuilder_main-video" controls loop playsinline webkit-playsinline class="video-player" poster="{{block.settings.video_cover | img_url:'master'}}">
+              <source data-src="{{block.settings.video_url }}" type="video/mp4" />
+          </video>
+      </div>
+    </div>
+</div>    
+    
+{% elsif block.type == 'video_no_auto_overlay' %}
+
+  <!-- Image with text_element -->
+  <div class="gba-video w_overlay no-auto {{block.settings.full_width}} width-{{block.settings.video_width}}">
+    <video style="width:100%;" id="pagebuilder_main-video"  loop playsinline muted webkit-playsinline class="video-player" poster="{{block.settings.video_cover | img_url:'master'}}">
+      <source data-src="{{block.settings.video_url }}" type="video/mp4" />
+    </video>  
+    <div class="playButton">
+      <span>{{block.settings.text}}</span>
+      <span class="play"></span>
+    </div>
+  </div>
+  <!-- Image with text element -->         
+    
+    
+    
+{% elsif block.type == 'image_text_overlay' %}
+
+  <!-- Image with text overlay -->
+  <div class="gba-image_text_overlay  contained" style="background-image:url('{{block.settings.image | img_url:'master' }}');">
+    <div class="va-wrapper">
+    <h1 class="align-{{block.settings.text_alignment}}" style="color:{{block.settings.text_color}};">{{block.settings.title}}</h1>
+      
+    </div>
+  </div>
+    <div>
+    {% if block.settings.mobile_image == blank %}
+      {% assign image = block.settings.image | img_url:'master' %}
+    {% else %}
+      {% assign image = block.settings.mobile_image | img_url:'master' %}      
+    {% endif %}
+    <div class="mobileImage" style="background-image:url('{{image}}');"> </div>
+    <h2 class="mobileTitle">{{block.settings.title}}</h2>    
+    </div>    
+  <!-- Image with text overlay --> 
+    
+
+{% elsif block.type == 'image_text_overlay_button' %}
+
+  <!-- Image with text overlay -->
+  <div class="gba-image_text_overlay  contained" style="background-image:url('{{block.settings.image | img_url:'master' }}');">
+    <div class="va-wrapper">
+    <h1 class="align-{{block.settings.text_alignment}}" style="color:{{block.settings.text_color}};">{{block.settings.title}}</h1>
+          {% if block.settings.lenzing_true == true %}
+              <a href="https://www.tencel.com/intimate" target="_blank"><img class="lenmodal" type="image" src="{{'tencel-button.png' | asset_img_url:'master' }}" alt="Modal"  /></a>           
+          {% endif %}        
+    </div>
+  </div>
+
+  <!-- Image with text overlay --> 
+        
+    
+    
+{% elsif block.type == 'question_answer' %}
+
+  <!-- Image with text overlay -->
+  <div class=" gba-textElement gba-question_answer align-{{block.settings.text_alignment}} {{block.settings.full_width}}" >
+    <h4>{{block.settings.title}}</h4>
+    {{block.settings.text}}
+  </div>
+  <!-- Image with text overlay -->   
+    
+    
+{% elsif block.type == 'spacer' %}
+
+  <!-- Image with text overlay -->
+  <div class=" gba-spacer">
+      <div class="gba-spacer__desktop" style="height:{{block.settings.height}}px"></div>
+      <div class="gba-spacer__mobile" style="height:{{block.settings.mobile_height}}px"></div>
+  </div>
+  <!-- Image with text overlay -->  
+    
+    
+{% elsif block.type == 'double-images' %}
+
+  <!-- Image with text overlay -->
+  <div class="gba-5050-image">
+    <div class="leftImage"><img src="{{block.settings.image_left | img_url:'master' }}" /></div>
+    <div class="rightImage"><img src="{{block.settings.image_right | img_url:'master' }}" /></div>
+  </div>
+  <!-- Image with text overlay -->      
+    
+
+{% elsif block.type == 'image' %}
+
+  <!-- Image Section -->
+  <div class="gba-section_image gba_section contained align-{{block.settings.text_alignment}}">
+      <img src="{{block.settings.image | img_url:'master' }}" />
+  </div>
+  <!-- Image Section --> 
+
+{% elsif block.type == 'image_column' %}
+
+  <!-- Image column -->
+  <div class="gba-section_imageColumn gba_section contained">
+    <h2 class="section_title">{{block.settings.title}}</h2>
+    <div class="gba-row">
+      <div class="image_area_mobile">
+        <img src="{{block.settings.image | img_url:'master'}}" />
+      </div>      
+      <div class="column span-6 leftSide">
+         <div class="text_area">
+          <h4>{{block.settings.subtitle}}</h4>
+          <div>
+            {{block.settings.text}}
+          </div>
+          {% if block.settings.url != blank %}
+            <a class="section_button" href="javascript:popup_bl_tag('c6a19537c927000');" id="button_{{block.id}}" >
+              {% if block.settings.button_image != blank %}
+              	<img src="{{block.settings.button_image | img_url:'master'}}" />
+              {% else %}
+                {{block.settings.link_title}}
+              {% endif %}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="column span-6 image_area rightSide" style="background-image:url({{block.settings.image | img_url:'master'}});">
+      </div>
+    </div>
+  </div>
+  <!-- Image Column Ends --> 
+
+
+  {% elsif block.type == 'image_column_vertical' %}
+
+  <!-- Image column -->
+  <div class="image-column-vertical">
+    <img src="{{block.settings.image | img_url:'master'}}" alt="{{block.settings.image.alt}}" class="image-column-vertical__image">
+    <h3 class="image-column-vertical__text">{{block.settings.title}}</h3>
+  </div>
+  <!-- Image Column Ends --> 
+
+
+
+{% elsif block.type == 'button' %}
+
+  <!-- Image column -->
+  <div class="gba-section_button gba_section contained">
+    {% if block.settings.url != blank %}
+    <a class="btn" href="{{block.settings.url}}">{{block.settings.link_title}}</a>
+    {% endif %}
+  </div>
+  <!-- Image Column Ends --> 
+
+{% elsif block.type == 'full_width_section' %}
+
+  <!-- Full wdith section -->
+  <div class="gba-section_fullWidth gba_section contained">
+    <h2 class="section_title">{{block.settings.title}}</h2>
+    <div class="gba-row">
+      <div class="column span-6 image_area" >
+        <img src="{{block.settings.image | img_url:'master'}}" />
+      </div>   
+      <div class="column span-6 blurb">
+         <div>
+          <h4>{{block.settings.subtitle}}</h4>
+          <div>
+            {{block.settings.text}}
+          </div>
+          {% if block.settings.lenzing_modal == true %}
+              <a href="https://www.tencel.com/intimate" target="_blank"><img class="lenmodal" type="image" src="{{'tencel-button.png' | asset_img_url:'master' }}" alt="Modal"  /></a>           
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+{% elsif block.type == 'double_image_column' %}
+
+	
+<div class="gba-double_image_column gba_section contained ">
+  
+  <h2 class="section_title">{{block.settings.main_title}}</h2>
+  
+  <div class="double_column leftSide" >
+  <!-- Image column -->
+  <div class="gba-section_imageColumn ">
+    <div class="gba-row">
+      <div class="image_area_mobile">
+        <img src="{{block.settings.image | img_url:'master'}}" />
+      </div>      
+      <div class="column span-6" >
+         <div class="text_area" id="left{{block.id}}">
+    		<h3>{{block.settings.title}}</h3>
+            <h4>{{block.settings.subtitle}}</h4>
+          <div>
+            {{block.settings.text}}
+          </div>
+          {% if block.settings.url != blank %}
+          <a href="{{block.settings.url}}">{{block.settings.link_title}}</a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="column span-6 image_area" style="background-image:url({{block.settings.image | img_url:'master'}});">
+      </div>
+    </div>
+  </div>
+  <!-- Image Column Ends --> 
+  </div>
+  <div class="double_column rightSide" >
+  <!-- Image column -->
+  <div class="gba-section_imageColumn">
+    <div class="gba-row">
+      <div class="image_area_mobile">
+        <img src="{{block.settings.image2 | img_url:'master'}}" />
+      </div>      
+      <div class="column span-6" >
+         <div class="text_area" id="right{{block.id}}">
+    		<h3>{{block.settings.title2}}</h3>
+            <h4>{{block.settings.subtitle2}}</h4>
+          <div>
+            {{block.settings.text2}}
+          </div>
+          {% if block.settings.url2 != blank %}
+          <a href="{{block.settings.url2}}">{{block.settings.link_title2}}</a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="column span-6 image_area" style="background-image:url({{block.settings.image2 | img_url:'master'}});">
+      </div>
+    </div>
+  </div>
+  <!-- Image Column Ends --> 
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+	function normalizeHeight($left, $right)
+	{
+		// get the max height of the two divs
+		var $maxHeight = Math.max($left.height(),$right.height())
+		// get the lower div
+		var $lowerpanel = $left
+		if ($lowerpanel.height() > $right.height())
+			$lowerpanel = $right
+	
+		// set the height of the lower panel
+		$lowerpanel.height($maxHeight)	
+	}
+	
+	normalizeHeight($('#left{{block.id}}'), $('#right{{block.id}}'));
+    $(window).resize(function(){
+      	normalizeHeight($('#left{{block.id}}'), $('#right{{block.id}}'));
+    });
+  });
+</script>
+    
+    
+{% elsif block.type == 'double_image' %}
+    
+<div class="gba-double_image">
+  
+  {% if block.settings.small_position == 'left' %}
+  <!-- Small Side -->
+  <div class="column imageSection smallSide" style="background-image:url({{block.settings.small_image | img_url:'master'}});">
+    <!--<div class="double-overlay">
+       <a class="overlayText" href="{{block.settings.small_url}}">
+        <span>{{block.settings.small_text}}</span>
+      </a> 
+    </div>-->
+  </div>
+  {% endif %}
+  <!-- Large Side -->
+  <div class="column imageSection largeSide" style="background-image:url({{block.settings.large_image | img_url:'master'}});">
+    <!--<div class="double-overlay">
+      <a class="overlayText" href="{{block.settings.large_url}}">
+        <span>{{block.settings.large_text}}</span>
+      </a> 
+    </div> -->     
+  </div>
+  {% if block.settings.small_position == 'right' %}
+  <!-- Small Side -->
+  <div class="column imageSection smallSide aligned-{{block.settings.small_position}}" style="background-image:url({{block.settings.small_image | img_url:'master'}});">
+     <!--<div class="double-overlay">
+       <a class="overlayText" href="{{block.settings.small_url}}">
+        <span>{{block.settings.small_text}}</span>
+      </a>
+    </div>-->
+  </div>
+  {% endif %}  
+  
+</div>  
+    
+{% elsif block.type == 'newsletter_section' %}
+     
+<div id="gba-newsletter_section"> 
+  <div class="contained">
+    <h2>{{block.settings.title}}</h2>
+    <div class="content">{{block.settings.text}}</div>
+    <div class="newsletter-form">
+      
+    <!-- Klaviyo Form --> 
+    <form id="email_signup" class="klaviyo_condensed_styling klaviyo_condensed_float klaviyo_condensed_embed_LW6VmH" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+      <input type="hidden" name="g" value="LW6VmH">
+      <div class="klaviyo_field_group input">
+        <input type="email" value="" name="email" id="k_id_email" placeholder="Your email" />
+      </div>
+      <div class="klaviyo_messages">
+        <div class="success_message" style="display:none;"></div>
+        <div class="error_message" style="display:none;"></div>
+        </div>
+      <div class="klaviyo_form_actions">
+        <button type="submit" class="klaviyo_submit_button">Join</button>
+      </div>
+    </form>
+    <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+    <script type="text/javascript">
+      KlaviyoSubscribe.attachToForms('#email_signup', {
+        hide_form_on_success: true
+      });
+    </script>      
+    <!-- Klaviyo Form -->
+
+    </div>
+  </div>
+</div>
+    
+    
+{% elsif block.type == 'text_column' %}
+    
+<div class="gba-text_column" style="background-color:{{block.settings.color}}">
+  
+  <div class="image">
+  	<img src="{{block.settings.image | img_url:'master'}}" />
+  </div>
+  <div class="content">
+    <h2>{{block.settings.title}}</h2>
+    <div>
+    	{{block.settings.text}}
+    </div>
+    <a href="{{block.settings.url}}" class="btn">{{block.settings.button_text}}</a>
+  </div>
+</div>
+    
+{% endif %}
+
+
+{% endfor %}

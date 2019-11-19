@@ -1,0 +1,323 @@
+{%- assign product = all_products[section.settings.featured_product] -%}
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+
+<div class="homepage-sections-wrapper homepage-sections-wrapper--white">
+
+<div class="wrapper product-single" data-section-id="{{ section.id }}">
+
+{% if section.settings.title != blank %}
+  <div class="grid">
+  <div class="grid__item large--five-sixths push--large--one-twelfth homepage-featured-rich-text">
+    <div class="sitewide--title-wrapper">
+      <h2 class="homepage-sections--title">{{ section.settings.title | escape }}</h2>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% if section.settings.richtext != '' %}
+<div class="grid">
+  <div class="grid__item large--one-half push--large--one-quarter">
+    <div class="homepage-sections--description">{{ section.settings.richtext }}</div>
+  </div>
+</div>
+{% endif %}
+
+<div class="grid" id="product-box" data-section-id="{{ section.id }}">
+
+{% if section.settings.image-placement == 'left' %}
+<div class="grid__item large--one-half product-images">
+
+    {% if product.empty? %}
+      <div class="homepage-sections--indiv-product-slider">
+        <ul class="slides">
+          <li>
+            {{ 'product-1' | append: current | placeholder_svg_tag: 'icon icon--placeholder' }}
+          </li>
+        </ul>
+      </div>
+    {% else %}
+      <div class="homepage-sections--indiv-product-slider">
+        <ul class="slides">
+          {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+          <li>
+            <img id="ProductPhotoImg" src="{{ featured_image | product_img_url: '800x'}}" alt="{{ featured_image.alt | escape }}" data-image-id="{{ featured_image.id }}" />
+          </li>
+          {% for image in product.images %}
+            {% unless image contains featured_image %}
+              <li>
+                <img src="{{ image | product_img_url: '800x'}}" alt="{{ image.alt | escape }}" data-image-id="{{ image.id }}" class="hide" />
+              </li>
+            {% endunless %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+</div>
+{% endif %}
+
+<div class="grid__item large--one-half">
+
+<div class="product-page--sale-badge{% unless product.compare_at_price_max > current_variant.price %} hide{% endunless %}">{{ 'products.product.on_sale' | t }}</div>
+
+    <section class="product-details-wrapper">
+
+      <div class="product-details--form-wrapper{% unless section.settings.show_product_description %} product-details--form-wrapper--no-description{% endunless %}">
+
+    {% if section.settings.show-vendor %}
+      <div class="indiv-product-vendor-text">{{ product.vendor }}</div>
+    {% endif %}
+
+    {% if product.empty? %}
+      <h1 class="product-details-product-title">{{ 'general.onboarding.product_title' | t }}</h1>
+    {% else %}
+      <h1 class="product-details-product-title">{{ product.title }}</h1>
+    {% endif %}
+
+    {% if section.settings.show_reviews %}
+      <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+    {% endif %}
+
+      {% unless product.empty? %}
+
+          {% if product.available %}
+
+          <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
+
+          <p id="ComparePrice">
+            {% if current_variant.compare_at_price > current_variant.price %}
+              <span class="money">{{ current_variant.compare_at_price | money }}</span>
+            {% endif %}
+          </p>
+          <span class="h2 js" id="ProductPrice"><span class="money">{{ current_variant.price | money }}</span></span>
+
+
+
+            <div class="row homepage-sections--indiv-product-slider-variants">
+
+              {% if product.variants.size > 1  %}
+                {% for option in product.options_with_values %}
+                  <div class="selector-wrapper col-md-6 col-sm-12 col-xs-12">
+                    <label for="SingleOptionSelector-{{ forloop.index0 }}">{{ option.name }}</label>
+                    <select class="form-control" id="SingleOptionSelector-{{ forloop.index0 }}">
+                        {% for value in option.values %}
+                          <option {% if option.selected_value == value %}selected{% endif %}>{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                  </div>
+                {% endfor %}
+              {% endif %}
+
+              <select name="id" id="ProductSelect-{{ section.id }}" data-section="{{ section.id }}" class="form-control original-select product-form__variants no-js">
+                {% for variant in product.variants %}
+                  {% if variant.available %}
+                    <option {% if variant == current_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
+                      {{ variant.title }} - <span class="money">{{ variant.price | money }}</span>
+                    </option>
+                  {% else %}
+                    <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+
+              {% if section.settings.show_quantity_selector %}
+                <div class="selector-wrapper col-md-6 col-sm-12 col-xs-12">
+                  <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
+                  <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+                </div>
+              {% endif %}
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <button type="submit" name="add" id="AddToCart" class="btn"
+                       data-use-ajax="{% if section.settings.open_cart_when_added %}false{% else %}true{% endif %}">
+                    <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+                </button>
+              </div>
+
+              </div>
+
+          </form>
+
+
+          {% else %}
+
+          <div>
+
+            <div class="product-out-of-stock"><h4>{{ 'products.product.sold_out' | t }}</h4></div>
+
+          </div>
+
+          {% endif %}
+
+        {% else %}
+
+
+                  {% if section.settings.show_reviews %}
+                          <span class="spr-badge" id="spr_badge_7826197321" data-rating="5.0">
+
+                  <span class="spr-starrating spr-badge-starrating"><i class="spr-icon spr-icon-star" style=""></i><i class="spr-icon spr-icon-star" style=""></i><i class="spr-icon spr-icon-star" style=""></i><i class="spr-icon spr-icon-star" style=""></i><i class="spr-icon spr-icon-star" style=""></i></span>
+
+
+                  <span class="spr-badge-caption">
+
+                  1 review
+
+                  </span>
+                  </span>
+                  {% endif %}
+
+          <span id="ProductPrice" class="h2 custom-font"><span class="money">$16.99</span></span>
+
+          <div class="onboarding--sold-out">
+            <a class="btn btn-success custom-font">
+                {{ 'products.product.sold_out' | t }}
+            </a>
+          </div>
+        {% endunless %}
+
+      </div>
+
+          {% if section.settings.show_product_description %}
+            <div class="product-description rte">
+              {% unless product.empty? %}
+                {{ product.description }}
+              {% else %}
+                {{ 'general.onboarding.product_description' | t }}
+              {% endunless %}
+            </div>
+          {% endif %}
+
+        </div>
+
+        {% if section.settings.image-placement == 'right' %}
+        <div class="grid__item large--one-half product-images">
+
+            {% if product.empty? %}
+              <div class="homepage-sections--indiv-product-slider">
+                <ul class="slides">
+                  <li>
+                    {{ 'product-1' | append: current | placeholder_svg_tag: 'icon icon--placeholder' }}
+                  </li>
+                </ul>
+              </div>
+            {% else %}
+              <div class="homepage-sections--indiv-product-slider">
+                <ul class="slides">
+                  {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+                  <li>
+                    <img id="ProductPhotoImg" src="{{ featured_image | product_img_url: '800x'}}" alt="{{ featured_image.alt | escape }}" data-image-id="{{ featured_image.id }}" />
+                  </li>
+                  {% for image in product.images %}
+                    {% unless image contains featured_image %}
+                      <li>
+                        <img src="{{ image | product_img_url: '800x'}}" alt="{{ image.alt | escape }}" data-image-id="{{ image.id }}" class="hide" />
+                      </li>
+                    {% endunless %}
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+
+        </div>
+        {% endif %}
+
+</div>
+
+</section>
+
+</div>
+
+</div>
+
+{% unless product.empty? %}
+<script type="application/json" id="ProductJson-{{ section.id }}">
+  {{ product | json }}
+</script>
+{% endunless %}
+
+{% schema %}
+{
+"name": "Featured product",
+"class": "homepage-section--indiv-product-wrapper show-on-scroll",
+"settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Featured product"
+      },
+      {
+        "type": "richtext",
+        "id": "richtext",
+        "label": "Description",
+        "info": "Optional"
+      },
+      {
+        "type": "product",
+        "id": "featured_product",
+        "label": "Product"
+      },
+      {
+        "type": "select",
+        "id": "image-placement",
+        "label": "Image placement",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left"
+      },
+      {
+        "type": "checkbox",
+        "id": "open_cart_when_added",
+        "label": "Open cart page when item is added",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show-vendor",
+        "label": "Show vendor",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_product_description",
+        "label": "Show product description",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_quantity_selector",
+        "label": "Show quantity selector",
+        "default": true
+      },
+    	{
+    		"type": "header",
+    		"content": "Reviews"
+    	},
+    	{
+    		"type": "checkbox",
+    		"id": "show_reviews",
+    		"label": "Enable",
+    		"default": false
+    	},
+    	{
+    		"type": "paragraph",
+    		"content": "You will need to install Shopify's [Product Reviews app](https://apps.shopify.com/product-reviews) before enabling this option."
+    	}
+  ],
+"presets": [
+  {
+    "name": "Featured product",
+    "category": "Products"
+  }
+]
+}
+{% endschema %}

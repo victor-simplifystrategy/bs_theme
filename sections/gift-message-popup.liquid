@@ -1,0 +1,56 @@
+<div id="gift-popup__container" class="gift-popup ">
+  <div class="gift-popup__wrapper">
+    <div id="gift-popup__close-arrow" class="gift-popup__close">X</div>
+    <div class="gift-popup__title">
+    	{{ 'general.gift-message.title' | t }}
+    </div>
+    <div id="gift-message__step1">
+    <div class="gift-message">
+      <div class="gift-message__content">
+	      <img class="gift-message__image" src="{{ section.settings.logo | img_url: 'master'}}" />
+          <textarea maxlength="200" name="gift-message__message" placeholder="{{'general.gift-message.placeholder' | t}}" id="gift-message__message"></textarea>
+      </div>
+      <div class="gift-message__counter"><span>200</span> {{ 'general.gift-message.counter' | t }}</div>
+     <!-- <div id="gift-message__gift-box">
+        <input type="checkbox" id="giftbox_check" /><label for="giftbox_check" name="gift_box">Add Custom Gift Bag (+$10)</label>
+      </div>-->
+    </div>
+    <div class="gift-popup__buttons">
+      <button class="gift-popup__close gift-popup__button-grey">{{ 'general.gift-message.cancel' | t }}</button>
+      <button id="save-gift-message" class="gift-popup__button-blue">{{ 'general.gift-message.save' | t }}</button>      
+    </div>
+    </div>
+    <div id="gift-message__step2">
+      <div id="gift-message_thanks"></div>
+        <div class="gift-popup__buttons">
+          <button id="back-gift-message" class="gift-back gift-popup__button-grey">Go Back</button>                
+          <button id="close-gift-message" class="gift-popup__close gift-popup__button-blue">{{ 'general.gift-message.close_popup' | t }}</button>      
+        </div>      
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+
+</script>
+
+{% schema %}
+  {
+    "name": "Gift Message Settings",
+    "settings": [
+		{
+			"type":"image_picker",
+			"id":"logo",
+			"label":"Logo Image"
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

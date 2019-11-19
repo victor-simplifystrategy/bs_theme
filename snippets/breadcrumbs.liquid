@@ -1,0 +1,12 @@
+<div class="breadCrumbs">
+
+{% if collection.title contains 'Women' %}
+<a href="/pages/the-womens-collection">Women's</a> / <span>{{collection.title | remove:"Women's" | capitalize}}</span>
+{% endif %}
+  
+
+{% if collection.title contains 'Men' %}
+<a href="/pages/the-mens-collection">Men's</a> / <span>{{collection.title | remove:"Men's" | capitalize}}</span>
+{% endif %}  
+  
+</div>

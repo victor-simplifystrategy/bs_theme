@@ -1,0 +1,63 @@
+<div class="article-section">
+  <h5 class="section-title">Recent Press</h5>
+{% assign blogs = blog.articles  %}
+
+{% paginate blog.articles by 6 %}
+  
+  
+	<div id="ajaxCall">
+    {% for article in blog.articles  %} <!-- START FOR -->
+          	{% for tag in article.tags %}
+          		{% if tag contains 'link:'%}
+          			{% assign articleLink = tag  %}
+          		{% endif %}
+          		{% if tag contains 'publication:'%}
+          			{% assign publication = tag  %}
+          		{% endif %}          
+          	{% endfor %}
+      <div class="article-section__single-article">
+        <h5>
+          <a {% if articleLink contains 'link:'%}href="{{articleLink | remove:'link:' }}" target="_blank"{% else %}href="{{ article.url }}"{% endif %}>
+              {{ article.title }}
+          </a>
+        </h5>
+        <p>{{publication | remove:'publication:'}} | {{article.published_at | date: "%b %d, %Y"}}</p>
+      </div>  
+
+    {% endfor %} <!-- END FOR -->
+</div>
+
+
+{% endpaginate %}
+
+ 
+  
+{% schema %}
+  {
+    "name": "Article List",
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Article",
+        "settings": [
+          {
+            "type":"article",
+            "id":"article",
+            "label":"Image"
+          },
+          {
+            "type":"text",
+            "id":"publisher_name",
+            "label":"Publisher Name"
+          }
+        ]
+      }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,186 @@
+{% assign on_sale = false %}
+
+{% if product.compare_at_price_max > product.price and product.available %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% comment %}
+  Check if the product is sold out and set a variable to be used below.
+{% endcomment %}
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}    
+    
+    
+{% for tag in product.tags %}
+    {% if tag contains 'Add Product' %}
+        {% assign handleImage = tag | remove:'Add Product' | remove: ' ' %}
+    {% endif %}
+{% endfor %}    
+{% for tag in product.tags %}
+  {% if tag == 'no collection swatch' %}	
+      {% assign turnSwatchOff = true %}
+  {% endif %}
+{% endfor %}    
+
+
+    <div class="product featuredProduct_single column {{section.settings.columns}}">
+        <a href="{{product.url}}">	
+          
+          <div class="desktop-coverImage coverImage  hide-on-mobile">
+            {% for image in product.images %}  
+            	{% assign imageAlt = image.alt | handleize %}
+                {% if image.alt contains 'cover' and imageAlt contains page.handle %}
+                    <img src="{{image.src | img_url:'500x500', crop: 'center'}}" />
+                {% endif %}
+            {% endfor %}
+          </div>
+
+          <div class="desktopImages hide-on-mobile owl-carousel">
+            {% for image in product.images %}   
+                {% assign lowerAlt = image.alt | downcase %}
+                {% unless lowerAlt contains 'hide' %}         
+                    {% assign source = image.src | downcase %}
+                    {% if source contains 'mobile' %}
+                        <img class="owl-lazy" data-src="{{ image.src | img_url:'master' }}"  data-color="{{ image.alt | escape | handleize}}" class="img-responsive" />
+                    {% endif %}     
+                {% endunless %}
+            {% endfor %}
+            {% for image in all_products[handleImage].images %}   
+                {% assign lowerAlt = image.alt | downcase %}
+                {% unless lowerAlt  contains 'hide' %}         
+                    {% assign source = image.src | downcase %}
+                  {% if source contains 'mobile' %}
+                      <img class="owl-lazy" data-src="{{ image.src | img_url:'master' }}"  data-color="{{ image.alt | escape | handleize}}" class="img-responsive" />
+                  {% endif %}     
+                {% endunless %}
+            {% endfor %}        
+          </div>                 
+
+          <div class="mobile-coverImage coverImage hide-on-desktop">
+            {% for image in product.images %}  
+                {% if image.alt contains 'cover' and image.alt contains page.handle  %}
+                    <img src="{{image.src | img_url:'500x500', crop: 'center'}}" />
+                {% endif %}
+            {% endfor %}
+          </div>   
+
+          <div class="mobileImages hide-on-desktop owl-carousel">
+            {% for image in product.images %}   
+                {% assign lowerAlt = image.alt | downcase %}
+                {% unless lowerAlt  contains 'hide' %}                
+                    {% assign source = image.src | downcase %}
+                    {% if source contains 'mobile' %}
+                        <img class="owl-lazy" data-src="{{ image.src | img_url:'master' }}"  data-color="{{ image.alt | escape | handleize}}" class="img-responsive" />
+                    {% endif %}   
+                {% endunless %}
+            {% endfor %}
+          </div>              
+
+
+          <!-- Blue Overlay -->
+          <div class="double-overlay">
+            <span class="overlayText" >
+              <span>{{product.title}}</span>
+            </span> 
+          </div>  
+          <!-- Blue Overlay -->
+       </a>
+
+    {% unless turnSwatchOff == true %}
+      <div class="swatch hide-on-mobile desktopSwatch">
+        {% for image in product.images %}   
+          {% assign lowerAlt = image.alt | downcase %}
+          {% unless lowerAlt  contains 'hide' %}     
+            {% assign source = image.src | downcase %}
+            {% if source contains 'mobile' %}            		
+              <div data-desktop="{{image.alt | handleize }}" class="swatch-element owl-thumb-item color {{image.alt | handleize }}">
+                <input id="{{product.id}}-{{image.alt | handleize }}" type="radio" name="option-1" required="" qty="0" value="Light Gray" >
+                <label name="Color" for="{{product.id}}-{{image.alt | handleize }}" data-color="{{image.alt | handleize}}" style="background-color: {{image.alt}}; background-image: url({{ image.alt | handle | append: '.jpg' |  asset_url }})"></label>
+              </div>              		
+            {% endif %}    
+          {% endunless %}
+        {% endfor %}  
+        {% for image in all_products[handleImage].images %}   
+          {% assign lowerAlt = image.alt | downcase %}
+          {% unless lowerAlt  contains 'hide' %}     
+            {% assign source = image.src | downcase %}
+              {% if source contains 'mobile' %}            		
+                <div data-desktop="{{image.alt | handleize }}" class="swatch-element owl-thumb-item color {{image.alt | handleize }}">
+                  <input id="{{product.id}}-{{image.alt | handleize }}" type="radio" name="option-1" required="" qty="0" value="Light Gray" >
+                  <label name="Color" for="{{product.id}}-{{image.alt | handleize }}" data-color="{{image.alt | handleize}}" style="background-color: {{image.alt}}; background-image: url({{ image.alt | handle | append: '.jpg' |  asset_url }})"></label>
+                </div>              		
+              {% endif %}    
+          {% endunless %}
+        {% endfor %}      
+      </div>   
+    {% endunless %}
+
+    <p class="product-grid--title">
+      <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+    </p>
+    <p class="product-grid--price ">
+        {% if on_sale %}
+          {% if product.price_varies %}
+            {% capture sale_price %}
+              <span class="money">{{ product.price | money }}</span>
+            {% endcapture %}
+            {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+          {% else %}
+            <span class="product-grid--compare-price"><span class="money">{{ product.compare_at_price | money }}</span></span>
+            <span class="money">{{ product.price | money }}</span>
+          {% endif %}
+        {% else %}
+          {% if product.price_varies %}
+            <span class="product-grid--from-wrapper"></span> <span class="money">{{ product.price | money }}</span>
+          {% else %}
+            <span class="money">{{ product.price | money }}</span>
+          {% endif %}
+        {% endif %}
+    </p>
+
+    {% unless turnSwatchOff == true %}
+      <div class="swatch hide-on-desktop mobileSwatch">
+        {% for image in product.images %}   
+          {% assign lowerAlt = image.alt | downcase %}
+          {% unless lowerAlt  contains 'hide' %}     
+            {% assign source = image.src | downcase %}
+            {% if source contains 'mobile' %}            		
+              <div data-mobile="{{image.alt | handleize }}" class="swatch-element owl-thumb-item color {{image.alt | handleize }}">
+                <input id="{{product.id}}-{{image.alt | handleize }}" type="radio" name="option-1" required="" qty="0" value="Light Gray" >
+                <label name="Color" for="{{product.id}}-{{image.alt | handleize }}" data-color="{{image.alt | handleize}}" style="background-color: {{image.alt}}; background-image: url({{ image.alt | handle | append: '.jpg' |  asset_url }})"></label>
+              </div>              		
+            {% endif %}  
+          {% endunless %}
+        {% endfor %} 
+        {% for image in all_products[handleImage].images %}   
+          {% assign lowerAlt = image.alt | downcase %}
+          {% unless lowerAlt  contains 'hide' %}     
+            {% assign source = image.src | downcase %}
+              {% if source contains 'mobile' %}            		
+                <div data-mobile="{{image.alt | handleize }}" class="swatch-element owl-thumb-item color {{image.alt | handleize }}">
+                    <input id="{{product.id}}-{{image.alt | handleize }}" type="radio" name="option-1" required="" qty="0" value="Light Gray" >
+                    <label name="Color" for="{{product.id}}-{{image.alt | handleize }}" data-color="{{image.alt | handleize}}" style="background-color: {{image.alt}}; background-image: url({{ image.alt | handle | append: '.jpg' |  asset_url }})"></label>
+                </div>              		
+              {% endif %}  
+          {% endunless %} 
+        {% endfor %}    
+      </div>
+    {% endunless %}
+
+
+
+
+    {% if product.compare_at_price_max > product.price and product.available %}
+      <div class="sale-badge" style="z-index:9;">{{ 'products.product.on_sale' | t }}</div>
+    {% endif %}
+
+    {% unless product.available %}
+        <div class="sold-out-badge" style="z-index:9;">{{ 'products.product.sold_out' | t }}</div>
+    {% endunless %}  
+
+
+  </div>  <!-- featuredProduct_single -->
+  {% assign turnSwatchOff = false %}
+  {% assign handleImage = '' %}

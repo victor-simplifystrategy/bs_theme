@@ -1,0 +1,3165 @@
+{
+  "current": {
+    "color_body_text": "#051c2a",
+    "color_primary": "#051c2a",
+    "color_body_bg": "#ffffff",
+    "color_body_bg_secondary": "#f8f8f8",
+    "sale_badge_color": "#051c2a",
+    "cart_color": "#051c2a",
+    "sliderArrowColor": "#a4a4a4",
+    "color_primary_navigation": "#051c2a",
+    "color_primary_navigation_hover": "#595959",
+    "color_secondary_navigation": "#051c2a",
+    "header-bg-color": "#ffffff",
+    "header-border-color": "#ebebeb",
+    "color_primary_button_background": "#0b1c29",
+    "color_primary_button_text": "#ffffff",
+    "color_primary_button_background_hover": "#003e51",
+    "color_primary_button_text_hover": "#eeeeee",
+    "homepage-sections-accent-primary-color": "#051c2a",
+    "homepage-sections-accent-secondary-color": "#ffffff",
+    "pop-up-text-background-colour": "#ffffff",
+    "pop-up-text-header-text-colour": "#051c2a",
+    "color_footer_bg": "#ffffff",
+    "color_footer_text": "#051c2a",
+    "typography-heading-font": "typography-heading-poppins",
+    "header-text-size": "24px",
+    "typography-body-font": "typography-body-poppins",
+    "typography-body-font-size": "15px",
+    "header_font_size": "13px",
+    "header_font_case": "normal",
+    "header_font_style": "normal",
+    "logo_font_size": "18px",
+    "press_masonry": true,
+    "ajax_cart_method": "drawer",
+    "cart_vendor_enable": false,
+    "cart_notes_enable": true,
+    "sm_facebook_link": "https:\/\/www.facebook.com\/bleusalt\/",
+    "sm_twitter_link": "https:\/\/twitter.com\/bleusalt_",
+    "sm_youtube_link": "",
+    "sm_flickr_link": "",
+    "sm_pinterest_link": "",
+    "sm_instagram_link": "https:\/\/www.instagram.com\/bleusalt\/",
+    "social_sharing_products": true,
+    "social_sharing_blog": true,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "popup--enable": false,
+    "pop-up-time": "7",
+    "popup--show-image": false,
+    "popup-newsletter-top": "",
+    "pop-up-text-header-text": "",
+    "pop-up-text-description-text": "",
+    "popup--show-social-icons": false,
+    "popup--show-newsletter": true,
+    "desktop-popup-style": "fullscreen",
+    "backorder_form_label": "Enter your email to be notified when it's back in stock.",
+    "blackFridaySwitch": false,
+    "show_multiple_currencies": false,
+    "currency_format": "money_format",
+    "supported_currencies": "INR GBP CAD USD AUD EUR JPY",
+    "default_currency": "USD",
+    "favicon": "shopify:\/\/shop_images\/bleusalt-favico150.jpg",
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Playfair Display",
+    "checkout_body_font": "Open Sans",
+    "checkout_accent_color": "#041c2c",
+    "checkout_button_color": "#041c2c",
+    "checkout_error_color": "#003e51",
+    "color_advert_bg": "#6988a1",
+    "color_advert_text": "#ffffff",
+    "color_hero_menu_text": "#333",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "enable_social_icons": true,
+          "logo": "shopify:\/\/shop_images\/Bleusalt_finalLOGO-websafe_navy.png",
+          "logo_mobile": "shopify:\/\/shop_images\/logo_200x_9e82de9c-abb6-4a06-bdc9-61a09ad39605.png",
+          "logo_max_width": "200",
+          "logo_padding": "0",
+          "main_linklist": "slide-main-navigation",
+          "sticky_header": true,
+          "enable_search": true,
+          "logo-placement": "center"
+        }
+      },
+      "home-hero": {
+        "type": "home-hero",
+        "blocks": {
+          "text-0": {
+            "type": "text",
+            "settings": {
+              "hero-menu-heading": "Title",
+              "hero-menu-subheading": "Link to any collection, product or page",
+              "hero-menu-link": "",
+              "featured_image": "",
+              "featured_image_size": "medium",
+              "hero-menu-image": ""
+            }
+          },
+          "text-1": {
+            "type": "text",
+            "settings": {
+              "hero-menu-heading": "Title",
+              "hero-menu-subheading": "Link to any collection, product or page",
+              "hero-menu-link": "",
+              "featured_image": "",
+              "featured_image_size": "medium",
+              "hero-menu-image": ""
+            }
+          }
+        },
+        "block_order": [
+          "text-0",
+          "text-1"
+        ],
+        "settings": {
+          "homepage-hero-featured-content": "homepage-hero-image-selection",
+          "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+          "homepage-hero-video-autoplay": true,
+          "homepage-hero-video-loop": true,
+          "homepage-hero-video-mute": false,
+          "home-page-hero-image": "",
+          "image_overlay_opacity": "0",
+          "homepage-hero-image-heading": "",
+          "homepage-hero-image-description": "",
+          "homepage-hero-image-button-label": "",
+          "homepage-hero-image-link": "",
+          "zoom_on_hover": true
+        }
+      },
+      "collection-list": {
+        "type": "collection-list",
+        "blocks": {
+          "collection-0": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": ""
+            }
+          },
+          "collection-1": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": ""
+            }
+          },
+          "collection-2": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": ""
+            }
+          }
+        },
+        "block_order": [
+          "collection-0",
+          "collection-1",
+          "collection-2"
+        ],
+        "settings": {
+          "title": "Featured Collections",
+          "richtext": "",
+          "colors": "light"
+        }
+      },
+      "feature-row": {
+        "type": "feature-row",
+        "settings": {
+          "colors": "white",
+          "image": "",
+          "parallax": true,
+          "layout": "full-width",
+          "image_height": "40vw",
+          "title": "Share brand or product details",
+          "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "text-with-image-overlay3": {
+        "type": "image-with-text-overlay",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/best-sellers-header.png",
+          "image_height": "50vw",
+          "image_overlay_opacity": "0",
+          "parallax": true,
+          "title": "",
+          "text": "",
+          "colors": "white",
+          "textPosition": "center",
+          "textAlignment": "center",
+          "button_label": "SHOP THE COLLECTION",
+          "button_link": "shopify:\/\/collections\/the-bluesalt-collection"
+        }
+      },
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "enable_announcement_bar": true,
+          "message_text": "<p>MADE IN USA | FREE SHIPPING WITHIN THE US AND CANADA&nbsp;<\/p>",
+          "message_link": "",
+          "notification-bar--background-colour": "#0b1c29",
+          "notification-bar--text-colour": "#ffffff",
+          "enable_social_icons": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "1501707545895": {
+            "type": "menu",
+            "settings": {
+              "menu_title": "Questions?",
+              "footer_linklist": "footer-menu-faq"
+            }
+          },
+          "1506632469359": {
+            "type": "menu",
+            "settings": {
+              "menu_title": "About BLEUSALT",
+              "footer_linklist": "footer-menu-about"
+            }
+          },
+          "1501707649537": {
+            "type": "social",
+            "settings": {}
+          },
+          "footer-2": {
+            "type": "newsletter",
+            "settings": {
+              "footer_newsletter_description": ""
+            }
+          }
+        },
+        "block_order": [
+          "1501707545895",
+          "1506632469359",
+          "1501707649537",
+          "footer-2"
+        ],
+        "settings": {
+          "show_methods_of_payment": false
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "collection-layout": "none",
+          "collection-show-sort-by": true,
+          "tags_enable": false,
+          "collection-products-per-row": "3",
+          "collection-products-per-page": "10",
+          "enable_infinite_scrolling": false,
+          "quick_shop_enable": false,
+          "hover-effect": true,
+          "show-vendor": false,
+          "match-height": true,
+          "show_reviews": false,
+          "menu": "collection-navigation"
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "show_quantity_selector": true,
+          "show_swatches": true,
+          "show_tags": false,
+          "show_collections": false,
+          "show_type": false,
+          "show_vendor": false,
+          "show_sku": false,
+          "enable_image_zoom": true,
+          "cart-button-location": "above",
+          "images-position": "right",
+          "show_reviews": true,
+          "enable_related_products": true,
+          "related_products_title": "We pulled these for you...",
+          "quick_shop_enable": true
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "blog-sidebar-image": "",
+          "blog-sidebar-link": "",
+          "show_blog_tags": false,
+          "show_recent_posts": false
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "blog-sidebar-image": "",
+          "blog-sidebar-link": "",
+          "show_blog_tags": false,
+          "show_recent_posts": false
+        }
+      },
+      "press-template": {
+        "type": "press-template",
+        "settings": {
+          "blog-sidebar-image": "shopify:\/\/shop_images\/banner_19ec4cf6-7032-4b98-89a1-479876855a9e_1.jpg",
+          "blog-inquiry-text": "for press inquiries please email",
+          "blog-inquiryEmail": "marcy@engelmanandco.com",
+          "show_blog_tags": false,
+          "show_recent_posts": false
+        }
+      },
+      "page-materials": {
+        "type": "page-materials",
+        "blocks": {
+          "1552011555442": {
+            "type": "video_no_auto",
+            "settings": {
+              "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1407\/3982\/files\/IMG_0977.mp4?4054805961260926004",
+              "video_cover": "shopify:\/\/shop_images\/img0019.jpg",
+              "video_width": "container"
+            }
+          },
+          "1511307869131": {
+            "type": "text_section",
+            "settings": {
+              "title": "Where it all begins",
+              "text": "<p>Grown from sustainable forestry plantations, beech trees multiply by rejuvenation. That means the trees propagate by themselves and there is no artificial irrigation or planting required. Beechwood forests are 100% sustainable. This process allows us to bring the softest fabric on Earth to your closet. Our Bleusalt fabric, made from beechwood, is entirely vegan and cruelty-free.&nbsp;<\/p>",
+              "text_alignment": "center"
+            }
+          },
+          "1511307865672": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/beechwood-material-infographic.jpg",
+              "text_alignment": "center"
+            }
+          },
+          "1511739302944": {
+            "type": "full_width_section",
+            "settings": {
+              "title": "Packaging",
+              "subtitle": "Packaging",
+              "text": "<p>BLEUSALT is proudly working towards being fully zero-waste. We ship using recyclable boxes and never use any plastic. We offer custom gift bags made from our fabric remnants for an added special touch, available as an add-on on every product page.<\/p>",
+              "image": "shopify:\/\/shop_images\/box9.png"
+            }
+          },
+          "1552009665181": {
+            "type": "image_text_overlay_button",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/sky-tree.jpg",
+              "mobile_image": "",
+              "title": "<p>Our Sustainable Fabric<\/p>",
+              "text_alignment": "center",
+              "text_color": "#ffffff",
+              "lenzing_true": true
+            }
+          },
+          "1511742472912": {
+            "type": "button",
+            "settings": {
+              "url": "shopify:\/\/collections\/the-bluesalt-collection",
+              "link_title": "Shop Now"
+            }
+          }
+        },
+        "block_order": [
+          "1552011555442",
+          "1511307869131",
+          "1511307865672",
+          "1511739302944",
+          "1552009665181",
+          "1511742472912"
+        ],
+        "settings": {}
+      },
+      "timed-popup": {
+        "type": "timed-popup",
+        "settings": {}
+      },
+      "page-our_story": {
+        "type": "page-our_story",
+        "blocks": {
+          "1512432106898": {
+            "type": "image_text_overlay",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/main-banner_3c688eee-f491-4970-92e3-e587b5a93b56.jpg",
+              "mobile_image": "",
+              "title": "<p>Our Story<\/p>",
+              "text_alignment": "center",
+              "text_color": ""
+            }
+          },
+          "1512433766579": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>Home of The Bleusalt Wrap and elevated basics that make dressing stylish and simple.&nbsp; Each piece made from the softest fibers on earth - BLEUSALT was created out of an authentic need for beautifully designed clothing that has the luxurious quality and softness of Cashmere without the preciousness and high price point. Born from the beaches of Malibu, BLEUSALT is a curated collection cultivated from the sustainable botanic fibers of the beech tree. Each signature item is 100% made in the USA.<\/p>",
+              "text_alignment": "center",
+              "formatting": "p",
+              "full_width": "contained"
+            }
+          },
+          "1512434377987": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>We took the comfort of athleisure and the softest fibers on Earth to create a collection of luxurious, classic pieces for your everyday wardrobe. BLEUSALT is a collection of essentials that are unmatched in softness and can be worn as seasonless additions to your wardrobe.<\/p>",
+              "text_alignment": "center",
+              "formatting": "p",
+              "full_width": "contained"
+            }
+          },
+          "1512434400593": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>Founder and Designer Lyndie Benson created BLEUSALT out of her own desire for luxurious clothing that epitomized comfort-chic but left minimal impact on the Earth. Inspired by the ocean and nature, BLEUSALT is a complete lifestyle brand that brings the coveted Malibu way of living to your closet. We believe Malibu is a lifestyle; not a destination.<\/p>",
+              "text_alignment": "center",
+              "formatting": "p",
+              "full_width": "contained"
+            }
+          },
+          "1512434416284": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>BLEUSALT is proudly working towards being fully zero-waste. We believe in being part of the solution. We believe in luxury, style, and unmatched comfort.<\/p>",
+              "text_alignment": "center",
+              "formatting": "p",
+              "full_width": "contained"
+            }
+          }
+        },
+        "block_order": [
+          "1512432106898",
+          "1512433766579",
+          "1512434377987",
+          "1512434400593",
+          "1512434416284"
+        ],
+        "settings": {}
+      },
+      "page-our_story_slider": {
+        "type": "page-our_story_slider",
+        "settings": {}
+      },
+      "page-FAQ": {
+        "type": "page-FAQ",
+        "blocks": {
+          "1512498997564": {
+            "type": "image_text_overlay",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/main-banner_3399f5e7-51c4-425c-8deb-13edcf839f65.jpg",
+              "mobile_image": "shopify:\/\/shop_images\/mobile-banner_efd8eb41-64d6-4071-8156-f33ebc7be505.jpg",
+              "title": "<p>Frequently Asked Questions<\/p>",
+              "text_alignment": "center",
+              "text_color": ""
+            }
+          },
+          "1512499063088": {
+            "type": "question_answer",
+            "settings": {
+              "title": "Where​ ​does​ ​the​ ​name​ ​Bleusalt​ ​come​ ​from?",
+              "text": "<p>The​ ​name​ ​Bleusalt ​was​ ​inspired​ ​by​ ​the​ ​ocean.​ ​We​ ​are​ ​a​ ​brand​ ​born​ ​from​ ​the​ ​beaches​ ​of Malibu.​ ​<\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          },
+          "1512499331473": {
+            "type": "question_answer",
+            "settings": {
+              "title": "What​ ​was​ ​the​ ​inspiration​ ​behind​ ​the​ ​brand?",
+              "text": "<p>Bleusalt ​was​ ​created​ ​out​ ​of​ ​our​ ​founder​ ​Lyndie​ ​Benson&rsquo;s​ ​Malibu​ ​lifestyle​ ​in​ ​and​ ​around​ ​the ocean​ ​and​ ​a​ ​desire​ ​for​ ​comfortable​ ​yet​ ​chic​ ​attire​ ​that​ ​works​ ​day​ ​to​ ​night​ ​and​ ​in​ ​most​ ​situations. It&rsquo;s​ ​a​ ​life​ ​well-lived​ ​in​ ​Malibu​ ​with​ ​the​ ​emphasis​ ​on​ ​life​ ​and​ ​living​ ​to​ ​the​ ​fullest.​ ​We​ ​believe​ ​Malibu is​ ​not​ ​really​ ​a​ ​destination,​ ​but​ ​a​ ​lifestyle.​ ​We​ ​want​ ​you​ ​to​ ​have​ ​a​ ​little​ ​piece​ ​of​ ​Malibu​ ​every time ​you wear​ Bleusalt.<\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          },
+          "1512499358483": {
+            "type": "question_answer",
+            "settings": {
+              "title": "Every item of Bleusalt is made from the same sustainable fabric. Why did you choose to focus the brand around the fabric?",
+              "text": "<p>Prior​ ​to​ ​discovering​ ​our​ ​beechwood fabric,​ ​we​ ​loved​ ​Cashmere.​ ​However,​ ​Cashmere​ ​is​ ​too​ ​hot, sticky,​ ​and​ ​precious​ ​to​ ​withstand​ ​the​ ​elements​ ​at​ ​the​ ​beach.​ ​We​ ​combined​ ​the​ ​softest​ ​fibers​ ​on Earth​ ​with​ ​beautiful​ ​classic​ ​styles​ to create a​ ​collection​ ​of​ ​luxurious​ ​pieces​ ​for​ ​your​ ​every​​day wardrobe.​ ​What​ ​we​ ​have​ ​developed​ ​is​ ​the​ ​most​ ​amazing,​ ​comfortable,​ ​sustainable,​ ​and​ ​softest fabric​ ​in​ ​the​ ​world.<\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          },
+          "1512499374686": {
+            "type": "question_answer",
+            "settings": {
+              "title": "Where​ ​does​ ​your​ ​fabric​ ​come​ ​from? What is beechwood?",
+              "text": "<p>Before we create our own luxurious blends of beechwood locally in Los Angeles, we source the best of the best sustainable fibers, called Lenzing Modal. Lenzing is known for revolutionizing the fashion industry thanks to their sustainable harvesting methods and dedication to producing fibers in an environmentally sound way to minimize the impact on our Earth. The fibers are ​developed​ ​from​ ​the​ ​sustainable​ ​botanic​ ​fibers​ ​of​ ​the​ ​beech tree​ ​to​ ​create​ ​the most uniquely soft fabric. Once you feel it, you&rsquo;re hooked.<\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          },
+          "1535122758554": {
+            "type": "question_answer",
+            "settings": {
+              "title": "Are your clothes truly the softest fibers on Earth?",
+              "text": "<p>Yes, our signature beechwood fabric really is softer than anything you have felt before. The unique and unmatched softness of our fabric has been proven by a special method that evaluates softness of fabrics called the Kawabata Evaluation System (KES), developed by a team led by Professor Kawabata at Kyoto University.<\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          },
+          "1533762952050": {
+            "type": "question_answer",
+            "settings": {
+              "title": "Why do some of my Bleusalt pieces feel different than other pieces?",
+              "text": "<p>The beechwood fabric varies due to the organic nature of its fibers, as well as the different methods of dying different colors. Each color is created slightly differently. There can variation from time to time and from color to color. However, it is our number one priority to continue to improve and to offer you the best possible quality fabric.<\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          },
+          "1512499423201": {
+            "type": "question_answer",
+            "settings": {
+              "title": "Where​ ​are​ ​all​ ​of​ ​your​ ​products​ ​made?",
+              "text": "<p>All​ ​of​ ​our​ ​products​ ​are​ ​made​ ​in​ ​the​ ​USA,​ ​in​ ​Hollywood, just an hour away from our Malibu HQ&hellip; when there&rsquo;s no traffic. &nbsp;<\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          },
+          "1512499437503": {
+            "type": "question_answer",
+            "settings": {
+              "title": "How​ ​do​ ​I​ ​care​ ​for​ ​my​ ​Bleusalt?",
+              "text": "<p>Machine washing and drying your Bleusalt is completely fine.<\/p>\n<p>However, if you would prefer to take extra care of your garments, machine wash delicate with like colors and choose the lowest heat setting and\/or the delicate setting on your drying machine. You may even lightly steam your items to retain the shape.<\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          },
+          "1512499451239": {
+            "type": "question_answer",
+            "settings": {
+              "title": "Can​ ​I​ ​get​ ​my​ ​Bleusalt ​wet?​ ​Will​ ​it​ ​dry​ ​quickly?",
+              "text": "<p>We​ ​designed​ ​Bleusalt ​to​ ​take​ ​with​ ​you​ ​everywhere.​ ​Throw​ ​your​ ​Bleusalt ​on​ ​the​ ​sand without​ ​worrying​ ​about​ ​the​ ​fabric​ ​getting​ ​sticky.​ ​Although​ ​Bleusalt ​is​ ​not​ ​quick-dry or water resistant,​ ​it​ ​can​ ​get wet.<\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          },
+          "1512499484128": {
+            "type": "question_answer",
+            "settings": {
+              "title": "Can​ ​I​ ​shop​ ​Bleusalt ​in​ ​person?",
+              "text": "<p>Yes, you can. Through August 31st 2019, we have a POP UP in Malibu at 3939 Crosscreek Road, Malibu, CA 90265.&nbsp;<\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          },
+          "1512499503926": {
+            "type": "question_answer",
+            "settings": {
+              "title": "Will​ ​you​ ​be​ ​launching​ ​any​ ​new​ ​colors?",
+              "text": "<p>Yes! As we grow, we will continue to expand our color options. More classic and elegant neutrals are launching this Fall 2018, including the long-awaited Black. ​Have​ ​a​ ​color​ ​in mind​ ​you​ ​would​ ​love​ ​to​ ​add​ ​to​ ​your​ ​Bleusalt ​wardrobe?​ ​Email​ ​us​ ​at <strong>customercare@bleusalt.com​<\/strong><\/p>\n<p><\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          },
+          "1533142790235": {
+            "type": "question_answer",
+            "settings": {
+              "title": "Have questions about our shipping or return and exchange policies?",
+              "text": "<p><strong><a href=\"https:\/\/bleusalt.com\/pages\/help\" title=\"https:\/\/bleusalt.com\/pages\/help\">SEE MORE HERE.<\/a><\/strong><\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          }
+        },
+        "block_order": [
+          "1512498997564",
+          "1512499063088",
+          "1512499331473",
+          "1512499358483",
+          "1512499374686",
+          "1535122758554",
+          "1533762952050",
+          "1512499423201",
+          "1512499437503",
+          "1512499451239",
+          "1512499484128",
+          "1512499503926",
+          "1533142790235"
+        ],
+        "settings": {}
+      },
+      "page-shipping_and_returns": {
+        "type": "page-shipping_and_returns",
+        "blocks": {
+          "1512502296260": {
+            "type": "image_text_overlay",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/main-banner_6b4bd137-3971-40b3-ac65-ec85d6c7760b.jpg",
+              "mobile_image": "shopify:\/\/shop_images\/mobile-banner_73292dd5-b7e1-46c2-9a8b-25d115978618.jpg",
+              "title": "<p>Shipping and Returns<\/p>",
+              "text_alignment": "center",
+              "text_color": ""
+            }
+          },
+          "1512502566758": {
+            "type": "question_answer",
+            "settings": {
+              "title": "Do you offer free shipping?",
+              "text": "<p><\/p>\n<p>Yes, we offer complimentary ground shipping via UPS within the United States and Canada.<\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          },
+          "1512502603889": {
+            "type": "question_answer",
+            "settings": {
+              "title": "How long does shipping take?",
+              "text": "<p><\/p>\n<p>All orders placed within the United States will be delivered within 3-5 business days (unless otherwise noted on specific products). Please allow for up to 24 hours for your order to be processed. You will receive an email as soon as your order goes out for shipping. &nbsp;<\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          },
+          "1512502632140": {
+            "type": "question_answer",
+            "settings": {
+              "title": "I can't wait to wear my Bleusalt! Can I get it sooner?",
+              "text": "<p><\/p>\n<p>Of course! For US customers, expedited shipping (2-3 business days) is available for $20.00 and overnight shipping (1-2 business days) is available for $50.00. For Canada, expedited shipping (2-3 business days) is available for $40.00. Just select the option you prefer at checkout.<\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          },
+          "1512502667997": {
+            "type": "question_answer",
+            "settings": {
+              "title": "Can I make a return or exchange?",
+              "text": "<p><\/p>\n<p>We want you to love your Bleusalt and have it fit perfectly. For the US and Canada, you have 30 days from your order date to request a return or exchange. We make it easy for you and include a return label in every package. Simply mail your items back to us with a note requesting a return or an exchange, specifying which new items you would like. All items must be unworn in original condition. If for some reason your package did not include a return label or if you have any questions about your order, please email us at <strong><a href=\"mailto:customercare@bleusalt.com\">customercare@bleusalt.com<\/a><\/strong> and be sure to include your order number.<\/p>\n<p>Once we receive your item(s), we will immediately refund the card used or ship you your replacement items.<br><br>At this time, all purchases from international countries are final sale. We do not offer free returns and exchanges outside of the US and Canada.<\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          },
+          "1512502711818": {
+            "type": "question_answer",
+            "settings": {
+              "title": "Can I order outside of the United States?",
+              "text": "<p><\/p>\n<p>Yes! We ship worldwide. Currently, shipping is complimentary for North America. We charge a flat fee of $30 for ground shipping to all other international countries.<\/p>",
+              "text_alignment": "left",
+              "full_width": "contained"
+            }
+          }
+        },
+        "block_order": [
+          "1512502296260",
+          "1512502566758",
+          "1512502603889",
+          "1512502632140",
+          "1512502667997",
+          "1512502711818"
+        ],
+        "settings": {}
+      },
+      "page-customer_support": {
+        "type": "page-customer_support",
+        "blocks": {
+          "1512503438649": {
+            "type": "image_text_overlay",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/customer_support_a9595bd9-596b-413f-8873-a0fc7ff90559.jpg",
+              "mobile_image": "",
+              "title": "<p>Customer&nbsp;Service<\/p>",
+              "text_alignment": "center",
+              "text_color": "#ffffff"
+            }
+          },
+          "1512503633934": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p><strong>CALL US AT ANY TIME<\/strong><\/p>",
+              "text_alignment": "left",
+              "formatting": "h4",
+              "full_width": "contained"
+            }
+          },
+          "1512503663607": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>Live person hours M-F 8am - 4:30pm&nbsp;<strong>(323) 426-3520<\/strong>.&nbsp; After hours leave a voicemail and your call will be returned the next business day.&nbsp;<\/p>",
+              "text_alignment": "left",
+              "formatting": "p",
+              "full_width": "contained"
+            }
+          },
+          "1512503688010": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>OR SEND AN EMAIL INSTEAD&nbsp;<\/p>",
+              "text_alignment": "left",
+              "formatting": "h4",
+              "full_width": "contained"
+            }
+          },
+          "1512503717946": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p><\/p>\n<p>Please contact <strong><a href=\"mailto:customercare@bleusalt.com\">customercare@bleusalt.com<\/a><\/strong>&nbsp;with any questions or suggestions. We love hearing from you!<\/p>",
+              "text_alignment": "left",
+              "formatting": "p",
+              "full_width": "contained"
+            }
+          }
+        },
+        "block_order": [
+          "1512503438649",
+          "1512503633934",
+          "1512503663607",
+          "1512503688010",
+          "1512503717946"
+        ],
+        "settings": {}
+      },
+      "product-size_chart": {
+        "type": "product-size_chart",
+        "settings": {
+          "mens": "shopify:\/\/shop_images\/size-chart_5a71cd2f-a9db-4fd9-9341-05161555602d.png",
+          "womens": "shopify:\/\/shop_images\/size-chart_2.png",
+          "boat": "shopify:\/\/shop_images\/size-chart_Boat_Coat.png",
+          "colony": "",
+          "colony_women": "",
+          "baby": "shopify:\/\/shop_images\/size-chart_d7c461a0-3573-4e7e-ab8a-366236596f5d.jpg"
+        }
+      },
+      "page-mens_collection": {
+        "type": "page-mens_collection",
+        "blocks": {
+          "1529471243657": {
+            "type": "image_text_overlay",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/hero_banner_e1225466-daa6-4df0-a468-19ac5688b29c.jpg",
+              "mobile_image": "",
+              "title": "<p>The Men's Collection<\/p>",
+              "text_alignment": "center",
+              "text_color": ""
+            }
+          }
+        },
+        "block_order": [
+          "1529471243657"
+        ],
+        "settings": {}
+      },
+      "page-mens_collection_featured_products": {
+        "type": "page-mens_collection_featured_products",
+        "settings": {
+          "title": "Essentials",
+          "columns": "one_third",
+          "collection_handle": "mens-essentials"
+        }
+      },
+      "page-mens_collection_featured_products2": {
+        "type": "page-mens_collection_featured_products2",
+        "settings": {
+          "title": "",
+          "columns": "one_fourth",
+          "collection_handle": ""
+        }
+      },
+      "page-women_collection": {
+        "type": "page-women_collection",
+        "blocks": {
+          "1529472562426": {
+            "type": "image_text_overlay",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/womens-best-sellers.png",
+              "mobile_image": "",
+              "title": "<p>The&nbsp;Women's Collection<\/p>",
+              "text_alignment": "center",
+              "text_color": "#ffffff"
+            }
+          }
+        },
+        "block_order": [
+          "1529472562426"
+        ],
+        "settings": {}
+      },
+      "page-women_collection_featured_products": {
+        "type": "page-women_collection_featured_products",
+        "settings": {
+          "title": "Essentials",
+          "columns": "one_fourth",
+          "collection_handle": "womens-essentials"
+        }
+      },
+      "page-swatch_form": {
+        "type": "page-swatch_form",
+        "blocks": {
+          "1519438104494": {
+            "type": "image_text_overlay",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/bleusalt_image.jpg",
+              "mobile_image": "",
+              "title": "<p>FEEL TO BELIEVE<\/p>",
+              "text_alignment": "left",
+              "text_color": ""
+            }
+          },
+          "1519441632545": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>Yes, our signature beechwood fabric really is softer than anything you have felt before.<\/p>",
+              "text_alignment": "center",
+              "formatting": "p",
+              "full_width": "contained"
+            }
+          },
+          "1519441657459": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>Experience the new alternative to Cashmere before you purchase.<\/p>",
+              "text_alignment": "center",
+              "formatting": "p",
+              "full_width": "contained"
+            }
+          },
+          "1519441742206": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>Enter below for a FREE swatch of the softest fibers on Earth.<\/p>",
+              "text_alignment": "center",
+              "formatting": "p",
+              "full_width": "contained"
+            }
+          }
+        },
+        "block_order": [
+          "1519438104494",
+          "1519441632545",
+          "1519441657459",
+          "1519441742206"
+        ],
+        "settings": {}
+      },
+      "page-env-respons": {
+        "type": "page-env-respons",
+        "blocks": {
+          "1523020222742": {
+            "type": "text_section",
+            "settings": {
+              "title_env_resp": "Enviromental Responsibility",
+              "text_env_resp": "<p>We feel passionate about being environmentally conscious. As a brand based in Malibu, the ocean is our home. 8 million tons of plastic is dumped into the ocean every single year. Plastics in our oceans never go away and threaten marine life, human health, and the viability of critical marine ecosystems.&nbsp;<\/p>\n<p>&nbsp;<\/p>\n<p>We believe in being part of the solution and are proving that luxury clothing can not only be good for you but good for the environment too. In addition to making sustainable apparel, we are working towards being fully zero-waste. It&rsquo;s our environmental responsibility to do our part and promote positive environmental change.<\/p>\n<p>&nbsp;<\/p>\n<p><\/p>",
+              "text_alignment_env_resp": "center"
+            }
+          },
+          "1523021957071": {
+            "type": "image",
+            "settings": {
+              "image_env_resp": "",
+              "text_alignment_env_resp": "center"
+            }
+          }
+        },
+        "block_order": [
+          "1523020222742",
+          "1523021957071"
+        ],
+        "settings": {}
+      },
+      "1524416194152": {
+        "type": "video",
+        "settings": {
+          "title": "",
+          "richtext": "",
+          "colors": "white",
+          "width_classes": "grid__item extra-large--one-whole",
+          "video": "shopify:\/\/shop_images\/IMG_9941_20mb_1__002_679ea416-3b07-4921-92b8-2958c7e77822.jpg",
+          "url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1407\/3982\/files\/Bleu_Boat_15sec_v2_20mb.mp4?43666",
+          "autoplay": true,
+          "loop": true,
+          "mute": true,
+          "image": "",
+          "video_overlay_opacity": "0.5"
+        }
+      },
+      "page-mens_collection2": {
+        "type": "page-mens_collection2",
+        "settings": {}
+      },
+      "gift-message-popup": {
+        "type": "gift-message-popup",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/Bleusalt_finalLOGO-websafe_navy_200x_0508b554-0f38-4069-b01a-d9b38b41eabc.png"
+        }
+      },
+      "page-patrick_dempsey_collection_pagebuilder": {
+        "type": "page-patrick_dempsey_collection_pagebuilder",
+        "blocks": {
+          "1529467813303": {
+            "type": "simple_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/bleusalt-patrick-dempsey-header-2.png",
+              "image_alignment": "center"
+            }
+          },
+          "1529468347064": {
+            "type": "video",
+            "settings": {
+              "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1407\/3982\/files\/BlueSalt60_2dIndie-fade-6-19-18.mp4",
+              "video_cover": "",
+              "video_width": "container"
+            }
+          },
+          "1529467947207": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>\" I live in my Bleusalt and it was a pleasure to design a collection of my own that I could wear all day, every day, whether I'm lounging around the house, going out, or traveling. I hope you enjoy this collection as much as I do. \"<\/p>",
+              "text_alignment": "center",
+              "formatting": "p",
+              "full_width": "contained"
+            }
+          },
+          "1529467977793": {
+            "type": "simple_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/patrick-dempsey-sig.png",
+              "image_alignment": "center"
+            }
+          }
+        },
+        "block_order": [
+          "1529467813303",
+          "1529468347064",
+          "1529467947207",
+          "1529467977793"
+        ],
+        "settings": {}
+      },
+      "page-patrick_dempsey_collection_slider": {
+        "type": "page-patrick_dempsey_collection_slider",
+        "blocks": {
+          "1529469556662": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/1.jpg"
+            }
+          },
+          "1529469678356": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/2.jpg"
+            }
+          },
+          "1529469691283": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/3.jpg"
+            }
+          },
+          "1529469704719": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/4.jpg"
+            }
+          },
+          "1529469724157": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/5.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1529469556662",
+          "1529469678356",
+          "1529469691283",
+          "1529469704719",
+          "1529469724157"
+        ],
+        "settings": {}
+      },
+      "page-patrick_dempsey_featured_products": {
+        "type": "page-patrick_dempsey_featured_products",
+        "settings": {
+          "title": "Shop the Collection",
+          "columns": "one_third",
+          "collection_handle": "the-patrick-dempsey-collection"
+        }
+      },
+      "page-mens_collection_slider": {
+        "type": "page-mens_collection_slider",
+        "blocks": {
+          "1529471614694": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/2_4161ff3d-d165-4092-b8fe-c7d7b20cdff5.jpg"
+            }
+          },
+          "1529471551523": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/1_0793235a-2dbe-4cd7-94eb-78601fa88bef.jpg"
+            }
+          },
+          "1529471641886": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/3_81dc1628-340e-4f72-8bf9-c5b46c18169a.jpg"
+            }
+          },
+          "1529471657513": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/4_6289bd7a-e443-4a22-8dc9-4bfa9d987186.jpg"
+            }
+          },
+          "1529471674670": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/5_3c4c932d-724c-415f-ae8d-e2013e254b8e.jpg"
+            }
+          },
+          "1529471691359": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/6.jpg"
+            }
+          },
+          "1529471712201": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/7.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1529471614694",
+          "1529471551523",
+          "1529471641886",
+          "1529471657513",
+          "1529471674670",
+          "1529471691359",
+          "1529471712201"
+        ],
+        "settings": {}
+      },
+      "page-women_collection_featured_products2": {
+        "type": "page-women_collection_featured_products2",
+        "settings": {
+          "title": "New Arrivals",
+          "columns": "one_third",
+          "collection_handle": "womens-new-arrivals"
+        }
+      },
+      "page-women_collection_slider": {
+        "type": "page-women_collection_slider",
+        "blocks": {
+          "1529472645040": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/1_8f5188c7-c6b9-4f7a-9920-079b328b75ca.jpg"
+            }
+          },
+          "1529472663261": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/2_acba8f03-0274-443a-9645-7de7a97d59f2.jpg"
+            }
+          },
+          "1529472684200": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/3_9f04a393-72fc-4140-a28c-401db7776a0c.jpg"
+            }
+          },
+          "1529472712336": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/4_3c630fc8-f910-4c51-a932-7bf1dccafdab.jpg"
+            }
+          },
+          "1529472732119": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/5_5a656a17-beb0-4481-bf82-727b11c36417.jpg"
+            }
+          },
+          "1529472749564": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/6_c8b40105-e6b9-43f6-b252-58f66f794cab.jpg"
+            }
+          },
+          "1529472766941": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/7_a1a64f8e-c387-448a-9d60-16ab21af07d5.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1529472645040",
+          "1529472663261",
+          "1529472684200",
+          "1529472712336",
+          "1529472732119",
+          "1529472749564",
+          "1529472766941"
+        ],
+        "settings": {}
+      },
+      "1529474598506": {
+        "type": "rich-text",
+        "settings": {
+          "title": "We are a seasonless line of basics made sustainably 100% in the USA from the softest fibers on Earth",
+          "colors": "white",
+          "text": "",
+          "button_label": "Read More",
+          "button_link": "shopify:\/\/pages\/materials"
+        }
+      },
+      "mobile-header": {
+        "type": "mobile-header",
+        "blocks": {
+          "1537465152346": {
+            "type": "image_block_6",
+            "settings": {
+              "block_id": "Womens",
+              "url1": "shopify:\/\/collections\/womens-best-sellers",
+              "image1": "",
+              "image_text1": "Best Sellers",
+              "url2": "shopify:\/\/pages\/the-womens-collection",
+              "image2": "",
+              "image_text2": "New Arrivals",
+              "url3": "https:\/\/bleusalt.com\/collections\/womens-tops",
+              "image3": "",
+              "image_text3": "Tops",
+              "url4": "shopify:\/\/collections\/womens-bottoms-1",
+              "image4": "",
+              "image_text4": "Bottoms",
+              "url5": "shopify:\/\/collections\/womens-dresses",
+              "image5": "",
+              "image_text5": "Dresses & Jumpsuits",
+              "url6": "shopify:\/\/collections\/womens-accessories-outerwear",
+              "image6": "",
+              "image_text6": "Accessories & Outerwear"
+            }
+          },
+          "1537904036844": {
+            "type": "image_block_6",
+            "settings": {
+              "block_id": "Men's",
+              "url1": "shopify:\/\/collections\/mens-best-sellers",
+              "image1": "",
+              "image_text1": "Best Sellers",
+              "url2": "shopify:\/\/pages\/the-mens-collection",
+              "image2": "",
+              "image_text2": "New Arrivals",
+              "url3": "shopify:\/\/collections\/mens-tops",
+              "image3": "",
+              "image_text3": "Tops",
+              "url4": "shopify:\/\/collections\/mens-bottoms",
+              "image4": "",
+              "image_text4": "Bottoms",
+              "url5": "shopify:\/\/collections\/mens-outerwear",
+              "image5": "",
+              "image_text5": "Outerwear",
+              "url6": "shopify:\/\/collections\/mens-accessories",
+              "image6": "",
+              "image_text6": "Accessories"
+            }
+          },
+          "1536564004984": {
+            "type": "nav_button",
+            "settings": {
+              "block_id": "Women's",
+              "title": "Shop all Women's",
+              "url": "shopify:\/\/pages\/the-womens-collection",
+              "button_icon": ""
+            }
+          },
+          "1537341236560": {
+            "type": "nav_button",
+            "settings": {
+              "block_id": "Men's",
+              "title": "Shop All Men's",
+              "url": "shopify:\/\/pages\/the-mens-collection",
+              "button_icon": ""
+            }
+          },
+          "1536561796138": {
+            "type": "nav_title",
+            "settings": {
+              "block_id": "Women's",
+              "title": "Featured"
+            }
+          },
+          "1537340990842": {
+            "type": "nav_title",
+            "settings": {
+              "block_id": "Men's",
+              "title": "Featured"
+            }
+          },
+          "1536568422758": {
+            "type": "image_block_2",
+            "settings": {
+              "block_id": "Women's",
+              "url1": "shopify:\/\/collections\/the-logo-collection",
+              "image1": "shopify:\/\/shop_images\/Untitled-1_17ff83a2-5b73-4559-a98d-87d8641b7b3a.png",
+              "image_text1": "The logo Collection",
+              "url2": "shopify:\/\/collections\/the-tie-dye-collection",
+              "image2": "shopify:\/\/shop_images\/tie-die-collection.jpg",
+              "image_text2": "Tie-Dye Collection"
+            }
+          },
+          "1537341005328": {
+            "type": "image_block_2",
+            "settings": {
+              "block_id": "Men's",
+              "url1": "shopify:\/\/collections\/the-logo-collection",
+              "image1": "shopify:\/\/shop_images\/Untitled-1_17ff83a2-5b73-4559-a98d-87d8641b7b3a.png",
+              "image_text1": "The logo collection",
+              "url2": "shopify:\/\/collections\/the-tie-dye-collection",
+              "image2": "shopify:\/\/shop_images\/tie-die-collection.jpg",
+              "image_text2": "Tie-Dye Collection"
+            }
+          },
+          "1554343160273": {
+            "type": "nav_button",
+            "settings": {
+              "block_id": "Men's",
+              "title": "The Gift Card",
+              "url": "shopify:\/\/collections\/gift-cards",
+              "button_icon": "icon-gift-card"
+            }
+          },
+          "1554343217899": {
+            "type": "nav_button",
+            "settings": {
+              "block_id": "Women's",
+              "title": "The Gift Card",
+              "url": "shopify:\/\/collections\/gift-cards",
+              "button_icon": "icon-gift-card"
+            }
+          }
+        },
+        "block_order": [
+          "1537465152346",
+          "1537904036844",
+          "1536564004984",
+          "1537341236560",
+          "1536561796138",
+          "1537340990842",
+          "1536568422758",
+          "1537341005328",
+          "1554343160273",
+          "1554343217899"
+        ],
+        "settings": {
+          "main_linklist": "slide-main-navigation-2",
+          "important_linklist": "main-menu",
+          "enable_search": true
+        }
+      },
+      "page-best_seller": {
+        "type": "page-best_seller",
+        "blocks": {
+          "1532466791127": {
+            "type": "image_text_overlay",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/best-sellers-header.png",
+              "mobile_image": "",
+              "title": "<p>The Best Sellers<\/p>",
+              "text_alignment": "center",
+              "text_color": "#ffffff"
+            }
+          }
+        },
+        "block_order": [
+          "1532466791127"
+        ],
+        "settings": {}
+      },
+      "page-best_seller_collection2": {
+        "type": "page-best_seller_collection2",
+        "blocks": {
+          "1532466862314": {
+            "type": "product_block",
+            "settings": {
+              "product_handle": "the-classic-button-up",
+              "lifestyle_image": "shopify:\/\/shop_images\/Bleusalt_9_21_181505_mobile_1_grande_3dd6779a-ede5-452b-999d-3e006dfc5825.jpg"
+            }
+          },
+          "1532467032634": {
+            "type": "product_block",
+            "settings": {
+              "product_handle": "the-classic-t-shirt",
+              "lifestyle_image": "shopify:\/\/shop_images\/BleuSalt-7807.jpg"
+            }
+          },
+          "1532466900828": {
+            "type": "product_block",
+            "settings": {
+              "product_handle": "",
+              "lifestyle_image": "shopify:\/\/shop_images\/skater-hoodie-7-26.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1532466862314",
+          "1532467032634",
+          "1532466900828"
+        ],
+        "settings": {
+          "title": "Men's",
+          "columns": "one_third"
+        }
+      },
+      "page-best_seller_collection_1": {
+        "type": "page-best_seller_collection_1",
+        "blocks": {
+          "1532373850548": {
+            "type": "product_block",
+            "settings": {
+              "product_handle": "the-cindy-pant",
+              "lifestyle_image": "shopify:\/\/shop_images\/Bleusalt_6-5-olga-2018-1459_a31fb4a2-f796-409e-921f-7aa2fdaa932f.jpg"
+            }
+          },
+          "1532374015642": {
+            "type": "product_block",
+            "settings": {
+              "product_handle": "the-wrap",
+              "lifestyle_image": "shopify:\/\/shop_images\/product_3_ea260b9e-7fd1-477e-b0d7-87e04c5f70a6.jpg"
+            }
+          },
+          "1532374083701": {
+            "type": "product_block",
+            "settings": {
+              "product_handle": "the-jogger",
+              "lifestyle_image": "shopify:\/\/shop_images\/jogger_black_mobile_1_grande_500x500_crop_center_6cda824f-f827-497f-b307-6f581df4be16.png"
+            }
+          },
+          "1532374172185": {
+            "type": "product_block",
+            "settings": {
+              "product_handle": "the-classic-shirt",
+              "lifestyle_image": "shopify:\/\/shop_images\/classic-shirt-womens.png"
+            }
+          }
+        },
+        "block_order": [
+          "1532373850548",
+          "1532374015642",
+          "1532374083701",
+          "1532374172185"
+        ],
+        "settings": {
+          "title": "Women's",
+          "columns": "one_fourth"
+        }
+      },
+      "page-best_seller_slider": {
+        "type": "page-best_seller_slider",
+        "settings": {}
+      },
+      "product-customizer-boat_coat-text-customizer": {
+        "type": "product-customizer-boat_coat-text-customizer",
+        "blocks": {
+          "1533912619940": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Black",
+              "color": "#000000"
+            }
+          },
+          "1533912634675": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Brown",
+              "color": "#32241b"
+            }
+          },
+          "1533912643240": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Forest Green",
+              "color": "#2b3d31"
+            }
+          },
+          "1533912653801": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Maroon",
+              "color": "#401f2a"
+            }
+          },
+          "1533912661191": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Navy",
+              "color": "#051840"
+            }
+          },
+          "1533912672079": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Ocean Blue",
+              "color": "#03265e"
+            }
+          },
+          "1533912679865": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Pink",
+              "color": "#ee629f"
+            }
+          },
+          "1533912690199": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Purple",
+              "color": "#3632a3"
+            }
+          },
+          "1533912705714": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Red",
+              "color": "#af0102"
+            }
+          },
+          "1533912725692": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Royal Blue",
+              "color": "#03337b"
+            }
+          },
+          "1533912739209": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Sheriff Green",
+              "color": "#464c32"
+            }
+          },
+          "1533912748654": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Silver",
+              "color": "#e8eced"
+            }
+          },
+          "1533912758785": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Smoke Grey",
+              "color": "#2f2b2a"
+            }
+          },
+          "1533912781181": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Vegas Gold",
+              "color": "#dac282"
+            }
+          },
+          "1533912789399": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "White",
+              "color": "#ffffff"
+            }
+          },
+          "1533912796954": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Yellow",
+              "color": "#f7ad32"
+            }
+          }
+        },
+        "block_order": [
+          "1533912619940",
+          "1533912634675",
+          "1533912643240",
+          "1533912653801",
+          "1533912661191",
+          "1533912672079",
+          "1533912679865",
+          "1533912690199",
+          "1533912705714",
+          "1533912725692",
+          "1533912739209",
+          "1533912748654",
+          "1533912758785",
+          "1533912781181",
+          "1533912789399",
+          "1533912796954"
+        ],
+        "settings": {}
+      },
+      "product-customizer-boat_coat-coat_color": {
+        "type": "product-customizer-boat_coat-coat_color",
+        "blocks": {
+          "1533912817076": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Black",
+              "color": "#000000"
+            }
+          },
+          "1533912828247": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Brown",
+              "color": "#32241b"
+            }
+          },
+          "1533912836963": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Forest Green",
+              "color": "#2b3d31"
+            }
+          },
+          "1533912842735": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Maroon",
+              "color": "#401f2a"
+            }
+          },
+          "1533912851912": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Navy",
+              "color": "#051840"
+            }
+          },
+          "1533912861874": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Ocean Blue",
+              "color": "#03265e"
+            }
+          },
+          "1533912874080": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Pink",
+              "color": "#ee629f"
+            }
+          },
+          "1533912884463": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Purple",
+              "color": "#3632a3"
+            }
+          },
+          "1533912895271": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Red",
+              "color": "#af0102"
+            }
+          },
+          "1533912907160": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Royal Blue",
+              "color": "#03337b"
+            }
+          },
+          "1533912922235": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Sheriff Green",
+              "color": "#464c32"
+            }
+          },
+          "1533912933097": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Silver",
+              "color": "#e8eced"
+            }
+          },
+          "1533912944477": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Smoke Grey",
+              "color": "#2f2b2a"
+            }
+          },
+          "1533912962674": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Vegas Gold",
+              "color": "#dac282"
+            }
+          },
+          "1533912972846": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "White",
+              "color": "#ffffff"
+            }
+          },
+          "1533912988035": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Yellow",
+              "color": "#f7ad32"
+            }
+          }
+        },
+        "block_order": [
+          "1533912817076",
+          "1533912828247",
+          "1533912836963",
+          "1533912842735",
+          "1533912851912",
+          "1533912861874",
+          "1533912874080",
+          "1533912884463",
+          "1533912895271",
+          "1533912907160",
+          "1533912922235",
+          "1533912933097",
+          "1533912944477",
+          "1533912962674",
+          "1533912972846",
+          "1533912988035"
+        ],
+        "settings": {}
+      },
+      "product-customizer-boat_coat-text_color": {
+        "type": "product-customizer-boat_coat-text_color",
+        "blocks": {
+          "1533913118114": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Black",
+              "color": "#000000"
+            }
+          },
+          "1533913127786": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Brown",
+              "color": "#32241b"
+            }
+          },
+          "1533913137888": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Forest Green",
+              "color": "#2b3d31"
+            }
+          },
+          "1533913143237": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Maroon",
+              "color": "#401f2a"
+            }
+          },
+          "1533913151827": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Navy",
+              "color": "#051840"
+            }
+          },
+          "1533913162749": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Ocean Blue",
+              "color": "#03265e"
+            }
+          },
+          "1533913172334": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Pink",
+              "color": "#ee629f"
+            }
+          },
+          "1533913182679": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Purple",
+              "color": "#3632a3"
+            }
+          },
+          "1533913193358": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Red",
+              "color": "#af0102"
+            }
+          },
+          "1533913203795": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Royal Blue",
+              "color": "#03337b"
+            }
+          },
+          "1533913212521": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Sheriff Green",
+              "color": "#464c32"
+            }
+          },
+          "1533913224229": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Silver",
+              "color": "#e8eced"
+            }
+          },
+          "1533913231533": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Smoke Grey",
+              "color": "#2f2b2a"
+            }
+          },
+          "1533913254468": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Vegas Gold",
+              "color": "#dac282"
+            }
+          },
+          "1533913260262": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "White",
+              "color": "#ffffff"
+            }
+          },
+          "1533913268406": {
+            "type": "boat_color",
+            "settings": {
+              "color_name": "Yellow",
+              "color": "#f7ad32"
+            }
+          }
+        },
+        "block_order": [
+          "1533913118114",
+          "1533913127786",
+          "1533913137888",
+          "1533913143237",
+          "1533913151827",
+          "1533913162749",
+          "1533913172334",
+          "1533913182679",
+          "1533913193358",
+          "1533913203795",
+          "1533913212521",
+          "1533913224229",
+          "1533913231533",
+          "1533913254468",
+          "1533913260262",
+          "1533913268406"
+        ],
+        "settings": {}
+      },
+      "image-section": {
+        "type": "image-section",
+        "blocks": {
+          "1535756435525": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/wwd.jpg",
+              "url": "https:\/\/wwd.com\/fashion-news\/fashion-features\/not-just-for-kids-apparel-start-ups-prove-age-doesnt-matter-1202768732\/"
+            }
+          },
+          "1535756383112": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/marie.jpg",
+              "url": "https:\/\/www.marieclaire.com\/fashion\/g22590785\/best-sustainable-fashion-brands\/"
+            }
+          },
+          "1535666452116": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/daily.jpg",
+              "url": "https:\/\/fashionweekdaily.com\/patrick-dempsey-gets-into-fashion\/"
+            }
+          },
+          "1535756464384": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/zoe-report.jpg",
+              "url": "https:\/\/www.thezoereport.com\/fashion\/shopping\/bleusalt-sustainable-loungewear"
+            }
+          },
+          "1535756370020": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/gq.jpg",
+              "url": "https:\/\/www.gq.com\/gallery\/the-14-best-new-menswear-items-to-buy-this-week-06-28-18"
+            }
+          },
+          "1535756411167": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/well-good.jpg",
+              "url": "https:\/\/www.wellandgood.com\/good-home\/the-scarf-that-also-works-as-throw-blanket\/"
+            }
+          }
+        },
+        "block_order": [
+          "1535756435525",
+          "1535756383112",
+          "1535666452116",
+          "1535756464384",
+          "1535756370020",
+          "1535756411167"
+        ],
+        "settings": {}
+      },
+      "press-list": {
+        "type": "press-list",
+        "blocks": {
+          "1535760105159": {
+            "type": "image",
+            "settings": {
+              "article": "press\/10-sustainable-fashion-brands-to-know-and-shop-immediately",
+              "publisher_name": "Marie Claire"
+            }
+          },
+          "1535760121734": {
+            "type": "image",
+            "settings": {
+              "article": "press\/the-14-best-new-menswear-items-to-buy-this-week",
+              "publisher_name": "GQ"
+            }
+          }
+        },
+        "block_order": [
+          "1535760105159",
+          "1535760121734"
+        ],
+        "settings": {}
+      },
+      "1542495433754": {
+        "type": "home-subHeroBanner",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/EXPLORE_MENS.jpg",
+          "title": "EXPLORE MEN'S",
+          "url": "shopify:\/\/pages\/the-mens-collection",
+          "button_exists": false,
+          "button_text": ""
+        }
+      },
+      "1542495514952": {
+        "type": "home-subHeroBanner",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/EXPLORE_WOMENS_fin.jpg",
+          "title": "EXPLORE WOMEN'S",
+          "url": "shopify:\/\/pages\/the-womens-collection",
+          "button_exists": false,
+          "button_text": ""
+        }
+      },
+      "1542495619494": {
+        "type": "home-subHeroBanner",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/BLEU_Monogramming_photo.jpg",
+          "title": "Customize",
+          "url": "shopify:\/\/collections\/the-custom-collection",
+          "button_exists": false,
+          "button_text": ""
+        }
+      },
+      "1542495672463": {
+        "type": "home-subHeroBanner",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/bleusalt-cards.jpg",
+          "title": "gift cards",
+          "url": "shopify:\/\/collections\/gift-cards",
+          "button_exists": false,
+          "button_text": ""
+        }
+      },
+      "collection-banner": {
+        "type": "collection-banner",
+        "blocks": {
+          "1544077152563": {
+            "type": "collection_banner",
+            "settings": {
+              "collection_handle": "womens-best-sellers",
+              "color": "#ffffff",
+              "text": "",
+              "video_url": "",
+              "video_cover": "",
+              "video_width": "container"
+            }
+          },
+          "1544145265505": {
+            "type": "collection_banner",
+            "settings": {
+              "collection_handle": "the-bluesalt-collection",
+              "color": "#ffffff",
+              "text": "",
+              "video_url": "",
+              "video_cover": "",
+              "video_width": "container"
+            }
+          },
+          "1544148747792": {
+            "type": "collection_banner",
+            "settings": {
+              "collection_handle": "mens-best-sellers",
+              "color": "#ffffff",
+              "text": "",
+              "video_url": "",
+              "video_cover": "",
+              "video_width": "container"
+            }
+          },
+          "1552097263726": {
+            "type": "collection_banner",
+            "settings": {
+              "collection_handle": "the-sleep-collection",
+              "color": "#ffffff",
+              "text": "",
+              "video_url": "",
+              "video_cover": "",
+              "video_width": "container"
+            }
+          },
+          "1563245690975": {
+            "type": "collection_banner",
+            "settings": {
+              "collection_handle": "the-womens-collection",
+              "color": "#ffffff",
+              "text": "",
+              "video_url": "",
+              "video_cover": "",
+              "video_width": "container"
+            }
+          },
+          "1563245759502": {
+            "type": "collection_banner",
+            "settings": {
+              "collection_handle": "the-mens-collection",
+              "color": "#051c2a",
+              "text": "",
+              "video_url": "",
+              "video_cover": "",
+              "video_width": "container"
+            }
+          },
+          "1568853834006": {
+            "type": "collection_banner",
+            "settings": {
+              "collection_handle": "",
+              "color": "#ffffff",
+              "text": "",
+              "video_url": "",
+              "video_cover": "",
+              "video_width": "container"
+            }
+          },
+          "1568853851751": {
+            "type": "collection_banner",
+            "settings": {
+              "collection_handle": "the-custom-collection",
+              "color": "#ffffff",
+              "text": "The Custom Collection",
+              "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1407\/3982\/files\/BLEU_Monogram_v2.1.mp4?43968",
+              "video_cover": "shopify:\/\/shop_images\/BLEU_Monogramming_photo.jpg",
+              "video_width": "container"
+            }
+          },
+          "1568855131036": {
+            "type": "collection_banner",
+            "settings": {
+              "collection_handle": "the-logo-collection",
+              "color": "#ffffff",
+              "text": "The Logo Collection",
+              "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1407\/3982\/files\/Bleu_Paris_short_1_20mb.mp4?43961",
+              "video_cover": "shopify:\/\/shop_images\/banner-surf.jpg",
+              "video_width": "container"
+            }
+          }
+        },
+        "block_order": [
+          "1544077152563",
+          "1544145265505",
+          "1544148747792",
+          "1552097263726",
+          "1563245690975",
+          "1563245759502",
+          "1568853834006",
+          "1568853851751",
+          "1568855131036"
+        ],
+        "settings": {}
+      },
+      "page-ebby_rane": {
+        "type": "page-ebby_rane",
+        "blocks": {
+          "1548341471879": {
+            "type": "simple_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/BLEUSALT-01_396eed65-5efe-4efb-8db6-bc43dbb416f1.jpg",
+              "image_alignment": "center"
+            }
+          },
+          "1550194810215": {
+            "type": "simple_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/8943e6a0-9fdb-41f6-ab2b-e96767d8f2d1_eae630b7-6842-4c5d-8f80-b1cfd92a5812.png",
+              "image_alignment": "center"
+            }
+          },
+          "1550259005586": {
+            "type": "simple_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Captur1e.PNG",
+              "image_alignment": "center"
+            }
+          },
+          "1550258949011": {
+            "type": "simple_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/3456b425-eee5-4317-8669-adef8bd8b089_ca02341c-c79b-4344-b90a-d11f1c1f2c21.png",
+              "image_alignment": "center"
+            }
+          }
+        },
+        "block_order": [
+          "1548341471879",
+          "1550194810215",
+          "1550259005586",
+          "1550258949011"
+        ],
+        "settings": {}
+      },
+      "page-ebby_rane_slider": {
+        "type": "page-ebby_rane_slider",
+        "blocks": {
+          "1548374706005": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ebby-slide-1.png"
+            }
+          },
+          "1548374758580": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ebby-slide-2.png"
+            }
+          },
+          "1548374769577": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ebby-slide-3.png"
+            }
+          }
+        },
+        "block_order": [
+          "1548374706005",
+          "1548374758580",
+          "1548374769577"
+        ],
+        "settings": {}
+      },
+      "page-ebby_rane_featured_products": {
+        "type": "page-ebby_rane_featured_products",
+        "blocks": {
+          "1548342098781": {
+            "type": "product_block",
+            "settings": {
+              "product_handle": "the-big-rock-blazer",
+              "lifestyle_image": "shopify:\/\/shop_images\/big_rock_bf_blazer_6_mobile.jpg"
+            }
+          },
+          "1548342117710": {
+            "type": "product_block",
+            "settings": {
+              "product_handle": "",
+              "lifestyle_image": "shopify:\/\/shop_images\/BleuSalt_7_301808_mobile.jpg"
+            }
+          },
+          "1548342133700": {
+            "type": "product_block",
+            "settings": {
+              "product_handle": "the-cap",
+              "lifestyle_image": "shopify:\/\/shop_images\/M-hat-sand-side-Mobile_1.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1548342098781",
+          "1548342117710",
+          "1548342133700"
+        ],
+        "settings": {
+          "title": "Shop the Collection",
+          "columns": "one_third"
+        }
+      },
+      "page-high_camp": {
+        "type": "page-high_camp",
+        "blocks": {
+          "1550259985410": {
+            "type": "simple_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Untitled-1.png",
+              "image_alignment": "center"
+            }
+          },
+          "1550260022083": {
+            "type": "simple_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/post01.jpg",
+              "image_alignment": "center"
+            }
+          },
+          "1550260641416": {
+            "type": "simple_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/how-to-win.png",
+              "image_alignment": "center"
+            }
+          }
+        },
+        "block_order": [
+          "1550259985410",
+          "1550260022083",
+          "1550260641416"
+        ],
+        "settings": {}
+      },
+      "page-high_camp_slider": {
+        "type": "page-high_camp_slider",
+        "blocks": {
+          "1550260127495": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ebby-slide-1.png"
+            }
+          },
+          "1550260140246": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ebby-slide-2.png"
+            }
+          },
+          "1550260149938": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ebby-slide-3.png"
+            }
+          }
+        },
+        "block_order": [
+          "1550260127495",
+          "1550260140246",
+          "1550260149938"
+        ],
+        "settings": {}
+      },
+      "page-high_camp_featured_slider": {
+        "type": "page-high_camp_featured_slider",
+        "blocks": {
+          "1550260182262": {
+            "type": "product_block",
+            "settings": {
+              "product_handle": "the-big-rock-blazer",
+              "lifestyle_image": "shopify:\/\/shop_images\/big_rock_bf_blazer_6_mobile.jpg"
+            }
+          },
+          "1550260194569": {
+            "type": "product_block",
+            "settings": {
+              "product_handle": "",
+              "lifestyle_image": "shopify:\/\/shop_images\/BleuSalt_7_301808_mobile.jpg"
+            }
+          },
+          "1550260213240": {
+            "type": "product_block",
+            "settings": {
+              "product_handle": "the-cap",
+              "lifestyle_image": "shopify:\/\/shop_images\/M-hat-sand-side-Mobile_1.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1550260182262",
+          "1550260194569",
+          "1550260213240"
+        ],
+        "settings": {
+          "title": "Shop The Collection",
+          "columns": "one_third"
+        }
+      },
+      "1550876809598": {
+        "type": "home-subHeroBanner",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/reviews-banner.png",
+          "title": "Reviews",
+          "url": "shopify:\/\/pages\/all-reviews",
+          "button_exists": true,
+          "button_text": "See All Reviews"
+        }
+      },
+      "page-sleep_collection": {
+        "type": "page-sleep_collection",
+        "blocks": {
+          "1552691935571": {
+            "type": "video_no_auto_overlay",
+            "settings": {
+              "text": "Women Business Travelers",
+              "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1407\/3982\/files\/BLEU_TRAVEL_FULL_SCREEN_20mb.mp4?9546",
+              "video_cover": "shopify:\/\/shop_images\/video-screencap.jpg",
+              "video_width": "container"
+            }
+          },
+          "1552690994432": {
+            "type": "spacer",
+            "settings": {
+              "height": "30"
+            }
+          },
+          "1552689591853": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>Once A year go someplace your have never been before&nbsp;<\/p>\n<p>- Dalai Lama<\/p>",
+              "text_alignment": "center",
+              "formatting": "h1",
+              "full_width": "contained"
+            }
+          },
+          "1552689608828": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>Bleusalt was created out of a need to elevate comfortable pieces, those old ratty sweats and favorite sweater look and make items luxurious enough to wear anywhere. &nbsp;This is the perfect idea for travel. &nbsp;The goal is to be as comfortable and put together as possible if you ask us. &nbsp;Bleusalt pieces provide that by being the softest fibers on earth, designed as seasonless basics that can be mixed and matched or worn head to toe. &nbsp;<\/p>",
+              "text_alignment": "center",
+              "formatting": "p",
+              "full_width": "contained"
+            }
+          },
+          "1553183084062": {
+            "type": "spacer",
+            "settings": {
+              "height": "30"
+            }
+          },
+          "1553182776674": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>Try Bleusalt for your travels:&nbsp;Order 1 Wrap + 1 Top + 1 Bottom and receive 30% off<\/p>",
+              "text_alignment": "center",
+              "formatting": "h2",
+              "full_width": "contained"
+            }
+          },
+          "1552691637940": {
+            "type": "spacer",
+            "settings": {
+              "height": "40"
+            }
+          },
+          "1553182983976": {
+            "type": "button",
+            "settings": {
+              "url": "shopify:\/\/pages\/the-best-sellers-collection",
+              "link_title": "Shop Now"
+            }
+          },
+          "1552690958908": {
+            "type": "spacer",
+            "settings": {
+              "height": ""
+            }
+          },
+          "1552691380220": {
+            "type": "double-images",
+            "settings": {
+              "image_left": "shopify:\/\/shop_images\/girl-with-binoculars.jpg",
+              "image_right": "shopify:\/\/shop_images\/girl-with-suitcase.jpg"
+            }
+          },
+          "1552689902881": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/girl-next-to-tree.jpg",
+              "text_alignment": "center"
+            }
+          },
+          "1553183053943": {
+            "type": "spacer",
+            "settings": {
+              "height": ""
+            }
+          }
+        },
+        "block_order": [
+          "1552691935571",
+          "1552690994432",
+          "1552689591853",
+          "1552689608828",
+          "1553183084062",
+          "1553182776674",
+          "1552691637940",
+          "1553182983976",
+          "1552690958908",
+          "1552691380220",
+          "1552689902881",
+          "1553183053943"
+        ],
+        "settings": {}
+      },
+      "page-sleep_collection_featured_products2": {
+        "type": "page-sleep_collection_featured_products2",
+        "settings": {
+          "title": "Shop the Collection",
+          "columns": "one_third",
+          "collection_handle": "womens-business-travelers"
+        }
+      },
+      "page-sleep_collection_featured_products": {
+        "type": "page-sleep_collection_featured_products",
+        "settings": {
+          "title": "",
+          "columns": "one_third",
+          "collection_handle": ""
+        }
+      },
+      "page-sleep_collection_slider": {
+        "type": "page-sleep_collection_slider",
+        "settings": {}
+      },
+      "page-yoga": {
+        "type": "page-yoga",
+        "blocks": {
+          "1556315623712": {
+            "type": "spacer",
+            "settings": {
+              "height": "50"
+            }
+          },
+          "1556302765680": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>APR&Egrave;S YOGA<\/p>",
+              "text_alignment": "center",
+              "formatting": "h1",
+              "full_width": "contained"
+            }
+          },
+          "1556315586362": {
+            "type": "spacer",
+            "settings": {
+              "height": "50"
+            }
+          },
+          "1556302793102": {
+            "type": "video_no_auto_overlay",
+            "settings": {
+              "text": "",
+              "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1407\/3982\/files\/BLEU_YOGA_V1_copy_1.mp4?18377",
+              "video_cover": "shopify:\/\/shop_images\/BLEU_YOGA_V1_copy_1_000.jpg",
+              "video_width": "container"
+            }
+          },
+          "1556315540805": {
+            "type": "spacer",
+            "settings": {
+              "height": "50"
+            }
+          },
+          "1556302810364": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>Our muse Kelly Chapman Meyer is a devoted yogi who rises before the sun to tune into vibrations which support her passionate belief in clean air, clean water and healthy food for all. As a Trustee of NRDC she brings her energy to fight for a clean environment. As the Cofounder of the AHA Teaching Gardens she brings her heart to help provide education and access to real food in underserved communities. As the Cofounder of the Women&rsquo;s Cancer Research Fund she has learned the true value of protecting women&rsquo;s health. How we present ourselves to the world matters. As she dances into the day&hellip;.she knows that every breath, heartbeat and thought counts. That&rsquo;s why environmentally friendly, comfortable and chic Bleusalt is a &ldquo;go to&rdquo; for work, travel, and life apr&egrave;s yoga.<\/p>",
+              "text_alignment": "center",
+              "formatting": "p",
+              "full_width": "contained"
+            }
+          }
+        },
+        "block_order": [
+          "1556315623712",
+          "1556302765680",
+          "1556315586362",
+          "1556302793102",
+          "1556315540805",
+          "1556302810364"
+        ],
+        "settings": {}
+      },
+      "page-baby_collection": {
+        "type": "page-baby_collection",
+        "blocks": {
+          "1560983592081": {
+            "type": "image_text_overlay",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/baby_2.png",
+              "mobile_image": "",
+              "title": "<p>babybleu<\/p>",
+              "text_alignment": "center",
+              "text_color": "#ffffff"
+            }
+          }
+        },
+        "block_order": [
+          "1560983592081"
+        ],
+        "settings": {}
+      },
+      "page-baby_collection_featured_products": {
+        "type": "page-baby_collection_featured_products",
+        "settings": {
+          "title": "New Arrivals",
+          "columns": "one_third",
+          "collection_handle": "babybleu-new-arrivals"
+        }
+      },
+      "page-baby_collection_featured_products2": {
+        "type": "page-baby_collection_featured_products2",
+        "settings": {
+          "title": "",
+          "columns": "one_third",
+          "collection_handle": ""
+        }
+      },
+      "page-baby_collection_slider": {
+        "type": "page-baby_collection_slider",
+        "blocks": {
+          "1560988993792": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/baby-bleu.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1560988993792"
+        ],
+        "settings": {}
+      },
+      "page-apres_surf-pagebuilder": {
+        "type": "page-apres_surf-pagebuilder",
+        "blocks": {
+          "1563559662784": {
+            "type": "video_no_auto_overlay",
+            "settings": {
+              "text": "Apres Surf Collection",
+              "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1407\/3982\/files\/Bleu_Paris_vintage_60_sec.mp4?41670",
+              "video_cover": "shopify:\/\/shop_images\/banner-surf.jpg",
+              "video_width": "container"
+            }
+          },
+          "1563573341558": {
+            "type": "spacer",
+            "settings": {
+              "height": "50"
+            }
+          },
+          "1563573298000": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>Once you put the softest fibers on earth onto your bare skin you will never want to take it off. We believe in looking as good as you feel. <\/p>",
+              "text_alignment": "center",
+              "formatting": "h2",
+              "full_width": "contained"
+            }
+          },
+          "1563574328485": {
+            "type": "spacer",
+            "settings": {
+              "height": "10"
+            }
+          },
+          "1563574267916": {
+            "type": "text_element",
+            "settings": {
+              "text": "<p>Our seasonless line of sustainable basics made from the softest fibers on earth are the perfect way to end your surf session.<a><\/a><\/p>",
+              "text_alignment": "center",
+              "formatting": "h2",
+              "full_width": "contained"
+            }
+          },
+          "1563574345280": {
+            "type": "spacer",
+            "settings": {
+              "height": "30"
+            }
+          },
+          "1563574091788": {
+            "type": "button",
+            "settings": {
+              "url": "https:\/\/bleusalt.com\/collections\/the-bluesalt-collection",
+              "link_title": "Shop Now"
+            }
+          },
+          "1563574067022": {
+            "type": "spacer",
+            "settings": {
+              "height": ""
+            }
+          },
+          "1563573549730": {
+            "type": "double-images",
+            "settings": {
+              "image_left": "shopify:\/\/shop_images\/square-guy-apres-surf.jpg",
+              "image_right": "shopify:\/\/shop_images\/square-girl-apres-surf.jpg"
+            }
+          },
+          "1563573602020": {
+            "type": "simple_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/banner-apres-surf_964feb9b-725d-4e33-af71-aa4c476204a5.jpg",
+              "image_alignment": "center"
+            }
+          }
+        },
+        "block_order": [
+          "1563559662784",
+          "1563573341558",
+          "1563573298000",
+          "1563574328485",
+          "1563574267916",
+          "1563574345280",
+          "1563574091788",
+          "1563574067022",
+          "1563573549730",
+          "1563573602020"
+        ],
+        "settings": {}
+      },
+      "page-apres_surf-featured_products": {
+        "type": "page-apres_surf-featured_products",
+        "settings": {
+          "title": "Shop Apres Surf",
+          "columns": "one_third",
+          "collection_handle": "apres-surf-collection"
+        }
+      },
+      "page-apres_surf-featured_products2": {
+        "type": "page-apres_surf-featured_products2",
+        "settings": {
+          "title": "",
+          "columns": "one_third",
+          "collection_handle": ""
+        }
+      },
+      "page-apres_surf-slider": {
+        "type": "page-apres_surf-slider",
+        "settings": {}
+      },
+      "page-apres-yoga-featured-products": {
+        "type": "page-apres-yoga-featured-products",
+        "settings": {
+          "title": "Shop Apres Yoga",
+          "columns": "one_third",
+          "collection_handle": "apres-yoga"
+        }
+      },
+      "product-template-giftcard": {
+        "type": "product-template-giftcard",
+        "settings": {
+          "show_quantity_selector": true,
+          "show_tags": false,
+          "show_collections": false,
+          "show_type": false,
+          "show_vendor": false,
+          "show_sku": false,
+          "enable_image_zoom": false,
+          "cart-button-location": "above",
+          "images-position": "right",
+          "show_reviews": false,
+          "enable_related_products": false,
+          "related_products_title": "You may also like...",
+          "quick_shop_enable": false
+        }
+      }
+    },
+    "content_for_index": [
+      "1524416194152",
+      "1529474598506",
+      "text-with-image-overlay3",
+      "1542495514952",
+      "1542495433754",
+      "1542495672463",
+      "1542495619494",
+      "1550876809598"
+    ]
+  },
+  "presets": {
+    "Byron": {
+      "color_body_text": "#333333",
+      "color_primary": "#000000",
+      "color_body_bg": "#fff",
+      "color_body_bg_secondary": "#f8f8f8",
+      "color_primary_navigation": "#000000",
+      "color_secondary_navigation": "#a4a4a4",
+      "color_primary_button_background": "#3e3e3e",
+      "color_primary_button_text": "#ffffff",
+      "color_primary_button_background_hover": "#9f9f9f",
+      "color_primary_button_text_hover": "#eeeeee",
+      "color_advert_bg": "#6988a1",
+      "color_advert_text": "#ffffff",
+      "color_hero_menu_text": "#333",
+      "color_footer_bg": "#ffffff",
+      "color_footer_text": "#636363",
+      "typography-heading-font": "typography-heading-roboto",
+      "header-text-size": "24px",
+      "typography-body-font": "typography-body-roboto",
+      "typography-body-font-size": "15px",
+      "header_font_size": "13px",
+      "header_font_style": "normal",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_padding": "5",
+            "sticky_header": true,
+            "enable_search": true,
+            "logo-placement": "center"
+          }
+        },
+        "home-hero": {
+          "type": "home-hero",
+          "blocks": {
+            "text-0": {
+              "type": "text",
+              "settings": {
+                "hero-menu-heading": "Title",
+                "hero-menu-subheading": "Link to any collection, product or page"
+              }
+            },
+            "text-1": {
+              "type": "text",
+              "settings": {
+                "hero-menu-heading": "Title",
+                "hero-menu-subheading": "Link to any collection, product or page"
+              }
+            }
+          },
+          "block_order": [
+            "text-0",
+            "text-1"
+          ],
+          "settings": {}
+        },
+        "featured-products": {
+          "type": "featured-products",
+          "settings": {
+            "grid": "3"
+          }
+        },
+        "collection-list": {
+          "type": "collection-list",
+          "blocks": {
+            "collection-0": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "collection-1": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "collection-2": {
+              "type": "featured_collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "collection-0",
+            "collection-1",
+            "collection-2"
+          ],
+          "settings": {}
+        },
+        "featured-blog": {
+          "type": "featured-blog",
+          "settings": {
+            "colors": "white"
+          }
+        },
+        "rich-text": {
+          "type": "rich-text",
+          "settings": {}
+        },
+        "image-bar": {
+          "type": "image-bar",
+          "blocks": {
+            "image-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-1": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "image-0",
+            "image-1"
+          ],
+          "settings": {
+            "colors": "white"
+          }
+        },
+        "instagram": {
+          "type": "instagram",
+          "settings": {
+            "colors": "white",
+            "instagram-homepage-width": "full-width",
+            "grid": "5",
+            "rows": "2"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {
+            "colors": "white",
+            "layout": "full-width"
+          }
+        },
+        "video": {
+          "type": "video",
+          "settings": {
+            "colors": "light",
+            "width_classes": "grid__item extra-large--three-quarters"
+          }
+        },
+        "text-with-image-overlay1": {
+          "type": "image-with-text-overlay",
+          "settings": {
+            "image_height": "50vw",
+            "image_overlay_opacity": "0",
+            "parallax": true,
+            "colors": "black",
+            "textPosition": "right",
+            "textAlignment": "right",
+            "button_label": "Shop now"
+          }
+        },
+        "text-with-image-overlay2": {
+          "type": "image-with-text-overlay",
+          "settings": {
+            "image_height": "50vw",
+            "image_overlay_opacity": "0",
+            "parallax": true,
+            "colors": "black",
+            "textPosition": "center",
+            "textAlignment": "center",
+            "button_label": "Shop now"
+          }
+        },
+        "text-with-image-overlay3": {
+          "type": "image-with-text-overlay",
+          "settings": {
+            "image_height": "50vw",
+            "image_overlay_opacity": "0",
+            "parallax": true,
+            "colors": "black",
+            "textPosition": "center",
+            "textAlignment": "center",
+            "button_label": "Shop now"
+          }
+        },
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "settings": {
+            "enable_announcement_bar": true,
+            "message_text": "<p>Announce something here.<\/p>",
+            "message_link": "",
+            "notification-bar--background-colour": "#f9f9f9",
+            "notification-bar--text-colour": "#858282",
+            "enable_social_icons": false
+          }
+        },
+        "text-adverts": {
+          "type": "text-adverts",
+          "blocks": {
+            "advert-0": {
+              "type": "text",
+              "settings": {
+                "heading": "Free Delivery Worldwide",
+                "subheading": "Click here for more info"
+              }
+            },
+            "advert-1": {
+              "type": "text",
+              "settings": {
+                "heading": "Final Clearance Sale",
+                "subheading": "Up to 70% off"
+              }
+            },
+            "advert-2": {
+              "type": "text",
+              "settings": {
+                "heading": "Promotional Link 3",
+                "subheading": "Link to a collection, product, blog post..."
+              }
+            }
+          },
+          "block_order": [
+            "advert-0",
+            "advert-1",
+            "advert-2"
+          ],
+          "settings": {
+            "colors": "dark"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "text",
+              "settings": {}
+            },
+            "footer-1": {
+              "type": "menu",
+              "settings": {}
+            },
+            "footer-2": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1",
+            "footer-2"
+          ],
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "text-with-image-overlay1",
+        "rich-text",
+        "featured-products",
+        "text-with-image-overlay2",
+        "image-bar",
+        "text-with-image-overlay3",
+        "featured-blog",
+        "video",
+        "instagram",
+        "text-adverts"
+      ]
+    },
+    "Queenstown": {
+      "color_body_text": "#333333",
+      "color_primary": "#747474",
+      "color_body_bg": "#fff",
+      "color_body_bg_secondary": "#f8f8f8",
+      "color_primary_navigation": "#000000",
+      "color_secondary_navigation": "#a4a4a4",
+      "color_primary_button_background": "#3e3e3e",
+      "color_primary_button_text": "#ffffff",
+      "color_primary_button_background_hover": "#9f9f9f",
+      "color_primary_button_text_hover": "#eeeeee",
+      "color_advert_bg": "#000000",
+      "color_advert_text": "#ffffff",
+      "color_hero_menu_text": "#333",
+      "color_footer_bg": "#f2f2f2",
+      "color_footer_text": "#636363",
+      "typography-heading-font": "typography-heading-work-sans",
+      "header-text-size": "36px",
+      "typography-body-font": "typography-body-work-sans",
+      "typography-body-font-size": "14px",
+      "header_font_size": "14px",
+      "header_font_style": "normal",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {}
+        },
+        "home-hero": {
+          "type": "home-hero",
+          "blocks": {
+            "text-0": {
+              "type": "text",
+              "settings": {
+                "hero-menu-heading": "Title",
+                "hero-menu-subheading": "Link to any collection, product or page"
+              }
+            },
+            "text-1": {
+              "type": "text",
+              "settings": {
+                "hero-menu-heading": "Title",
+                "hero-menu-subheading": "Link to any collection, product or page"
+              }
+            }
+          },
+          "block_order": [
+            "text-0",
+            "text-1"
+          ],
+          "settings": {}
+        },
+        "products-block": {
+          "type": "products-block",
+          "settings": {}
+        },
+        "collection-list": {
+          "type": "collection-list",
+          "blocks": {
+            "collection-0": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "collection-1": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "collection-2": {
+              "type": "featured_collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "collection-0",
+            "collection-1",
+            "collection-2"
+          ],
+          "settings": {}
+        },
+        "featured-blog": {
+          "type": "featured-blog",
+          "settings": {
+            "post_limit": "4"
+          }
+        },
+        "instagram": {
+          "type": "instagram",
+          "settings": {}
+        },
+        "featured-products": {
+          "type": "featured-products",
+          "settings": {}
+        },
+        "indiv-product-1": {
+          "type": "indiv-product",
+          "settings": {}
+        },
+        "video": {
+          "type": "video",
+          "settings": {
+            "colors": "light"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "home-hero",
+        "video",
+        "featured-products",
+        "collection-list",
+        "featured-blog",
+        "indiv-product-1",
+        "instagram"
+      ]
+    },
+    "Cannes": {
+      "color_body_text": "#333333",
+      "color_primary": "#747474",
+      "color_body_bg": "#fff",
+      "color_body_bg_secondary": "#efefef",
+      "color_primary_navigation": "#ffffff",
+      "color_secondary_navigation": "#ffffff",
+      "color_primary_button_background": "#3e3e3e",
+      "color_primary_button_text": "#ffffff",
+      "color_primary_button_background_hover": "#9f9f9f",
+      "color_primary_button_text_hover": "#eeeeee",
+      "color_advert_bg": "#000000",
+      "color_advert_text": "#ffffff",
+      "color_hero_menu_text": "#543131",
+      "color_footer_bg": "#ffffff",
+      "color_footer_text": "#636363",
+      "typography-heading-font": "typography-heading-alegreya-sans",
+      "header-text-size": "36px",
+      "typography-body-font": "typography-body-source-sans-pro",
+      "typography-body-font-size": "14px",
+      "header_font_size": "15px",
+      "header_font_style": "bold",
+      "header-bg-color": "#45424e",
+      "header-border-color": "#45424e",
+      "homepage-sections-accent-primary-color": "#45424e",
+      "homepage-sections-accent-secondary-color": "#ffffff",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo-placement": "center"
+          }
+        },
+        "home-hero": {
+          "type": "home-hero",
+          "blocks": {
+            "text-0": {
+              "type": "text",
+              "settings": {
+                "hero-menu-heading": "Title",
+                "hero-menu-subheading": "Link to any collection, product or page"
+              }
+            },
+            "text-1": {
+              "type": "text",
+              "settings": {
+                "hero-menu-heading": "Title",
+                "hero-menu-subheading": "Link to any collection, product or page"
+              }
+            }
+          },
+          "block_order": [
+            "text-0",
+            "text-1"
+          ],
+          "settings": {}
+        },
+        "products-block": {
+          "type": "products-block",
+          "settings": {}
+        },
+        "collection-list": {
+          "type": "collection-list",
+          "blocks": {
+            "collection-0": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "collection-1": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "collection-2": {
+              "type": "featured_collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "collection-0",
+            "collection-1",
+            "collection-2"
+          ],
+          "settings": {}
+        },
+        "featured-blog": {
+          "type": "featured-blog",
+          "settings": {
+            "post_limit": "2"
+          }
+        },
+        "rich-text": {
+          "type": "rich-text",
+          "settings": {}
+        },
+        "instagram": {
+          "type": "instagram",
+          "settings": {}
+        },
+        "featured-products": {
+          "type": "featured-products",
+          "settings": {}
+        },
+        "image-bar": {
+          "type": "image-bar",
+          "blocks": {
+            "image-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-1": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-2": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-3": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "image-0",
+            "image-1",
+            "image-2",
+            "image-3"
+          ],
+          "settings": {
+            "colors": "light"
+          }
+        },
+        "video": {
+          "type": "video",
+          "settings": {
+            "colors": "dark"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {}
+        },
+        "text-adverts": {
+          "type": "text-adverts",
+          "blocks": {
+            "advert-0": {
+              "type": "text",
+              "settings": {
+                "heading": "Free Delivery Worldwide",
+                "subheading": "Click here for more info"
+              }
+            },
+            "advert-1": {
+              "type": "text",
+              "settings": {
+                "heading": "Final Clearance Sale",
+                "subheading": "Up to 70% off"
+              }
+            },
+            "advert-2": {
+              "type": "text",
+              "settings": {
+                "heading": "Promotional Link 3",
+                "subheading": "Link to a collection, product, blog post..."
+              }
+            }
+          },
+          "block_order": [
+            "advert-0",
+            "advert-1",
+            "advert-2"
+          ],
+          "settings": {
+            "colors": "white"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "text-adverts",
+        "home-hero",
+        "rich-text",
+        "feature-row",
+        "featured-products",
+        "video",
+        "featured-blog",
+        "image-bar",
+        "instagram"
+      ]
+    }
+  }
+}

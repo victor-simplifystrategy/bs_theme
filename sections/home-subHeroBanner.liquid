@@ -1,0 +1,50 @@
+<div class="subHero" style="background-image:url({{section.settings.image | img_url:'master'}});">
+    <a href="{{section.settings.url}}">
+        <h4>{{section.settings.title}}</h4>
+      	{% if section.settings.button_exists == true %}<span class="button">{{section.settings.button_text}}</span>{% endif %}
+    </a>
+</div>
+
+{% schema %}
+  {
+    "name": "Sub Hero Banner",
+    "settings": [
+      {
+          "type":"image_picker",
+          "id":"image",
+          "label":"Background Image for Block"
+      },
+      {
+          "type":"text",
+          "id":"title",
+          "label": "Block Title"
+      },
+      {
+          "type":"url",
+          "id":"url",
+          "label":"Where does this block link?"
+      },
+      {
+       "type":      "checkbox",
+       "id":        "button_exists",
+       "label":     "Would you like to add a button?",
+       "default":   false
+      },
+	  {
+		"type":"text",
+		"id":"button_text",
+		"label":"Button Text"
+	  }
+	],
+	"presets": [{
+		"name": "Sub Hero Banner",
+		"category": "Advanced layout"
+	}]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

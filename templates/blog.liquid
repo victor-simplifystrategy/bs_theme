@@ -1,0 +1,12 @@
+<!-- /templates/blog.liquid -->
+{% comment %}
+  The contents of the blog.liquid template can be found in /sections/blog-template.liquid
+{% endcomment %}
+
+{% if blog.title contains 'Press' and settings.press_masonry == true %}
+{% section 'press-template' %}
+{% section 'image-section' %}
+{% section 'press-list' %}
+{% else %}
+{% section 'blog-template'%}
+{% endif %}

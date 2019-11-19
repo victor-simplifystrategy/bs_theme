@@ -1,0 +1,175 @@
+<div id="swatch-tab-1" class="swatch-tab-content  active" >
+  <div class="optionalLabel">Optional: Customize Text</div>
+  <div class="parkaText">
+    <label>Choose up to 9 characters for the back</label>
+    <input type="text" maxlength="9" name="parkaText" id="parkaText" />
+  </div> 
+  <div class="boatCoat-outline swatch">
+  <label class="tab-label">Choose an Outline Color</label>
+    
+  {% for block in section.blocks %}
+    {% assign color = block.settings.color_name %}
+      <div data-value="{{block.settings.color}}" class="swatch-element color {{block.settings.color_name}}}">
+		  <div class="tooltip">{{block.settings.color_name}}</div>        
+        
+          <input type="radio" id="outline-{{block.settings.color_name}}" name="boatCoat_outlineColor" value="{{block.settings.color_name | capitalize }}" data-color="{{block.settings.color}}">
+          <label name="Color" for="outline-{{block.settings.color_name}}" style="background-color:{{block.settings.color }}"></label>
+      </div><!-- Swatch Color Ends -->
+	{% endfor %}  
+  </div>
+</div><!-- #swatch-tab-1 -->
+{% schema %}
+  {
+    "name": "Outline Color Swatches",
+    "blocks": [
+		{
+			"type":"boat_color",
+			"name":"Outline Swatch Color",
+			"settings": [
+				{
+					"type":"text",
+					"label":"Swatch name",
+					"id":"color_name"
+				},
+				{
+					"type":"color",
+					"label":"Coat Hex Color",
+					"id":"color",
+					"info":"Select a color for the coat"
+				}
+			]
+		}
+	],
+    "presets": [
+      {
+        "name": "Coat Swatch Colors",
+        "blocks": [
+          {
+            "type": "boat_color",
+            "settings": {
+              "color": "#000000",
+              "color_name": "Black"
+            }
+          },
+          {
+            "type": "boat_color",
+            "settings": {
+              "color": "#32241b",
+              "color_name": "Brown"
+            }
+          },
+          {
+            "type": "boat_color",
+            "settings": {
+              "color": "#2b3d31",
+              "color_name": "Forest Green"
+            }
+          },
+          {
+            "type": "boat_color",
+            "settings": {
+              "color": "#401f2a",
+              "color_name": "Maroon"
+            }
+          },
+          {
+            "type": "boat_color",
+            "settings": {
+              "color": "#051840",
+              "color_name": "Navy"
+            }
+          },
+          {
+            "type": "boat_color",
+            "settings": {
+              "color": "#03265e",
+              "color_name": "Ocean Blue"
+            }
+          },
+          {
+            "type": "boat_color",
+            "settings": {
+              "color": "#ee629f",
+              "color_name": "Pink"
+            }
+          },
+          {
+            "type": "boat_color",
+            "settings": {
+              "color": "#3632a3",
+              "color_name": "Purple"
+            }
+          },
+          {
+            "type": "boat_color",
+            "settings": {
+              "color": "#af0102",
+              "color_name": "Red"
+            }
+          },
+          {
+            "type": "boat_color",
+            "settings": {
+              "color": "#03337b",
+              "color_name": "Royal BLue"
+            }
+          },
+          {
+            "type": "boat_color",
+            "settings": {
+              "color": "#464c32",
+              "color_name": "Sheriff Green"
+            }
+          },
+          {
+            "type": "boat_color",
+            "settings": {
+              "color": "#e8eced",
+              "color_name": "Silver"
+            }
+          },
+         {
+            "type": "boat_color",
+            "settings": {
+              "color": "#2f2b2a",
+              "color_name": "Smoke Grey"
+            }
+          },
+          {
+            "type": "boat_color",
+            "settings": {
+              "color": "#b16a40",
+              "color_name": "Squash"
+            }
+          },
+          {
+            "type": "boat_color",
+            "settings": {
+              "color": "#dac282",
+              "color_name": "Vegas Gold"
+            }
+          },
+          {
+            "type": "boat_color",
+            "settings": {
+              "color": "#ffffff",
+              "color_name": "White"
+            }
+          },
+          {
+            "type": "boat_color",
+            "settings": {
+              "color": "#f7ad32",
+              "color_name": "Yellow"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

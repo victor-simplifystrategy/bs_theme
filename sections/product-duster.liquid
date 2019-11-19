@@ -1,0 +1,757 @@
+<div itemscope itemtype="http://schema.org/Product">
+
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+
+  {% assign current_variant = product.selected_or_first_available_variant %}
+
+  {% comment %}
+ <!-- /snippets/breadcrumb.liquid -->
+{% comment %}
+  Documentation - http://docs.shopify.com/support/your-website/navigation/creating-a-breadcrumb-navigation
+{% endcomment %}
+{% unless template == 'index' or template == 'cart' %}
+<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+  <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+
+  {% if template contains 'product' %}
+
+    {% if collection %}
+      <span aria-hidden="true">&rsaquo;</span>
+      {% if collection.handle %}
+        {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+        {{ collection.title | link_to: url }}
+      {% endif %}
+    {% endif %}
+    <span aria-hidden="true">&rsaquo;</span>
+    <span>{{ product.title }}</span>
+
+  {% elsif template contains 'collection' and collection.handle %}
+
+    <span aria-hidden="true">&rsaquo;</span>
+    {% if current_tags %}
+      {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+      {{ collection.title | link_to: url }}
+      <span aria-hidden="true">&rsaquo;</span>
+      <span>{{ current_tags | join: " + " }}</span>
+    {% else %}
+      <span>{{ collection.title }}</span>
+    {% endif %}
+
+  {% elsif template == 'blog' %}
+
+    <span aria-hidden="true">&rsaquo;</span>
+    {% if current_tags %}
+      {{ blog.title | link_to: blog.url }}
+      <span aria-hidden="true">&rsaquo;</span>
+      <span>{{ current_tags | join: " + " }}</span>
+    {% else %}
+    <span>{{ blog.title }}</span>
+    {% endif %}
+
+  {% elsif template == 'article' %}
+
+    <span aria-hidden="true">&rsaquo;</span>
+    {{ blog.title | link_to: blog.url }}
+    <span aria-hidden="true">&rsaquo;</span>
+    <span>{{ article.title }}</span>
+
+  {% elsif template contains 'page' %}
+
+   <span aria-hidden="true">&rsaquo;</span>
+   <span>{{ page.title }}</span>
+
+  {% else %}
+
+   <span aria-hidden="true">&rsaquo;</span>
+   <span>{{ page_title }}</span>
+
+  {% endif %}
+</nav>
+{% endunless %}
+
+  {% endcomment %}
+
+  <div class="grid product-single product-sticky-wrapper {% if section.settings.images-position == 'right' %}grid--rev{%  endif %}" data-section-id="{{ section.id }}">
+
+    <div class="grid__item large--seven-twelfths text-center context mobile--no-top-margin">
+
+      <div class="product-single__photos medium--hide small--hide">
+        {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+
+        {% comment %}
+          Display current variant image, or default first
+        {% endcomment %}
+
+        <div class="product-single__photo-wrapper">
+          <img class="product-single__photo wow fadeIn {% if featured_image.width < 900 %} js__smallImage {%  endif %}" data-wow-delay="0.5s" id="ProductPhotoImg" src="{{ featured_image | img_url: '1500x1500' }}" alt="{{ featured_image.alt | escape }}" data-image-id="{{ featured_image.id }}" data-image-zoom="{{ featured_image | img_url: 'master' }}" data-image-zoom-enable="{{ section.settings.enable_image_zoom }}">
+          <div class="hidden" id="featured-image-loader">
+            <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+
+
+
+        {% comment %}
+          Display rest of product images, not repeating the featured one
+        {% endcomment %}
+        {% for image in product.images %}
+          {% unless image contains featured_image %}
+
+            <div class="product-single__photo-wrapper">
+              <img class="product-single__photo wow fadeIn {% if image.width < 900 %} js__smallImage {%  endif %}" data-wow-delay="0.5s" src="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" data-image-id="{{ image.id }}" data-image-zoom="{{ image.src | img_url: 'master' }}" data-image-zoom-enable="{{ section.settings.enable_image_zoom }}">
+              <div class="hidden" id="featured-image-loader">
+                <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+
+          {% endunless %}
+        {% endfor %}
+        
+        </div>
+
+        <div id="product-images-mobile" class="large--hide owl-carousel owl-theme">
+
+        {% for image in product.images %}
+            <div>
+              <img src="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" data-image-id="{{ image.id }}">
+            </div>
+        {% endfor %}
+
+        </div>
+
+    </div>
+
+    <div class="grid__item large--five-twelfths">
+
+      <div class="ui sticky product-sticky">
+
+    <div class="product-page--sale-badge{% unless product.compare_at_price_max > current_variant.price %} hide{% endunless %}">{{ 'products.product.on_sale' | t }}</div>
+
+    	<div class="product-details-wrapper" {% if section.settings.show_sku %}data-show-sku="true"{% else %}data-show-sku="false"{% endif %}>
+        <div class="grid product-meta-header">
+          {% if section.settings.show_vendor and product.vendor != "" %}
+            <div class="grid__item product__meta--vendor large--one-half">
+              <h4>{{ product.vendor }}</h4>
+            </div>
+          {% endif %}
+
+          {% if section.settings.show_sku %}
+            <div class="grid__item product__meta--sku large--one-half{% unless section.settings.show_vendor and product.vendor != "" %} push--large--one-half{% endunless %}{% if current_variant.sku == "" %} hide{% endif %}">
+                  <h4>{{ 'customer.order.sku' | t }}: <span class="js__currentVariantSKU">{{ current_variant.sku }}</span></h4>
+            </div>
+          {% endif %}
+        </div>
+
+      <h1 itemprop="name" class="product-details-product-title">{{ product.title }}</h1>
+
+      {% if section.settings.cart-button-location == 'above' %}
+      <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="product-details--form-wrapper">
+        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+
+        <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+
+        {% comment %}
+          ID addToCartForm is a selector for the ajax cart plugin
+        {% endcomment %}
+        <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
+
+          {% comment %}
+            Add product variants as a dropdown.
+              - By default, each variant (or combination of variants) will display as its own <option>
+              - To separate these into multiple steps, which we suggest, use option_selection.js (see below)
+
+            You can leverage jQuery to add a callback on page load and each time the select element changes:
+              - Include option_selection.js (as seen at the bottom of this file)
+              - This allows you to use JavaScript anytime the variant dropdown changes
+              - This also separates out your variant options (ie. size, color, etc.) to separate select elements
+
+            For more information on products with multiple options, visit:
+              - http://docs.shopify.com/support/your-website/themes/can-i-make-my-theme-use-products-with-multiple-options#update-product-liquid
+          {% endcomment %}
+
+          {% if product.variants.size > 1  %}
+            {% for option in product.options_with_values %}
+              <div class="selector-wrapper js{% if section.settings.show_swatches %} hide{% endif %}">
+                <label for="SingleOptionSelector-{{ forloop.index0 }}">{{ option.name }}</label>
+                <select class="form-control single-option-selector" id="SingleOptionSelector-{{ forloop.index0 }}" autocomplete="off">
+                  {% for value in option.values %}
+                    <option {% if option.selected_value == value %}selected{% endif %} value="{{ value | escape }}">{{ value }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              {% if section.settings.show_swatches %}
+                {% include 'swatch' with option.name %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          <br/>
+          <a href="#"><p class="sizechart">Size Guide ></p></a>
+
+
+          <select name="id" id="productSelect-{{ section.id }}" class="product-single__variants original-select no-js" autocomplete="off">
+            {% for variant in product.variants %}
+              {% if variant.available %}
+
+                {% comment %}
+                  Note: if you use option_selection.js, your <select> tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
+                {% endcomment %}
+                <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+
+              {% else %}
+                <option disabled="disabled">
+                  {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                </option>
+              {% endif %}
+            {% endfor %}
+          </select>
+
+      {% if section.settings.show_quantity_selector %}
+        <label for="Quantity" class="quantity-selector product-sub-label">{{ 'products.product.quantity' | t }}</label>
+
+        {% if settings.ajax_cart_method == "drawer" %}
+          <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector" />
+        {% else %}
+          <div class="js-qty nonajax-quantity-selector">
+            <button type="button" class="js-qty__adjust js-qty__adjust--minus icon-fallback-text">
+              <i class="fa fa-minus" aria-hidden="true"></i>
+              <span class="fallback-text">−</span>
+            </button>
+            <input type="text" class="js-qty__num" value="1" min="1" aria-label="quantity" pattern="[0-9]*" name="quantity" id="Quantity">
+            <button type="button" class="js-qty__adjust js-qty__adjust--plus icon-fallback-text">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+              <span class="fallback-text">+</span>
+            </button>
+          </div>
+        {% endif %}
+      {% endif %}
+            	<p id="sold">
+        {% if product.selected_or_first_available_variant.inventory_quantity <= 0 and product.selected_or_first_available_variant.available and product.selected_or_first_available_variant.inventory_management != '' %}
+        So many people loved {{ product.title }} as much as you, unfortunately they all sold out. We are making more as fast as possible and can’t wait to get yours tucked into it’s box and shipped to you. Watch your inbox, we will notify you as soon as it ships!
+        {% endif %}
+        </p>
+      {% if product.compare_at_price_max > product.price %}
+      <p id="ComparePrice" class="js">
+        <span class="money">{{ current_variant.compare_at_price | money }}</span>
+      </p>
+      <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+      {% endif %}
+
+          <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+          <span id="ProductPrice" class="h2 js" itemprop="price" content="{{ current_variant.price | divided_by: 100 }}">
+            <span class="money">{{ current_variant.price | money }}</span>
+          </span>
+
+          <button type="submit" name="add" id="AddToCart" class="btn">
+            <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+          </button>
+
+        </form>
+
+      </div>
+      {% endif %}
+       
+
+		<div class="product-description rte" itemprop="description">
+			{{ product.description | split: '</p>' | first }}
+
+		</div>
+
+    {% if section.settings.cart-button-location == 'below' %}
+    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="product-details--form-wrapper product-details--form-wrapper---below">
+      <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+
+      <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+
+      {% comment %}
+        ID addToCartForm is a selector for the ajax cart plugin
+      {% endcomment %}
+      <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
+
+        {% comment %}
+          Add product variants as a dropdown.
+            - By default, each variant (or combination of variants) will display as its own <option>
+            - To separate these into multiple steps, which we suggest, use option_selection.js (see below)
+
+          You can leverage jQuery to add a callback on page load and each time the select element changes:
+            - Include option_selection.js (as seen at the bottom of this file)
+            - This allows you to use JavaScript anytime the variant dropdown changes
+            - This also separates out your variant options (ie. size, color, etc.) to separate select elements
+
+          For more information on products with multiple options, visit:
+            - http://docs.shopify.com/support/your-website/themes/can-i-make-my-theme-use-products-with-multiple-options#update-product-liquid
+        {% endcomment %}
+
+        {% if product.variants.size > 1  %}
+          {% for option in product.options_with_values %}
+            <div class="selector-wrapper js{% if section.settings.show_swatches %} hide{% endif %}">
+              <label for="SingleOptionSelector-{{ forloop.index0 }}">{{ option.name }}</label>
+              <select class="form-control single-option-selector" id="SingleOptionSelector-{{ forloop.index0 }}" autocomplete="off">
+                {% for value in option.values %}
+                  <option {% if option.selected_value == value %}selected{% endif %} value="{{ value | escape }}">{{ value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            {% if section.settings.show_swatches %}
+              {% include 'swatch' with option.name %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        <select name="id" id="productSelect-{{ section.id }}" class="product-single__variants original-select no-js" autocomplete="off">
+          {% for variant in product.variants %}
+            {% if variant.available %}
+
+              {% comment %}
+                Note: if you use option_selection.js, your <select> tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
+              {% endcomment %}
+              <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+
+            {% else %}
+              <option disabled="disabled">
+                {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+              </option>
+            {% endif %}
+          {% endfor %}
+        </select>
+
+    {% if section.settings.show_quantity_selector %}
+      <label for="Quantity" class="quantity-selector product-sub-label">{{ 'products.product.quantity' | t }}</label>
+
+      {% if settings.ajax_cart_method == "drawer" %}
+        <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector" />
+      {% else %}
+        <div class="js-qty nonajax-quantity-selector">
+          <button type="button" class="js-qty__adjust js-qty__adjust--minus icon-fallback-text">
+            <i class="fa fa-minus" aria-hidden="true"></i>
+            <span class="fallback-text">−</span>
+          </button>
+          <input type="text" class="js-qty__num" value="1" min="1" aria-label="quantity" pattern="[0-9]*" name="quantity" id="Quantity">
+          <button type="button" class="js-qty__adjust js-qty__adjust--plus icon-fallback-text">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            <span class="fallback-text">+</span>
+          </button>
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {% if product.compare_at_price_max > product.price %}
+    <p id="ComparePrice" class="js">
+      <span class="money">{{ current_variant.compare_at_price | money }}</span>
+    </p>
+    <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+    {% endif %}
+
+        <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+        <span id="ProductPrice" class="h2 js" itemprop="price" content="{{ current_variant.price | divided_by: 100 }}">
+          <span class="money">{{ current_variant.price | money }}</span>
+        </span>
+
+        <button type="submit" name="add" id="AddToCart" class="btn">
+          <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+        </button>
+
+      </form>
+
+    </div>
+    {% endif %}
+
+
+
+		{% if template contains 'article' or template contains 'blog' %}
+
+  {% capture permalinkURL %}{{ shop.url }}{{ article.url }}{% endcapture %}
+  {% capture shareTitle %}{{ article.title }}{% endcapture %}
+  {% capture shareImage %}{{ article | img_url: '1024x1024' }}{% endcapture %}
+
+{% elsif template contains 'product' %}
+
+  {% capture permalinkURL %}{{ shop.url }}{{ product.url }}{% endcapture %}
+  {% capture shareTitle %}{{ product.title }}{% endcapture %}
+  {% capture shareImage %}{{ product.featured_image | product_img_url: 'original' }}{% endcapture %}
+
+{% endif %}
+
+<div class="grid product__meta">
+
+  {% if section.settings.show_tags and product.tags.size > 0 %}
+    <div class="grid__item product__meta--tags large--one-whole">
+        <span><strong>{{ 'products.product.tags' | t }}:</strong> </span>
+        {% for tag in product.tags %}
+            <a href="/collections/all/{{ tag | handleize }}"><span>{{ tag }}</span></a>{% if forloop.last == false %}, {% endif %}
+        {% endfor %}
+    </div>
+  {% endif %}
+
+{% if section.settings.show_collections and product.collections.size > 0 %}
+    <div class="grid__item product__meta--tags large--one-whole">
+        <span><strong>{{ 'products.product.category' | t }}:</strong> </span>
+        {% for collection in product.collections %}
+        <a href="{{ collection.url }}"><span>{{ collection.title }}</span></a>{% if forloop.last == false %}, {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
+
+  {% if section.settings.show_type and product.type != "" %}
+    <div class="grid__item product__meta--type large--one-whole">
+          <span><strong>{{ 'products.product.type' | t }}: </strong></span>
+          <span>{{ product.type }}</span>
+    </div>
+  {% endif %}
+
+</div>
+
+<div id="sharing" class="social-sharing is-clean" data-permalink="{{ permalinkURL }}">
+
+  <div class="h5">{{ 'general.social.share_the_love' | t }}</div>
+
+  <!-- https://developers.facebook.com/docs/plugins/share-button/ -->
+  <a target="_blank" href="//www.facebook.com/sharer.php?u={{ permalinkURL }}" class="share-facebook">
+    <i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
+  </a>
+
+  <!-- https://dev.twitter.com/docs/intents -->
+  <a target="_blank" href="//twitter.com/share?url={{ permalinkURL }}&amp;text={{ shareTitle }}" class="share-twitter">
+    <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+  </a>
+
+  <!--
+  https://developers.pinterest.com/pin_it/
+  Pinterest get data from the same Open Graph meta tags Facebook uses
+  -->
+  <a target="_blank" href="//pinterest.com/pin/create/button/?url={{ permalinkURL }}&amp;media={{ shareImage }}&amp;description={{ product.title | escape }}" class="share-pinterest">
+    <i class="fa fa-pinterest fa-lg" aria-hidden="true"></i>
+  </a>
+  
+  <a target="_blank" href="https://www.instagram.com/bleusalt_/" class="share-pinterest">
+    <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+  </a>
+
+</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  </div>
+      
+            <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+
+
+{% if section.settings.enable_related_products %}
+      
+
+
+<!-- Solution brought to you by Caroline Schnapp -->
+<!-- See this: https://docs.shopify.com/support/your-store/products/can-i-recommend-related-products#finding-a-relevant-collecitons -->
+
+{% comment %}
+  Number of related items per row,
+  and number of rows.
+{% endcomment %}
+
+{% assign number_of_related_products_per_row = 4 %}
+{% assign number_of_rows = 1 %}
+
+{% comment %}
+  Heading.
+  Leave blank if you don't need one.
+{% endcomment %}
+
+{% assign heading = section.settings.related_products_title %}
+
+{% comment %}
+  Set either or both to true, if you want
+  to limit yourself to items with same vendor, and/or type.
+{% endcomment %}
+
+{% assign same_vendor = false %}
+{% assign same_type = false %}
+
+{% comment %}
+  Collections to ignore.
+  Never pick related items from those.
+{% endcomment %}
+
+{% assign exclusions = 'frontpage,all' | split: ',' %}
+
+{% comment %}
+  Looking for a relevant collection.
+{% endcomment %}
+
+{% if product.metafields.c_f['Related Products'] %}
+  {% assign collection = collections[product.metafields.c_f['Related Products']] %}
+{% endif %}
+
+{% assign found_a_collection = false %}
+{% if collection and collection.all_products_count > 1 %}
+  {% unless exclusions contains collection.handle %}
+    {% assign found_a_collection = true %}
+  {% endunless %}
+{% endif %}
+{% unless found_a_collection %}
+  {% for c in product.collections %}
+    {% unless exclusions contains c.handle or c.all_products_count < 2 %}
+      {% assign found_a_collection = true %}
+      {% assign collection = c %}
+      {% break %}
+    {% endunless %}
+  {% endfor %}
+{% endunless %}
+
+{% comment %}
+  If we have a relevant collection.
+{% endcomment %}
+
+{% if found_a_collection %}
+
+  {% assign counter = 0 %}
+  {% assign break_at = number_of_rows | times: number_of_related_products_per_row %}
+  {% assign current_product = product %}
+
+  {% case number_of_related_products_per_row %}
+    {% when 1 %}
+      {% assign grid_item_width = '' %}
+    {% when 2 %}
+      {% assign grid_item_width = 'large--one-half medium--one-half' %}
+    {% when 3 %}
+      {% assign grid_item_width = 'large--one-third medium--one-half' %}
+    {% when 4 %}
+      {% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
+    {% when 5 %}
+      {% assign grid_item_width = 'large--one-fifth medium--one-third small--one-half' %}
+    {% when 6 %}
+      {% assign grid_item_width = 'large--one-sixth medium--one-third small--one-half' %}
+    {% else %}
+      {% assign grid_item_width = 'large--one-quarter medium--one-third small--one-half' %}
+  {% endcase %}
+
+  {% capture related_items %}
+    {% for product in collection.products %}
+      {% unless product.handle == current_product.handle %}
+         {% unless same_vendor and current_product.vendor != product.vendor %}
+           {% unless same_type and current_product.type != product.type %}
+             {% comment %}
+  Set the default grid_item_width if no variable is set
+{% endcomment %}
+{% unless grid_item_width %}
+  {% assign grid_item_width = 'large--one-third medium--one-half' %}
+{% endunless %}
+
+{% comment %}
+  Check if the product is on sale and set a variable to be used below.
+{% endcomment %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% comment %}
+  Check if the product is sold out and set a variable to be used below.
+{% endcomment %}
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
+<div class="grid__item {{ grid_item_width }}">
+
+  <div class="grid-view-item">
+
+    {% include 'grid-view-item' %}
+
+  </div>
+
+</div>
+
+             {% assign counter = counter | plus: 1 %}
+             {% if counter == break_at %}
+               {% break %}
+             {% endif %}
+           {% endunless %}
+        {% endunless %}
+      {% endunless %}
+    {% endfor %}
+  {% endcapture %}
+
+  {% assign related_items = related_items | trim %}
+
+  {% unless related_items == blank %}
+
+  </div>
+
+  <div class="product-page-related-products product-sticker-stop">
+
+  	<div class="wrapper main-content" role="main">
+
+  <aside class="grid">
+    <div class="grid__item">
+      {% unless heading == blank %}
+      <div class="sitewide--title-wrapper">
+        <h2 class="page--title">{{ heading }}</h2>
+      </div>
+      {% endunless %}
+      <div class="grid-uniform">
+        {{ related_items }}
+      </div>
+    </div>
+  </aside>
+
+
+  	</div>
+
+  </div>
+
+  {% endunless %}
+
+{% endif %}
+
+{% endif %}
+
+</div>
+
+{% comment %}
+  To take advantage of a callback on the select dropdown, add option_selection.js
+  and customize the JS in timber.productPage as needed.
+
+  Currently, timber.productPage does the following:
+    - Hides your <select> tag from above
+    - Breaks out the product variants into separate product options, if more than one exists
+    - Generates a <select> tag for each product option
+    - Enables/disables elements based on variant availability
+
+  Callback notes:
+    - Keep the callback available to the global scope (window.selectCallback) so that advanced
+      addons can override it.
+      * E.g. multiple currencies http://docs.shopify.com/manual/configuration/store-customization/currencies-and-translations/currencies/how-to-toggle-between-two-currencies
+{% endcomment %}
+
+{% unless product.empty? %}
+  <script type="application/json" id="ProductJson-{{ section.id }}">
+    {{ product | json }}
+  </script>
+{% endunless %}
+
+{% if section.settings.show_swatches %}
+<style>
+.swatch input, .selector-wrapper {
+  display: none !important;
+}  
+</style>
+{% endif %}
+  
+{% schema %}
+{
+  "name": "Product pages",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_quantity_selector",
+      "label": "Show quantity selector",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_swatches",
+      "label": "Show swatches",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tags",
+      "label": "Show tags",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collections",
+      "label": "Show collections",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_type",
+      "label": "Show type",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show vendor",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sku",
+      "label": "Show SKU",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_image_zoom",
+      "label": "Enable zoom for product images",
+      "default": false
+    },
+    {
+      "type":      "radio",
+      "id":        "cart-button-location",
+      "label":     "Cart button location",
+      "options": [
+        { "value": "above", "label": "Above product description" },
+        { "value": "below", "label": "Below product description" }
+      ],
+      "default":   "above"
+    },
+    {
+      "type":      "radio",
+      "id":        "images-position",
+      "label":     "Images position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default":   "right"
+    },
+    {
+      "type": "header",
+      "content": "Reviews"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_reviews",
+      "label": "Enable",
+      "default": false
+    },
+    {
+      "type": "paragraph",
+      "content": "You will need to install Shopify's [Product Reviews app](https://apps.shopify.com/product-reviews) before enabling this option."
+    },
+    {
+      "type": "header",
+      "content": "Related products"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_related_products",
+      "label": "Enable",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "related_products_title",
+      "label": "Heading",
+      "default": "You may also like..."
+    },
+    {
+       "type": "checkbox",
+       "id": "quick_shop_enable",
+       "label": "Show 'Quick shop'",
+       "default": false
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,140 @@
+<div class="collection-identity">
+  
+  {% for block in section.blocks %}
+  	  {% if collection.handle == block.settings.collection_handle %}
+		{% assign banner_color = block.settings.color %}
+
+        {% if block.settings.video_url != blank %}
+          {% assign video = true %}   
+        {% else %}
+          {% assign video = false%}
+        {% endif %}  
+  
+		{% assign full_width = block.settings.full_width %}   
+		{% assign video_width = block.settings.video_width %}   
+		{% assign video_cover = block.settings.video_cover %}   
+		{% assign video_url = block.settings.video_url %}   
+		{% assign text = block.settings.text %}   
+		{% assign sub_text = block.settings.sub_text %}   
+  		
+  
+  	  {% else %}
+  		{% assign banner_color = '#ffffff' %}  
+	  {% endif %}
+  
+
+  {% endfor %}
+  
+
+  
+  {% if video == true %}
+  
+  <!--
+  <div class="gba-video w_overlay no-auto {{full_width}} width-{{video_width}}">
+    <video style="width:100%;" id="pagebuilder_main-video"  loop playsinline muted webkit-playsinline class="video-player" poster="{{video_cover | img_url:'master'}}">
+      <source src="{{video_url }}" type="video/mp4" />
+    </video>  
+    <div class="playButton">
+      <span>{{text}}</span>
+      <span class="play"></span>
+    </div>
+  </div>  -->
+  
+  
+  <!-- Image with text_element -->
+  <div class="gba-video {{full_width}} width-{{video_width}}">
+    <video style="width:100%;" id="pagebuilder_main-video" autoplay loop playsinline muted webkit-playsinline class="video-player" poster="{{video_cover | img_url:'master'}}">
+      <source src="{{video_url }}" type="video/mp4" />
+    </video>  
+    <div class="unmute"></div>
+  </div>
+  <!-- Image with text element -->   
+  
+  {% else %}
+{% if collection.image %}
+  
+    <div class="gba-image_text_overlay collectionTitle contained" style="background-image:url('{{collection.image | img_url:'master' }}');">
+      <div class="va-wrapper">
+      <h1 class="align-center" style="color:{{banner_color}};">
+          {{collection.title}}           
+      </h1> 
+      {% if sub_text != blank %}<div style="text-align:center; color:{{banner_color}}; font-size:22px;">{{sub_text}}</div>{% endif %}
+      </div>
+    </div>  
+{% else %}
+    <div class="collectionWrapper">
+        {% include 'breadcrumbs' %}
+    </div>
+{% endif %}  
+  {% endif %}
+  
+
+</div>
+
+{% schema %}
+  {
+    "name": "Collection Banners",
+    "blocks": [
+		{
+			"name": "Collection Banner",
+			"type":	"collection_banner",
+			"settings": [
+				{
+					"type":"collection",
+					"id":"collection_handle",
+					"label":"This is a banner for the following collection"
+				},
+				{
+					"type":"color",
+					"id":"color",
+					"label":"Title Color",
+					"default":"#ffffff"
+				},
+				{
+					"type":"text",
+					"id":"text",
+					"label":"Overlay Text"
+				},
+				{
+					"type":"text",
+					"id":"sub_text",
+					"label":"Overlay Subtitle"
+				},
+				{
+					"type":"text",
+					"id":"video_url",
+					"label":"Video URL"
+				},
+				{
+					"type":"image_picker",
+					"id":"video_cover",
+					"label":"Upload a cover image to display while video is loading"
+				},
+                {
+                "type":"select",
+                "id":"video_width",
+                "label":"Video Width ",
+                  "options": [
+                     {
+                       "group": "Video Width",
+                       "value": "container",
+                       "label": "Contained"
+                     },
+                     {
+                       "group": "Video Width",
+                       "value": "full",
+                       "label": "Full Width"
+                     }
+                  ]
+                }
+			]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

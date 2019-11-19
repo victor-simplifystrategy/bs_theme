@@ -1,0 +1,347 @@
+<!doctype html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+
+  <!-- Basic page needs ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	{% if settings.favicon != blank %}
+	  <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+	{% endif %}
+
+  <!-- Title and description ================================================== -->
+  <title>
+  {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <!-- Helpers ================================================== -->
+  {% include 'social-meta-tags' %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  {% if template contains 'product' %}
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  {% else %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  {% endif %}
+  <meta name="theme-color" content="{{ settings.color_primary }}">
+
+  <!-- CSS ================================================== -->
+  {{ 'plugins.css' | asset_url | stylesheet_tag }}
+  {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'custom.scss.css' | asset_url | stylesheet_tag }}
+
+  {% include 'font-links' %}
+
+  
+    <!-- Library CSS -->
+  {{ 'app.scss.css' | asset_url | stylesheet_tag }}  
+
+
+  <!-- Backorder Popup --> 
+  {{ 'backorder-popup.scss.css' | asset_url | stylesheet_tag }}  
+  <!-- Backorder Popup --> 
+
+
+  <!-- Masonry Stylesheet -->
+  {% if settings.press_masonry == true %}
+  {{ 'masonry.scss.css' | asset_url | stylesheet_tag }}
+  {% endif %}    
+  <!-- Masonry Stylesheet -->
+  
+  <!-- Header hook for plugins ================================================== -->
+
+  {% include 'oldIE-js' %}
+
+
+  
+<!-- Victor Includes -->  
+  <!-- START headerscripts -->
+  {% capture headerScripts %}
+    {{ content_for_header }}
+  {% endcapture %}  
+  {% if headerScripts contains 'script'  %}
+      {{headerScripts | remove: '"https:\/\/d1buj3lvc9ukyl.cloudfront.net\/bleusalt.myshopify.com.js?shop=bleusalt.myshopify.com"' | remove: '"https:\/\/d1buj3lvc9ukyl.cloudfront.net\/intlTelInput.js?shop=bleusalt.myshopify.com"'}}
+  {% endif %}
+    <!-- END headerscripts -->
+
+
+  
+  {{ 'modernizr.min.js' | asset_url | script_tag }}  
+  {{ 'app.js' | asset_url | script_tag }}
+
+<!-- Victor Includes -->  
+  
+
+  {% if template contains 'product' %}
+    {%- include 'bold-common' -%}
+    {%- include 'bold-product' with product, hide_action: 'header' -%}
+  {% endif %}
+
+  {% comment %}
+    If you store has customer accounts disabled, you can remove the following JS file
+  {% endcomment %}
+  {% if template contains 'customers' %}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {% endif %}
+  
+  
+  
+  {% if settings.blackFridaySwitch == true %}
+  <link rel="stylesheet" href="{{ 'blackfriday.scss.css' | asset_url }}" />
+  {% endif %}
+
+</head>
+
+{% comment %}
+  Add the page template as a class for easy page or template specific styling.
+{% endcomment %}
+<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+  <!-- {% include 'buddha-megamenu-wireframe' %} -->
+  {% comment %}
+  Cart Drawer might be also used by 'Quick Shop' and 'LogIn'
+  {% endcomment %}
+  <!-- CART DRAWER START --> 
+      <div id="CartDrawer" class="drawer drawer--right">
+        <div class="drawer__header sitewide--title-wrapper">
+          <div class="drawer__close js-drawer-close">
+            <button type="button" class="icon-fallback-text">
+              <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+              <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
+            </button>
+          </div>
+          <div class="drawer__title h2 page--title " id="CartTitle">{{ 'cart.general.title' | t }}</div>
+          <div class="drawer__title h2 page--title hide" id="ShopNowTitle">{{ 'products.product.quick_shop' | t }}</div>
+          <div class="drawer__title h2 page--title hide" id="LogInTitle">{{ 'customer.login.title' | t }}</div>
+          <div class="drawer__title h2 page--title hide" id="SearchTitle">{{ 'general.search.title' | t }}</div>
+        </div>
+        <div id="CartContainer"></div>
+        <div id="ShopNowContainer" class="hide"></div>
+        <div id="SearchContainer" class="hide">
+          <div class="wrapper search-drawer">
+            <div class="input-group">
+              <input type="search" name="q" id="search-input" placeholder="Search our store" class="input-group-field" aria-label="Search our store" autocomplete="off" />
+              <span class="input-group-btn">
+                <button type="submit" class="btn icon-fallback-text">
+                  <i class="fa fa-search"></i>
+                  <span class="fallback-text">Search</span>
+                </button>
+              </span>
+            </div>
+            {% include 'live-search-result' %}
+            <script type="text/javascript">var SearchTranslations = {no_results_html: '{{ 'general.search.no_results_html' | t }}', results_for_html: '{{ 'general.search.results_for_html' | t }}', products: '{{ 'general.search.products' | t }}', pages: '{{ 'general.search.pages' | t }}', articles: '{{ 'general.search.articles' | t }}'};</script>
+            <div id="search-results" class="grid-uniform">
+              <!-- here will be the search results -->
+            </div>
+            <a id="search-show-more" href="#" class="btn hide">{{ 'collections.general.see_more' | t }}</a>
+          </div>
+        </div>
+        <div id="LogInContainer" class="hide"></div>
+      </div>
+      <div id="DrawerOverlay"></div>
+  <!-- CART DRAWER END --> 
+  
+  <!-- Nav Drawer -->
+  {% section 'mobile-header' %}
+  <!-- Nav Drawer End -->
+  <!-- PAGE -->
+  <div id="PageContainer">
+    
+    {% unless settings.blackFridaySwitch == true %}
+      {% section 'announcement-bar' %}
+    {% endunless%}
+      {% section 'header' %}
+
+      <!-- Content for Layout Start -===============================--> 
+          <!-- Determines Type of Container for page --> 
+          {% if template == 'index' %}
+              <div class="flow-homepage">              
+          {% elsif template contains 'blog' or template contains 'materials' or template contains 'swatch' or template contains 'env-respons' or template contains 'dempsey' %}           
+                <div>              
+          {% else %}
+              <div class="wrapper main-content {{template.suffix}} {{template.name}}">
+          {% endif %}
+          <!--  Determines Type of Container for page END --> 
+
+          {{ content_for_layout }}
+
+          </div>
+      <!-- Content for layout end ==================================-->
+
+      {% section 'footer' %}
+  </div>
+  <!-- PAGE -->               
+
+     <div class="popup">
+      <div class="popup-container">
+        <div class="popup-content">
+          <div class="popup-body"></div>
+          <div class="popup-footer">
+             <a class="popup-close" href="#">Close</a>
+          </div>          
+        </div>
+      </div>
+    </div>
+                
+      {% include 'product-customizer-boat_coat' %}
+                
+  <!-- JAVASCRIPT INCLUDES START ==============================================================================-->                
+    {{ 'plugins-min.js' | asset_url | script_tag }}
+    {{ 'underscore.js' | asset_url | script_tag }}
+    {{ 'instafeed.js' | asset_url | script_tag }}
+    {{ 'timber.js' | asset_url | script_tag }}
+    {{ 'thumbnails.js' | asset_url | script_tag }}
+    {{ 'custom.js' | asset_url | script_tag }}
+                
+         
+
+    {% include 'popup' %}
+	
+    {% if template contains 'collection' %}                
+  	{% include 'quick-view-template' %} 
+    {{ 'collection-page.js' | asset_url | script_tag }}
+                
+	{% endif %}                
+                
+                
+    {% if template contains 'product' %}            
+	{% include 'modify_lightbox_snippet' %}
+    {{ 'product-page.js' | asset_url | script_tag }}
+                
+  	{% endif %}
+              
+                
+    {% if template == 'product' %}
+      <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+    {% endif %}
+
+
+
+    {% if settings.show_multiple_currencies %}
+      {% include 'currencies' %}
+    {% else %}
+      <script type="text/javascript">window.default_currency_format = {{ shop.money_format | json }};</script>
+    {% endif %}
+
+    {% comment %}
+      Template-specific js
+    {% endcomment %}
+    <script>
+      {% if resetPassword %}
+        $(function() {
+          timber.resetPasswordSuccess();
+        });
+      {% endif %}
+    </script>
+
+    {% comment %}
+      Ajaxify your cart with this plugin.
+      Documentation:
+        - http://shopify.com/timber#ajax-cart
+    {% endcomment %}
+    {{ 'handlebars.min.js' | asset_url | script_tag }}
+    {% if settings.ajax_cart_method == "drawer" %}
+      {% include 'ajax-cart-template' %}
+      {{ 'ajax-cart.js' | asset_url | script_tag }}
+	  <!-- // Bind to 'afterCartLoad.ajaxCart' to run any javascript after the cart has loaded in the DOM -->                
+      <script>function init() {ajaxCart.init({formSelector: '#AddToCartForm',cartContainer: '#CartContainer',addToCartSelector: '#AddToCart',cartCountSelector: '#CartCount',moneyFormat: {{ shop.money_format | json }},});}jQuery(init);document.addEventListener('shopify:section:load', init);jQuery(document.body).on('afterCartLoad.ajaxCart', function(evt, cart){timber.RightDrawer.open();});</script>
+    {% endif %}
+
+
+               
+  <!-- JAVASCRIPT INCLUDES START ==============================================================================-->                
+  
+              
+  <!-- Victor Includes -->   
+    <!-- MASONRY SCRIPTS --> 
+    {% if template contains 'blog' %}		              
+      {{ 'masonry.js' | asset_url | script_tag }}
+    {% endif %}       
+    <!-- MASONRY SCRIPTS.END --> 
+
+    <!-- PRODUCT PAGE SCRIPTS --> 
+    {% if template contains 'product' %}  
+        <!-- {{ 'product.js' | asset_url | script_tag }} --> 
+    	<script src="{{ 'backorder-popup.js' | asset_url }}" async></script>
+        {% include 'linked-options' %}        
+    {% endif %}
+    <!-- PRODUCT PAGE SCRIPTS END -->
+  <!-- Victor Includes -->  
+                
+
+                
+<!-- Google Code for Remarketing Tag -->
+<!--------------------------------------------------
+Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+--------------------------------------------------->
+<script type="text/javascript">
+var google_tag_params = {
+ecomm_prodid:'shopify_US_{{ product.id }}_{{ product.selected_or_first_available_variant.id }}',
+ecomm_pagetype: '{{ template }}',
+ecomm_totalvalue: {{ product.price_min | money_without_currency }},
+};
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 827740366;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/827740366/?guid=ON&amp;script=0"/>
+</div>
+</noscript>                
+
+
+{% include 'special-offers' %}
+                
+<!-- BEGIN PRIVY ASYNCHRONOUS WIDGET CODE -->
+<script type='text/javascript'>
+   var _d_site = _d_site || '0147A1BEF3DC725D780F3BB1';
+   (function(p, r, i, v, y) {
+     p[i] = p[i] || function() { (p[i].q = p[i].q || []).push(arguments) };
+     v = r.createElement('script'); v.async = 1; v.src = '//widget.privy.com/assets/widget.js';
+     y = r.getElementsByTagName('script')[0]; y.parentNode.insertBefore(v, y);
+   })(window, document, 'Privy');
+</script>
+<!-- END PRIVY ASYNCHRONOUS WIDGET CODE -->                 
+<script>
+ (function(d) {
+   var config = {
+     kitId: 'ctg8esr',
+     scriptTimeout: 3000,
+     async: true
+   },
+   h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+ })(document);
+  
+  
+  
+  
+  var docWidth = document.documentElement.offsetWidth;
+
+[].forEach.call(
+  document.querySelectorAll('*'),
+  function(el) {
+    if (el.offsetWidth > docWidth) {
+      console.log(el);
+    }
+  }
+);
+</script>
+                
+<script src="//code.tidio.co/tcdl9i2govz1dtws11sfkzvqlaxkg9hn.js"></script>                
+
+                
+                
+</body>
+</html>

@@ -1,0 +1,127 @@
+<link rel="stylesheet" href="{{ 'quick-view.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'fancybox.css' | asset_url }}">
+<script type="text/javascript">
+  window.file_url = "{{''|file_url}}";
+  window.asset_url = "{{''|asset_url}}";
+  var soldoutimg = "{{ 'soldout.png' | asset_url }}";
+</script>
+<script type="text/javascript">
+! function() {
+    
+            
+        /*** COLOR SWATCHES START HERE ***/
+   		convertToSlug = function(i) {
+            return i.toLowerCase().replace(/[^a-z0-9 -]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-")
+        },
+          
+        createQuickViewVariantsSwatch = function(i,t,e) {
+         	 
+          	e("#qv-variant-options").hide();
+
+         	if (i.variants.length > 1) {
+                for (var a = 0; a < i.variants.length; a++) {
+                    var o = i.variants[a],
+                        n = '<option value="' + o.id + '">' + o.title + "</option>";
+                    t.find("#qv-variant-options > select").append(n)
+                }
+              
+              	var swatches = '{{ shop.metafields.quickview-swatch }}';
+               	swatches = swatches.replace(new RegExp('=>"', 'g'), ":[");
+				swatches = swatches.replace(new RegExp('}"', 'g'), "}]");
+				swatches = jQuery.parseJSON(swatches);
+              
+              
+                for (var r = window.file_url.substring(0, window.file_url.lastIndexOf("?")), s = window.asset_url.substring(0, window.asset_url.lastIndexOf("?")), l = "", a = 0; a < i.options.length; a++) {
+                  
+                  l += '<div class="swatch clearfix" data-option-index="' + a + '">', l += '<div class="header">' + i.options[a].name + "</div>";
+                    var c = !1;
+                    /Color|Colour/i.test(i.options[a].name) && (c = !0);
+                    for (var d = new Array, p = 0; p < i.variants.length; p++) {
+                        var o = i.variants[p],
+                            u = o.options[a],
+                            f = convertToSlug(u),
+                            h = "swatch-" + a + "-" + f;
+                      
+                     	var color_type = "";
+                      	var color_code1 = "";
+                      	var color_code2 = "";
+                      	var imageUrl = "";
+                     	var style = "";
+          
+                      if(i.options[a].name == "Color" || i.options[a].name == "Colour")
+                      { 
+                      	if(swatches[u] !== undefined) 
+                        {
+                        	color_type = swatches[u][0].type;
+                        	
+                          	//for one color
+                          	if(color_type == "one_color")
+                       		{
+                              	style = "background-color:"+swatches[u][0].color_code1;
+    					    }
+                         
+                           	//for two color
+    					  	if(color_type == "two_color") 
+    					  	{
+      							color_code1 = swatches[u][0].color_code1;
+      							color_code2 = swatches[u][0].color_code2;
+								style = 'background:linear-gradient(to bottom,'+color_code1+' 0%,'+color_code1+' 50%,#000000 50%,'+color_code2+' 50%,'+color_code2+' 100%)'; 
+    						}
+                          
+                          	 //for color img
+    						if(color_type == "color_image") 
+   							{
+      						 	imageUrl = swatches[u][0].color_img;   
+                             	style = 'background-image:url(' + imageUrl + ')';
+   							 }
+                       	}
+                        else {
+                          
+                          style="background-color:"+f;
+                          	
+                        }
+                      } 
+                      
+                  d.indexOf(u) < 0 && (l += '<div data-value="' + u + '" class="swatch-element ' + (c ? "color" : "") + f + (o.available ? " available " : " soldout ") + '">', c && (l += '<div class="tooltip">' + u + "</div>"), l += '<input id="' + h + '" type="radio" name="option-' + a + '" value="' + u + '" ' + (0 == p ? " checked " : "") + (o.available ? "" : " disabled") + " />", l += c ? '<label for="'+h+'" id="color_' + h + '" style="'+ style +';cursor:pointer;"><img class="crossed-out" src="' + soldoutimg + '" /></label>' : '<label for="' + h + '">' + u + '<img class="crossed-out" src="' + soldoutimg + '" /></label>', l += "</div>", o.available && e('#qv-right .swatch[data-option-index="' + a + '"] .' + f).removeClass("soldout").addClass("available").find(":radio").removeAttr("disabled"), d.push(u))
+                    }
+                  
+                    l += "</div>"
+                 
+                }
+               
+              	  e("#productoptions").html(l), 
+                  
+                  t.find(".swatch :radio").change(function() {
+               
+                    var i = e(this).closest(".swatch").attr("data-option-index"),
+                        t = e(this).val();
+                   
+                    e(".single-option-selector").eq(i).val(t).trigger("change")
+                }), i.available && (Shopify.optionsMap = {}, Shopify.linkOptionSelectors(i))
+                  // 19-02-2017
+                  t.find(".swatch :radio").change(function() {
+                   var s = e("#qv-product-selected").val();
+                    $('#qv-zoomcontainer #qv-zoomImg').attr('src',$('#imgswatch #'+s).val());
+                    $('#qv-zoomcontainer #qv-zoomImg').attr('data-zoom-image',$('#imgswatch #'+s).val());
+                     $('.zoomContainer').html('');
+                  })
+                  // end 19-02-2017
+                  
+            } else {
+              
+              	e("#productoptions").empty();
+             
+                t.find("#qv-variant-options > select").remove();
+                var m = '<input type="hidden" name="id" value="' + i.variants[0].id + '">';
+                t.find("#qv-variant-options").append(m)
+            }
+         
+                    
+              
+        }
+        /*** SWATCHES ENDS HERE ***/
+        
+}();
+</script>
+
+{{ "option_selection.js" | shopify_asset_url | script_tag }}

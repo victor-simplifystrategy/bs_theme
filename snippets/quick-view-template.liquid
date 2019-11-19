@@ -1,0 +1,64 @@
+{{ 'swatch-style.css'| asset_url | stylesheet_tag}}
+{% include 'quick-view-init' %}
+<div id="qv-showqv" class="bm" style="display: none !important;">  
+ <div> 
+	 <div class="quick-view-container fancyox-view-detail">
+	    <div id="qv-left" class="left">
+            <div id="qv-sale"  class="qv-sale qv-hidden">Sale</div>
+			 <div class="qv-zoom-container">
+                    <div class="zoomWrapper">
+					  <div id="qv-zoomcontainer" class='sqa-qv-zoomcontainer'>      
+                      </div>
+                    </div>
+          	</div>     
+            <div id="qv-galleryid" class="qv-gallery">  		
+            </div>	
+		 <!-- added 19-02-2017 -->
+          <div id="imgswatch">
+          </div>
+          <!-- ended -->
+       </div>
+		<div id ="qv-right" class="right">
+			<div id="qv-title" class="name-title" >
+					<!-- Title of product ! DON'T PUT CONTENT HERE!-->
+			</div>
+			<div id ="qv-price-container" class="qv-price-container"  >
+					<!-- price information of product ! DON'T PUT CONTENT HERE!-->
+			</div>
+			<div id="qv-des" class="qv-row">
+					<!-- description of product ! DON'T PUT CONTENT HERE!-->
+			</div>
+			<div class="qv-row">
+				<a id="qv-detail"  href="">View full product details ? </a>
+			</div>
+           <!-- Added for color swatches -->
+          <div id="productoptions"></div><!-- ends here -->
+            <div id='qv-cartform'>
+	          <form id="qv-add-item-form"  method="post">     
+                <!-- Begin product options ! DON'T PUT CONTENT HERE!-->
+                <div class="qv-product-options">
+                  <!-- variant options  of product  ! DON'T PUT CONTENT HERE!  -->
+                  <div id="qv-variant-options" class="qv-optionrow">		
+		          </div>
+                  <div class="qv-optionrow">	    
+                    <label>Quantity</label>
+          	        <input id="qv-quantity" min="1" type="number" name="quantity" value="1"  />
+                  </div>
+                  <div class="qv-optionrow">
+                     <p id="qv-unavailable" class="sold-out qv-hidden">Unavailable</p>
+                     <p id="qv-sold-out" class="sold-out qv-hidden">Sold Out</p>
+                     <input type="submit" class="qv-cartbtn qv-hidden" value="ADD TO CART" />                 
+                  </div>
+                </div> 
+            </form>
+         </div>
+       </div>
+   </div>
+ </div>
+</div>
+<div id="qv-metadata" 
+autoconfig = "yes" 
+noimage = "{{ 'qv-no-image.jpg' | asset_url }}" 
+moneyFormat = "{{ shop.money_format }}" 
+ ></div>
+<!-- {{ 'quckview.js'| asset_url | script_tag}} -->

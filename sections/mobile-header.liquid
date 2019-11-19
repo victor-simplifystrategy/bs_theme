@@ -1,0 +1,457 @@
+<div id="NavDrawer" class="drawer drawer--left">
+    {% assign menu = section.settings.main_linklist %}
+<div class="nav-wrapper">
+  
+
+ 
+  <div class="secondLevel">
+  <div class="mobileSearch">
+  <a href="/search" class="hideMenu  hide-on-desktop">
+            <i class="fa fa-search fa-lg"></i>
+  </a>
+  </div>    
+   	<div class="nav-links">
+      <a class="hideMenu" id="closeNavigation"><i class="fa fa-chevron-left"></i></a>      
+  	{% for link in linklists[menu].links %}
+      	{% for child in link.links %}
+  		{% assign dataLink = child.title | handleize %}    
+      		{% if child.title contains 'Link'%}
+				<a class="nav__link-tab nav__link-tab-link {% if forloop.first == true %}active{% endif %}" data-link="{{dataLink}}" href="{{child.url}}">{{child.title | remove:'Link -'}}</a>
+      		{% else %}
+				<a class="nav__link-tab nav__link-tab-content {% if forloop.first == true %}active{% endif %}" data-link="{{dataLink}}">{{child.title}}</a>      
+      		{% endif %}
+      	{% endfor %}
+  	{% endfor %}
+    </div>
+
+  	
+  	{% for link in linklists[menu].links %}
+      	{% for child in link.links %}
+  		{% assign linkTitle = child.title | handleize %}
+  		<div id="nav-container__{{linkTitle}}" class="nav-tab-content {% if forloop.first == true %}active{%endif%}" style="{% if forloop.first == true %}display:block;{%endif%}">
+          {% for block in section.blocks %}
+          	{% assign blockTitle = block.settings.block_id | handleize %}
+            {% if blockTitle == linkTitle %}  	
+
+          
+          
+          	  {% if block.type == 'image_block_3'%}
+                  <div class="navigation-blocks block-length-3">
+                    <div class="navigation-block" style="background:{% if block.settings.image1 != blank %}url({{block.settings.image1 | img_url:'master'}}){% else %}#051c2a{% endif %};">
+                      <a href="{{block.settings.url1}}">{{block.settings.image_text1}}</a>
+                    </div>
+                    <div class="navigation-block" style="background:{% if block.settings.image2 != blank %}url({{block.settings.image2 | img_url:'master'}}){% else %}#051c2a{% endif %};">
+                      <a href="{{block.settings.url2}}">{{block.settings.image_text2}}</a>
+                    </div>
+                    <div class="navigation-block" style="background:{% if block.settings.image3 != blank %}url({{block.settings.image3 | img_url:'master'}}){% else %}#051c2a{% endif %};">
+                      <a href="{{block.settings.url3}}">{{block.settings.image_text3}}</a>
+                    </div>              
+                  </div>
+              {% endif %}
+          
+          	  {% if block.type == 'image_block_6'%}
+                  <div class="navigation-blocks block-length-3">
+                    <div class="navigation-block" style="background:{% if block.settings.image1 != blank %}url({{block.settings.image1 | img_url:'master'}}){% else %}#051c2a{% endif %};">
+                      <a href="{{block.settings.url1}}">{{block.settings.image_text1}}</a>
+                    </div>
+                    <div class="navigation-block" style="background:{% if block.settings.image2 != blank %}url({{block.settings.image2 | img_url:'master'}}){% else %}#051c2a{% endif %};">
+                      <a href="{{block.settings.url2}}">{{block.settings.image_text2}}</a>
+                    </div>
+                    <div class="navigation-block" style="background:{% if block.settings.image3 != blank %}url({{block.settings.image3 | img_url:'master'}}){% else %}#051c2a{% endif %};">
+                      <a href="{{block.settings.url3}}">{{block.settings.image_text3}}</a>
+                    </div>    
+                    <div class="navigation-block" style="background:{% if block.settings.image4 != blank %}url({{block.settings.image4 | img_url:'master'}}){% else %}#051c2a{% endif %};">
+                      <a href="{{block.settings.url4}}">{{block.settings.image_text4}}</a>
+                    </div>
+                    <div class="navigation-block" style="background:{% if block.settings.image5 != blank %}url({{block.settings.image5 | img_url:'master'}}){% else %}#051c2a{% endif %};">
+                      <a href="{{block.settings.url5}}">{{block.settings.image_text5}}</a>
+                    </div>
+                    <div class="navigation-block" style="background:{% if block.settings.image6 != blank %}url({{block.settings.image6 | img_url:'master'}}){% else %}#051c2a{% endif %};">
+                      <a href="{{block.settings.url6}}">{{block.settings.image_text6}}</a>
+                    </div>                     
+                  </div>
+              {% endif %}          
+          
+          	  {% if block.type == 'image_block_2'%}
+                  <div class="navigation-blocks block-length-2">
+                    <div class="navigation-block" style="background:{% if block.settings.image1 != blank %}url({{block.settings.image1 | img_url:'master'}}){% else %}#051c2a{% endif %};">
+                      <a href="{{block.settings.url1}}">{{block.settings.image_text1}}</a>
+                    </div>
+                    <div class="navigation-block" style="background:{% if block.settings.image2 != blank %}url({{block.settings.image2 | img_url:'master'}}){% else %}#051c2a{% endif %};">
+                      <a href="{{block.settings.url2}}">{{block.settings.image_text2}}</a>
+                    </div>              
+                  </div>
+              {% endif %}
+          
+
+              {% if block.type == 'nav_title'%}
+                  <div class="navigation-title">{{block.settings.title}}</div>
+              {% endif %}  
+          
+              {% if block.type == 'nav_button'%}
+                  <div class="navigation-button">
+                    <a href="{{block.settings.url}}">
+                      {% if block.settings.button_icon != blank %}
+                      	{% assign icon = block.settings.button_icon %}
+                      	{% include icon %}
+                      {% endif %}
+                      {{block.settings.title}}
+                    </a>
+          		  </div>
+              {% endif %}            
+          
+          	{% endif %}
+
+          {% endfor %}
+  		</div>
+        {% endfor %}
+	{% endfor %}
+
+
+
+
+
+  </div>
+    <div class="loginBar hide-on-desktop">
+		{% if customer %}
+			{% capture first_name %}{{ customer.first_name }}{% endcapture %}
+      		<a href="/account">{{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}</a> <span>|</span> {{ 'layout.customer.log_out' | t | customer_logout_link }}
+      	{% else %}
+      		{{ 'layout.customer.log_in' | t | customer_login_link }} <span>|</span> {{ 'layout.customer.create_account' | t | customer_register_link }}
+    	{% endif %}
+    </div>
+    <div class="importantLinks hide-on-desktop">
+    	<ul>
+          <li><a href="/account">{{ 'box.png' | asset_url | img_tag }}My Orders</a></li>          
+          <li><a href="https://bleusalt.com/pages/contact">{{ 'bubble.png' | asset_url | img_tag }}Customer Service</a></li>
+          <li><a href="https://bleusalt.com/pages/the-story">{{ 'like.png' | asset_url | img_tag }}Our Story</a></li>
+          <li><a href="https://bleusalt.com/blogs/press">{{ 'paper.png' | asset_url | img_tag }}Press</a></li>
+          <li><a href="https://bleusalt.com/pages/environmental-responsibility">{{ 'leaf.png' | asset_url | img_tag }}Environmental Responsibility</a></li>
+      </ul>
+    </div>  
+  </div>
+<!-- //Slide Out -->
+</div>
+
+{% schema %}
+{
+  "name": "Slide Out Navigation",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "main_linklist",
+      "label": "First Level Navigation",
+      "default": "main-menu"
+    },  
+    {
+      "type": "link_list",
+      "id": "important_linklist",
+      "label": "Mobile Navigation",
+      "default": "main-menu"
+    },   
+    {
+    "type": "checkbox",
+    "id": "enable_search",
+    "label": "Enable search",
+    "default": true
+    }
+	],
+	"blocks":[
+        {
+          "type":"image_block_2",
+          "name": "2 Image Block", 
+          "settings":[
+			  {
+			  	"type":"text",
+				"id":"block_id",
+				"label":"Write name of link which this block belongs to"
+			  },
+              {
+                 "type":      "header",
+                 "content":   "Block 1",
+                 "info":      "Enter settings for block 1"
+              },
+              {
+                  "type":"url",
+                  "id":"url1",
+                  "label":"Block 1 - URL"
+              },
+              {
+                  "type":"image_picker",
+                  "id":"image1",
+                  "label":"Block 1 - Image"
+              },
+			  {
+				   "type":"text",
+					"id":"image_text1",
+					"label":"Block 1 - Text"
+			  },
+              {
+                 "type":      "header",
+                 "content":   "Block 2",
+                 "info":      "Enter settings for block 2"
+              },
+              {
+                  "type":"url",
+                  "id":"url2",
+                  "label":"Block 2 - URL"
+              },
+              {
+                  "type":"image_picker",
+                  "id":"image2",
+                  "label":"Block 2 - Image"
+              },
+			  {
+				   "type":"text",
+					"id":"image_text2",
+					"label":"Block 2 - Text"
+			  }
+          ]
+        },
+        {
+          "type":"image_block_3",
+          "name": "3 Image Block", 
+          "settings":[
+			  {
+			  	"type":"text",
+				"id":"block_id",
+				"label":"Write name of link which this block belongs to"
+			  },
+              {
+                 "type":      "header",
+                 "content":   "Block 1",
+                 "info":      "Enter settings for block 1"
+              },
+              {
+                  "type":"url",
+                  "id":"url1",
+                  "label":"Block 1 - URL"
+              },
+              {
+                  "type":"image_picker",
+                  "id":"image1",
+                  "label":"Block 1 - Image"
+              },
+			  {
+				   "type":"text",
+					"id":"image_text1",
+					"label":"Block 1 - Text"
+			  },
+              {
+                 "type":      "header",
+                 "content":   "Block 2",
+                 "info":      "Enter settings for block 2"
+              },
+              {
+                  "type":"url",
+                  "id":"url2",
+                  "label":"Block 2 - URL"
+              },
+              {
+                  "type":"image_picker",
+                  "id":"image2",
+                  "label":"Block 2 - Image"
+              },
+			  {
+				   "type":"text",
+					"id":"image_text2",
+					"label":"Block 2 - Text"
+			  },
+              {
+                 "type":      "header",
+                 "content":   "Block 3",
+                 "info":      "Enter settings for block 3"
+              },
+              {
+                  "type":"url",
+                  "id":"url3",
+                  "label":"Block 3 - URL"
+              },
+              {
+                  "type":"image_picker",
+                  "id":"image3",
+                  "label":"Block 3 - Image"
+              },
+			  {
+				   "type":"text",
+					"id":"image_text3",
+					"label":"Block 3 - Text"
+			  }
+          ]
+        },
+        {
+          "type":"image_block_6",
+          "name": "6 Image Block", 
+          "settings":[
+			  {
+			  	"type":"text",
+				"id":"block_id",
+				"label":"Write name of link which this block belongs to"
+			  },
+              {
+                 "type":      "header",
+                 "content":   "Block 1",
+                 "info":      "Enter settings for block 1"
+              },
+              {
+                  "type":"url",
+                  "id":"url1",
+                  "label":"Block 1 - URL"
+              },
+              {
+                  "type":"image_picker",
+                  "id":"image1",
+                  "label":"Block 1 - Image"
+              },
+			  {
+				   "type":"text",
+					"id":"image_text1",
+					"label":"Block 1 - Text"
+			  },
+              {
+                 "type":      "header",
+                 "content":   "Block 2",
+                 "info":      "Enter settings for block 2"
+              },
+              {
+                  "type":"url",
+                  "id":"url2",
+                  "label":"Block 2 - URL"
+              },
+              {
+                  "type":"image_picker",
+                  "id":"image2",
+                  "label":"Block 2 - Image"
+              },
+			  {
+				   "type":"text",
+					"id":"image_text2",
+					"label":"Block 2 - Text"
+			  },
+              {
+                 "type":      "header",
+                 "content":   "Block 3",
+                 "info":      "Enter settings for block 3"
+              },
+              {
+                  "type":"url",
+                  "id":"url3",
+                  "label":"Block 3 - URL"
+              },
+              {
+                  "type":"image_picker",
+                  "id":"image3",
+                  "label":"Block 3 - Image"
+              },
+			  {
+				   "type":"text",
+					"id":"image_text3",
+					"label":"Block 3 - Text"
+			  },
+              {
+                 "type":      "header",
+                 "content":   "Block 4",
+                 "info":      "Enter settings for block 3"
+              },
+              {
+                  "type":"url",
+                  "id":"url4",
+                  "label":"Block 4 - URL"
+              },
+              {
+                  "type":"image_picker",
+                  "id":"image4",
+                  "label":"Block 4 - Image"
+              },
+			  {
+				   "type":"text",
+					"id":"image_text4",
+					"label":"Block 4 - Text"
+			  },
+              {
+                 "type":      "header",
+                 "content":   "Block 5",
+                 "info":      "Enter settings for block 3"
+              },
+              {
+                  "type":"url",
+                  "id":"url5",
+                  "label":"Block 5 - URL"
+              },
+              {
+                  "type":"image_picker",
+                  "id":"image5",
+                  "label":"Block 5 - Image"
+              },
+			  {
+				   "type":"text",
+					"id":"image_text5",
+					"label":"Block 5 - Text"
+			  },
+              {
+                 "type":      "header",
+                 "content":   "Block 6",
+                 "info":      "Enter settings for block 3"
+              },
+              {
+                  "type":"url",
+                  "id":"url6",
+                  "label":"Block 6 - URL"
+              },
+              {
+                  "type":"image_picker",
+                  "id":"image6",
+                  "label":"Block 6 - Image"
+              },
+			  {
+				   "type":"text",
+					"id":"image_text6",
+					"label":"Block 6 - Text"
+			  }
+          ]
+        },
+		{
+			"type":"nav_title",
+			"name":"Navigation Title",
+			"settings": [
+                {
+                  "type":"text",
+                  "id":"block_id",
+                  "label":"Write name of link which this block belongs to"
+                },
+				{
+					"type":"text",
+					"id":"title",
+					"label":"Title Text"
+				}
+			]
+		},
+		{
+			"type":"nav_button",
+			"name":"Navigation Button",
+			"settings": [
+                {
+                  "type":"text",
+                  "id":"block_id",
+                  "label":"Write name of link which this block belongs to"
+                },
+				{
+					"type":"text",
+					"id":"title",
+					"label":"Button Text"
+				},
+				{
+					"type":"url",
+					"label":"Button Link",
+					"id":"url"
+				},
+				{
+					"type":"text",
+					"label":"Button Icon Name",
+					"id":"button_icon"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

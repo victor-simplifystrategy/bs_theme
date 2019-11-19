@@ -1,0 +1,12 @@
+development:
+  password: e6bea39d1f447c1c335ef806cd42d07d
+  theme_id: "78772699249"
+  store: bleusalt.myshopify.com
+  ignore_files:
+  - config/settings_data.json
+production:
+  password: e6bea39d1f447c1c335ef806cd42d07d
+  theme_id: "78764310641"
+  store: bleusalt.myshopify.com
+  ignore_files:
+  - config/settings_data.json

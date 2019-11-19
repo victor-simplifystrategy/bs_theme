@@ -1,0 +1,53 @@
+
+
+
+<!-- Sections -->
+
+{% section 'page-materials' %}
+
+
+
+
+
+<!-- Needs to be added to JS file -->
+<script type="application/javascript">
+(function() {
+  window.addEventListener('scroll', function(event) {
+    var depth, i, layer, layers, len, movement, topDistance, translate3d;
+    topDistance = this.pageYOffset;
+    layers = document.querySelectorAll("[data-type='parallax']");
+    for (i = 0, len = layers.length; i < len; i++){
+      layer = layers[i];
+      depth = layer.getAttribute('data-depth');
+      movement = -(topDistance * depth);
+      translate3d = movement + 'px';
+      layer.style['margin-top'] = translate3d;
+      layer.style.transform = translate3d;
+    }
+
+  });
+
+}).call(this);
+  
+
+
+  
+</script>
+
+
+
+
+<script src="http://brightlabel.co/u/bl.js" language="javascript"></script>
+<script>
+
+"use strict";
+function popup_bl_tag(bl_tag, bl_pagename="_blank", w=430, h=660){
+var l=(screen.width)?(screen.width-w)/2:100;
+var t=(screen.height)?(screen.height-h)/2:100;
+var settings='width='+w+',height='+h+',top='+t+',left='+l+ ',scrollbars=no,location=no,directories=no,status=no,menubar=no,toolbar=no,resizable=no';
+window.open("http://tag.brightlabel.co/"+bl_tag,bl_pagename,settings);
+}
+  
+
+  
+</script>

@@ -1,0 +1,80 @@
+<div class="gba-alternating_products">
+  <h2>{{section.settings.title}}</h2>
+  <div class="gba-alternating_product_images">
+    {% for block in section.blocks %}
+    {% assign productHandle =  block.settings.product_handle %}
+    <div class="product column {{section.settings.columns}}">
+      <a href="{{all_products[productHandle].url}}">	
+      <div>
+          <img src="{{block.settings.lifestyle_image | img_url:'500x500', crop: 'center'}}" />
+      </div>
+      <!-- Blue Overlay -->  
+      <div class="double-overlay">
+        <span class="overlayText" >
+          <span>{{all_products[productHandle].title}}</span>
+        </span> 
+      </div>      
+	  <!-- Blue Overlay -->
+      <!-- Uncomment this if you want Alternating Product Images 
+	  <div class="product_image">
+           <img src="{{all_products[productHandle].featured_image | img_url:'500x500', crop: 'center' }}" />
+      </div> 
+	  -->
+     </a>
+    </div>  
+    {% endfor%}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "New Styles",
+    "settings": [
+	{
+		"type":"text",
+		"id":"title",
+		"label":"Section Title"
+	},
+	{
+		"type":"select",
+		"id":"columns",
+		"label":"Columns per row",
+		"options":[
+			{
+			"group":"Columns per row",
+			"label":"3",
+			"value":"one_third"
+			},
+			{
+			"group":"Columns per row",
+			"label":"4",
+			"value":"one_fourth"
+			}
+		]
+	}
+	],
+	"blocks":[
+		{
+          "type":"product_block",
+          "name":"Product",
+          "settings":[
+			{
+				"type":"product",
+				"id":"product_handle",
+				"label":"Select a product"
+			},
+			{
+              "type":"image_picker",
+              "label":"Lifestyle Cover Image",
+              "id":"lifestyle_image"
+			}
+          ]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

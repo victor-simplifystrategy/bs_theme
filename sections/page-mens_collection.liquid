@@ -1,0 +1,607 @@
+{% include 'pagebuilder'%}
+
+{% schema %}
+  {
+    "name": "Page Builder",
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Full Width Image",
+        "settings": [
+          {
+            "type":"image_picker",
+            "id":"image",
+            "label":"Image"
+          },
+          {
+            "type":"select",
+            "id":"text_alignment",
+            "label":"Image Alignment",
+            "options": [
+               {
+                 "group": "Image Alignment",
+                 "value": "center",
+                 "label": "Centered"
+               },
+               {
+                 "group": "Text Alignment",
+                 "value": "left",
+                 "label": "Left"
+               },
+               {
+                 "group": "Text Alignment",
+                 "value": "right",
+                 "label": "Right"
+               }
+            ]
+          }
+        ]
+      },
+	  {
+		"type":"simple_image", 
+		"name": "Simple Image",
+		"settings":[
+			{
+				"type":"image_picker",
+				"id":"image",
+				"label": "Upload Your Image"
+			},
+			{
+            "type":"select",
+            "id":"image_alignment",
+            "label":"Image Alignment",
+            "options": [
+               {
+                 "group": "Image Alignment",
+                 "value": "center",
+                 "label": "Centered"
+               },
+               {
+                 "group": "Text Alignment",
+                 "value": "left",
+                 "label": "Left"
+               },
+               {
+                 "group": "Text Alignment",
+                 "value": "right",
+                 "label": "Right"
+               }
+            ]
+			}
+		]
+	  },
+		{
+			"type":"video",
+			"name":"Video",
+			"settings":[
+				{
+					"type":"text",
+					"id":"video_url",
+					"label":"Video URL"
+				},
+				{
+					"type":"image_picker",
+					"id":"video_cover",
+					"label":"Upload a cover image to display while video is loading"
+				},
+                {
+                "type":"select",
+                "id":"video_width",
+                "label":"Video Width ",
+                  "options": [
+                     {
+                       "group": "Video Width",
+                       "value": "container",
+                       "label": "Contained"
+                     },
+                     {
+                       "group": "Video Width",
+                       "value": "full",
+                       "label": "Full Width"
+                     }
+                  ]
+                }
+			]
+		},
+       {
+        "type": "text_element",
+        "name": "Text Element",
+        "settings": [
+          {
+            "type":"richtext",
+            "id":"text",
+            "label":"Text"
+          },
+          {
+            "type":"select",
+            "id":"text_alignment",
+            "label":"Image Alignment",
+            "options": [
+               {
+                 "group": "Image Alignment",
+                 "value": "center",
+                 "label": "Centered"
+               },
+               {
+                 "group": "Text Alignment",
+                 "value": "left",
+                 "label": "Left"
+               },
+               {
+                 "group": "Text Alignment",
+                 "value": "right",
+                 "label": "Right"
+               }
+            ]
+          },    
+          {
+            "type":"select",
+            "id":"formatting",
+            "label":"Element Formatting",
+            "options": [
+               {
+                 "group": "Formatting",
+                 "value": "h1",
+                 "label": "H1"
+               },
+               {
+                 "group": "Formatting",
+                 "value": "h2",
+                 "label": "H2"
+               },
+               {
+                 "group": "Formatting",
+                 "value": "h3",
+                 "label": "H3"
+               },
+               {
+                 "group": "Formatting",
+                 "value": "h4",
+                 "label": "H4"
+               },
+               {
+                 "group": "Formatting",
+                 "value": "h5",
+                 "label": "H5"
+               },
+               {
+                 "group": "Formatting",
+                 "value": "p",
+                 "label": "Paragraph"
+               }
+            ]
+          },
+          {
+            "type":"select",
+            "id":"full_width",
+            "label":"Make text full width?",
+            "options": [
+               {
+                 "value": "contained",
+                 "label": "No"
+               },
+               {
+                 "value": "full_width",
+                 "label": "Yes"
+               }
+            ]
+          }  
+        ]
+      },     
+      {
+        "type": "image_text_overlay",
+        "name": "Image with text overlay",
+        "settings": [
+          {
+            "type":"image_picker",
+            "id":"image",
+            "label":"Background Image"
+          },
+          {
+            "type":"image_picker",
+            "id":"mobile_image",
+            "label":"Want to add a different image for mobile?"
+          },
+		  {
+			"type":"richtext",
+			"id":"title",
+			"label":"Overlay Text"
+		  },
+          {
+            "type":"select",
+            "id":"text_alignment",
+            "label":"Image Alignment",
+            "options": [
+               {
+                 "group": "Image Alignment",
+                 "value": "center",
+                 "label": "Centered"
+               },
+               {
+                 "group": "Text Alignment",
+                 "value": "left",
+                 "label": "Left"
+               },
+               {
+                 "group": "Text Alignment",
+                 "value": "right",
+                 "label": "Right"
+               }
+            ]
+          },
+		  {
+			"type":"color",
+			"id":"text_color",
+			"label":"Font Color"
+		  }
+        ]
+      },
+      {
+        "type": "question_answer",
+        "name": "Question and Answer",
+        "settings": [
+          {
+            "type":"text",
+            "id":"title",
+            "label":"Question"
+          },
+          {
+            "type":"richtext",
+            "id":"text",
+            "label":"Answer"
+          },
+          {
+            "type":"select",
+            "id":"text_alignment",
+            "label":"Text Alignment",
+			"options": [
+               {
+                 "group": "Text Alignment",
+                 "value": "left",
+                 "label": "Left"
+               },
+               {
+                 "group": "Text Alignment",
+                 "value": "center",
+                 "label": "Centered"
+               },
+               {
+                 "group": "Text Alignment",
+                 "value": "right",
+                 "label": "Right"
+               }
+			]
+          },
+          {
+            "type":"select",
+            "id":"full_width",
+            "label":"Make text full width?",
+            "options": [
+               {
+                 "value": "contained",
+                 "label": "No"
+               },
+               {
+                 "value": "full_width",
+                 "label": "Yes"
+               }
+            ]
+          } 
+        ]
+      },
+      {
+        "type": "text_section",
+        "name": "Title and Subtitle",
+        "settings": [
+          {
+            "type":"text",
+            "id":"title",
+            "label":"Section Title"
+          },
+          {
+            "type":"richtext",
+            "id":"text",
+            "label":"Section content"
+          },
+          {
+            "type":"select",
+            "id":"text_alignment",
+            "label":"Text Alignment",
+			"options": [
+               {
+                 "group": "Text Alignment",
+                 "value": "center",
+                 "label": "Centered"
+               },
+               {
+                 "group": "Text Alignment",
+                 "value": "left",
+                 "label": "Left"
+               },
+               {
+                 "group": "Text Alignment",
+                 "value": "right",
+                 "label": "Right"
+               }
+			]
+          }
+        ]
+      },
+      {
+        "type": "full_width_section",
+        "name": "Full Width Image Columns ",
+        "settings": [
+        {
+          "type":"text",
+          "id":"title",
+          "label":"Section Title"
+        },
+        {
+          "type":"text",
+          "id":"subtitle",
+          "label":"Section Sub-title"
+        },
+        {
+          "type":"richtext",
+          "id":"text",
+          "label":"Section content"
+        },
+        {
+          "type":"image_picker",
+          "id":"image",
+          "label":"Section Image"
+        }
+
+      ]
+      },
+      {
+        "type": "image_column",
+        "name": "Image and Text Columns",
+        "settings": [
+        {
+          "type":"text",
+          "id":"title",
+          "label":"Section Title"
+        },
+        {
+          "type":"text",
+          "id":"subtitle",
+          "label":"Section Sub-title"
+        },
+        {
+          "type":"richtext",
+          "id":"text",
+          "label":"Section content"
+        },
+        {
+          "type":"url",
+          "id":"url",
+          "label":"Link Url"
+        },
+        {
+          "type":"text",
+          "id":"link_title",
+          "label":"Link Text"
+        },
+        {
+          "type":"image_picker",
+          "id":"image",
+          "label":"Section Image"
+        }
+
+      ]
+      },
+      {
+        "type": "button",
+        "name": "Button",
+        "settings": [
+        {
+          "type":"url",
+          "id":"url",
+          "label":"Link Url"
+        },
+        {
+          "type":"text",
+          "id":"link_title",
+          "label":"Link Text"
+        }
+
+      ]
+      },
+      {
+        "type": "double_image_column",
+        "name": "Double Image Text Column",
+        "settings": [
+          {
+            "type":"text",
+            "id":"main_title",
+            "label":"Section Title"
+          },
+          {
+             "type":      "header",
+             "content":   "Column One",
+             "info":      "These are the settings for the left column"
+          },
+          {
+            "type":"text",
+            "id":"title",
+            "label":"Block title"
+          },
+          {
+            "type":"text",
+            "id":"subtitle",
+            "label":"Block Sub-title"
+          },
+          {
+            "type":"richtext",
+            "id":"text",
+            "label":"Block content"
+          },
+          {
+            "type":"url",
+            "id":"url",
+            "label":"Link Url"
+          },
+          {
+            "type":"text",
+            "id":"link_title",
+            "label":"Link Text"
+          },
+          {
+            "type":"image_picker",
+            "id":"image",
+            "label":"Section Image"
+          },
+          {
+             "type":      "header",
+             "content":   "Column Two",
+             "info":      "These are the settings for the right column"
+          },
+          {
+            "type":"text",
+            "id":"title2",
+            "label":"Block title"
+          },
+          {
+            "type":"text",
+            "id":"subtitle2",
+            "label":"Block Sub-title"
+          },
+          {
+            "type":"richtext",
+            "id":"text2",
+            "label":"Block content"
+          },
+          {
+            "type":"url",
+            "id":"url2",
+            "label":"Link Url"
+          },
+          {
+            "type":"text",
+            "id":"link_title2",
+            "label":"Link Text"
+          },
+          {
+            "type":"image_picker",
+            "id":"image2",
+            "label":"Section Image"
+          }
+      	]
+      },
+      {
+        "type": "double_image",
+        "name": "Double Image",
+        "settings": [
+          {
+            "type":"header",
+            "content":"Small Side Settings"
+          },
+		  {
+			"type":"text",
+			"id":"small_text",
+			"label":"Overlay Text"
+		  },
+		  {
+			"type":"url",
+			"id":"small_url",
+			"label":"Link to"
+		  },
+          {
+            "type":"image_picker",
+            "id":"small_image",
+            "label":"Background Image"
+          },
+          {
+            "type":"select",
+            "id":"small_position",
+            "label":"Position of small side",
+			"options":[
+				{
+					"group":"Side Position",
+					"label":"Left",
+					"value":"left"
+				},
+				{
+					"group":"Side Position",
+					"label":"Right",
+					"value":"right"
+				}
+			]
+          },
+          {
+            "type":"header",
+            "content":"Large Side Settings"
+          },
+		  {
+			"type":"text",
+			"id":"large_text",
+			"label":"Overlay Text"
+		  },
+		  {
+			"type":"url",
+			"id":"large_url",
+			"label":"Link to"
+		  },
+          {
+            "type":"image_picker",
+            "id":"large_image",
+            "label":"Background Image"
+          }
+      	]
+      },
+      {
+        "type": "newsletter_section",
+        "name": "Newsletter Section",
+        "settings": [
+			{
+			"type":"text",
+			"id":"title",
+			"label":"Section Title"
+			},
+			{
+			"type":"richtext",
+			"id":"text",
+			"label":"Content"
+			}
+      	]
+      },
+      {
+        "type": "text_column",
+        "name": "Text Column Section",
+        "settings": [
+			{
+			"type":"text",
+			"id":"title",
+			"label":"Section Title"
+			},
+			{
+			"type":"richtext",
+			"id":"text",
+			"label":"Content"
+			},
+			{
+			"type":"url",
+			"id":"url",
+			"label":"Button Link"
+			},
+			{
+			"type":"text",
+			"id":"button_text",
+			"label":"Button Text"
+			},
+			{
+			"type":"image_picker",
+			"id":"image",
+			"label":"Image "
+			},
+			{
+			"type":"color",
+			"id":"color",
+			"label":"Background Color"
+			}
+      	]
+      }
+    ]
+  }
+{% endschema %}

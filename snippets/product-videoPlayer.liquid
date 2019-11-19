@@ -1,0 +1,31 @@
+<!-- Video Container -->
+{% for tag in product.tags %}
+	{% if tag contains 'video_test'%}
+		{% assign videoTag = true %}
+        {% assign videoUrl = tag | remove: 'video_test '%}
+        {% if videoUrl contains 'vimeo' %}
+            {% capture videoCode %}
+            <iframe id="product-video" src="{{videoUrl}}?autoplay=true&muted=true&loop=true&responsive=true&api=1&controls=false" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            {% endcapture %}
+        {% else %}
+        {% capture videoCode %}
+          <video width="100%" controls id="productImage">
+            <source src="{{videoUrl}}" type="video/mp4">
+          </video>   
+          {% endcapture %}
+        {% endif %}     
+	{% endif %}
+{% endfor %}
+
+{% if videoTag == true %}
+<div class="videoPopup">
+  <div class="wrapper-popup">
+    <div class="content-popup">
+      <i class="close-video-popup fa fa-times-circle" aria-hidden="true"></i>
+        {{ videoCode }}
+    </div>
+    <div class="overlay-trigger"></div>
+  </div>
+</div>
+{% endif %}
+<!-- Video Container --> 

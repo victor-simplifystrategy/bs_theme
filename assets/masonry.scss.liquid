@@ -1,0 +1,102 @@
+/*/////////////////////////////////////
+MASONRY BLOG 
+/////////////////////////////////////*/ 
+
+
+// PAGE TITLE 
+.blog-title{
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  padding:10%;
+  	
+  h1{
+  	color:#ffffff;
+    font-size:37px;
+    text-align:center;
+  }
+}
+
+// BLOG SUBTEXT
+.blog-inquire{
+	text-align:center;
+  	margin:70px 0px 50px;
+  	
+  h3{
+  	font-size:1.37em;
+  }
+}
+
+// INDIVIDUAL BLOG POSTS
+.article{
+  width:48%;
+  margin:1%;
+  
+  .metadata{
+  	display:none;
+  }
+  
+  .post{
+    position:relative;
+
+
+    .image{
+      img{
+          width:100%;
+          vertical-align:top;
+      }
+    }
+
+    .overlayContainer{
+    position: absolute;
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: ease-in-out 0.3s;
+    background-color:rgba(5, 28, 42, 0.7);
+    padding: 50px;
+
+
+
+      .overlayContents{
+      padding: 30px;
+      margin: 0 auto;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+
+        h2{
+          	color:#ffffff;
+            padding:20px 5%;
+            text-align:center;
+            margin:0px;
+          	width:100%;
+          	text-transform:capitalize ;
+        }    
+      }
+    }
+
+    &:hover{
+      .overlayContainer{
+          opacity:1;
+      }
+    }
+  }
+  @media(max-width:480px){
+  	width:100% !important; 
+  }
+}
+
+// MASONRY FIX
+#ajaxCall:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+
+

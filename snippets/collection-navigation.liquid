@@ -1,0 +1,17 @@
+<div class="collectionNavigation"> 
+	<ul>
+  {% assign menu = section.settings.menu %}
+	{% for link in linklists[menu].links %}
+      <li>
+  		<a class="{% if link.links != blank %}hasChildren{% endif %}" href="{{link.url}}">{{link.title}}</a>	
+  		{% if link.links != blank %}
+ 			<ul class="dropdown">
+  			  {% for child in link.links %}
+              <li><a href="{{child.url}}">{{child.title}}</a></li>	
+              {% endfor %}
+  			</ul>
+  		{% endif %}  
+      </li>
+  	{% endfor %}
+  </ul>
+</div>

@@ -1,0 +1,7 @@
+<div style="display: block !important" ><a class="qv-button" href="#qv-showqv" title="Quick View" handle="{{product.handle}}" >Quick View</a></div>
+
+{% if is_loaded_settings %}
+{% else %}
+{% assign is_loaded_settings = true  %}
+<div id='qv-metadata' style="display: none !important" jsondata='{{ shop.metafields.quickview-product.settings}}' moneyFormat="{{ shop.money_format }}" noimage="{{ 'qv-no-image.jpg' | asset_url }}"></div>
+{% endif %}

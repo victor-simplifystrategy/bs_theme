@@ -1,0 +1,377 @@
+
+
+
+// Backorder Popup
+
+.gba-backorderPopup{
+	position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    top: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+  	left:0px;
+  
+    .container{
+	position: absolute;
+    top: 0px;
+    right: 20px;
+    z-index: 9999999;
+    color: #ffffff;
+    font-size: 50px;
+    }
+  
+    &.active{
+      display:flex;
+
+    }
+}
+
+
+.notifyMe{
+  
+  .label{
+	text-align:center;
+  	font-size: 20px;
+    line-height: 1.4em;
+    text-align: center;
+    max-width:60%;
+    margin: auto;
+  
+  }
+  
+  .formGroup{
+    max-width:60%;
+    margin:20px auto;
+    
+    input[type=email], input[type=text]{
+      border: 1px solid #ececec;
+      border-radius:4px;
+      width:100%; 
+    }
+    
+    input[type=submit]{
+    	border-radius:10px;
+      	max-width:100px;
+      	margin:0 auto;
+      	display:block;
+      	background-color:#112130;
+      	color:#ffffff;
+      	padding:20px 5%;
+      	width:100%;
+    }
+  }
+  
+  @media(max-width:480px){
+    .label{
+    font-size:15px;
+    max-width:100%;
+    }  
+    .formGroup{
+    max-width:100%;
+    }
+  }
+}
+
+
+// Popup Content
+.gba-wrapper{
+  background-color: #ffffff;
+  padding: 30px;
+  width: 100%;
+  max-width: 100%;
+  display:none;
+  z-index: 999999;
+  margin-top: -1000px;
+  position: absolute;
+  transition: ease-in-out 0.5s;
+
+  @media(max-width:768px){
+      max-width:100%;
+  }
+
+  .message{
+    font-size: 20px;
+    line-height: 1.4em;
+    text-align: center;
+    margin-bottom: 30px;
+
+    @media(max-width:480px){
+      font-size:12px;
+      p{
+          margin-bottom:7px;
+      }
+    }
+  }
+
+  .continue{
+    a{
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      color: #ffffff;
+      text-align: center;
+      text-transform: uppercase;
+      margin: 0 auto;
+      padding: 10px 5%;
+      transition: ease-in-out 0.2s;
+      -moz-transition: ease-in-out 0.2s;
+      -webkit-transition: ease-in-out 0.2s;
+      -ms-transition: ease-in-out 0.2s;
+      -o-transition: ease-in-out 0.2s;
+      background: #16212d;
+
+
+      &:hover{
+        opacity:0.8;
+        cursor: pointer;
+      }
+
+      @media(max-width:480px){
+          padding:5px 5%;
+      }
+    }
+  }
+
+  .divide{
+    border-top: 1px solid #a4acb2;
+    margin: 45px 5% 5px;
+    text-align: center;
+
+    .or{
+      margin-top:-36px;
+      
+      &:after{
+      display: block;
+      content: 'or';
+      padding: 10px;
+      font-size: 30px;
+      background: #ffffff;
+      max-width: 80px;
+      margin: 0 auto;
+      }      
+    }
+    
+    @media(max-width:480px){
+      
+       margin: 36px 5% 5px;
+      
+      .or{
+        margin-top:-31px;
+
+        &:after{
+
+        padding: 5px;
+        font-size: 25px;
+
+        }      
+      }    
+    }
+  }
+}
+
+
+
+// Backorder Popup OOS
+
+#esc-out-of-stock-inputs{
+	border:none !important;
+
+  .esc-email-container{
+    
+    margin:0px !important;
+
+    input{
+      width:100% !important;
+      display:block;
+      float:none;
+      max-width:500px;
+      margin:0 auto;
+    }
+    
+    button{
+    margin: 30px auto 0px !important;
+    display: block;
+    width: 100%;
+    font-size: 0px;
+    background-color: #16212d;
+    padding: 12px 5%;
+    max-width: 150px;
+    height: auto;
+    transition:ease-in-out 0.2s;
+    -moz-transition:ease-in-out 0.2s;
+    -o-transition:ease-in-out 0.2s;
+    -ms-transition:ease-in-out 0.2s;
+    -webkit-transition:ease-in-out 0.2s;
+
+      
+      &:after{
+        display: block;
+        content: "Go";
+        color: #ffffff;
+        font-size: 16px;
+        text-transform:uppercase;
+      }
+      
+      &:hover{
+      	opacity:0.8;
+      }
+      
+      @media(max-width:480px){
+      	margin-top:10px !important;
+        padding:10px 5%;
+      }
+    }
+    
+
+  }  
+}
+
+.esc-out-of-stock-title{
+	display:none;
+}
+
+.esc-out-of-stock-subtitle{
+	display:none;
+}
+
+#esc-out-of-stock-inputs{
+  
+  @media(max-width:480px){
+    padding:0px !important;
+  }
+}
+
+
+
+// Animations 
+.slide-up
+{
+    bottom: 0px !important;
+}
+
+.slide-down
+{
+    bottom: -475px !important;
+}
+
+
+// Faux Add to Cart
+
+#faux-addToCart{
+    background: #0b1c29 !important;
+    color: #ffffff;
+    transition: all 0.15s ease-in-out 0s;
+    display: inline-block;
+    font-weight: 700;
+    padding: 10px 35px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    vertical-align: middle;
+    margin-top: 16px;
+    margin-left: 20px;
+}
+
+#faux-addToCart:hover{
+    background: #003e51 !important;
+    color: #eeeeee;
+  	cursor:pointer;
+}
+
+// Close Buttons 
+
+.gba-bop-close{
+  &:hover{
+  	cursor:pointer;
+  }
+}
+
+#closeThis{
+  text-align: center;
+  color: #000000;
+  letter-spacing: 1px;
+  text-decoration: underline;
+
+  @media(max-width:480px){
+  	font-size:0.8em;
+  }
+}
+
+
+
+
+.gba-bop-close-button{
+	text-align: right;
+    position: absolute;
+    right: 10px;
+    top: 7px;
+}
+
+
+body.modal-open {
+    overflow: hidden;
+}
+
+
+/*//////////////////////////////
+Embroidery Popup
+///////////////////////////////*/ 
+
+.gba-embroideryPopup{
+  position:fixed;
+  width:100%;
+  height:100%;
+  z-index:11;
+  background-color:rgba(0,0,0,0.8);
+  display:none;
+  top:0px;
+  left:0px;
+  
+  .wrapper{
+	display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    
+    .content{
+    	background-color:#ffffff;  
+      	padding:20px;
+      	width:100%;
+        max-width:500px;
+      	text-align:center;
+        margin:0 auto;
+      
+      p{
+      	margin-bottom:20px;
+        font-size:18px;
+      }
+      
+      hr{
+      	border:1px solid #efefef;
+      }
+      
+      a{
+      	background-color:#0b1c29;
+        display:table;
+        margin:0 auto;
+        color:#ffffff;
+        transition:ease-in-out 0.2s;
+        -moz-transition:ease-in-out 0.2s;
+        -o-transition:ease-in-out 0.2s;
+        -ms-transition:ease-in-out 0.2s;
+        -webkit-transition:ease-in-out 0.2s;
+		text-align:center;
+        padding:10px 5%;
+        text-transform:uppercase;
+        margin-bottom:30px;
+        
+        &:hover{
+          	background-color:#003e51;
+        }
+      }
+    }
+  }
+}

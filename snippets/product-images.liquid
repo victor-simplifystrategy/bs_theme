@@ -1,0 +1,16 @@
+            <div class="mobile-images">
+            {% for image in product.images %}
+				{% if image.src contains '(sq)'%}
+            		<img src="" data-image="{{image | product_img_url: 'master'}}" />
+				{% endif %}
+            {% endfor %}
+            </div>
+            
+            <div class="desktop-images">
+            {% for image in product.images %}
+				{% if image.src contains '(sq)'%}
+              	{% else %}
+            		<img src="" data-image="{{image | product_img_url: 'master'}}" />              
+				{% endif %}
+            {% endfor %}            
+            </div>        

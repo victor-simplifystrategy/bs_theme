@@ -1,0 +1,44 @@
+<div id="swatch-tab-3" class="swatch-tab-content swatch">
+  <label class="tab-label">Select a Coat Color</label>
+  {% for block in section.blocks %}
+    {% assign color = block.settings.color %}
+      <div data-value="{{block.settings.color}}" class="swatch-element color {{block.settings.color_name}}">
+		  <div class="tooltip">{{block.settings.color_name}}</div>        
+          <input type="radio" id="coat-{{block.settings.color_name}}" name="parkaColor" value="{{block.settings.color_name | capitalize }}" data-color="{{block.settings.color }}">
+          <label name="Color" for="coat-{{block.settings.color_name}}" style="background-color:{{block.settings.color }}"></label>
+      </div><!-- Swatch Color Ends -->
+	{% endfor %}
+     
+</div>
+
+
+{% schema %}
+  {
+    "name": "Boat Coat Color Swatches",
+    "blocks": [
+		{
+			"type":"boat_color",
+			"name":"Coat Swatch Colors",
+			"settings": [
+				{
+					"type":"text",
+					"label":"Swatch name",
+					"id":"color_name"
+				},
+				{
+					"type":"color",
+					"label":"Coat Hex Color",
+					"id":"color",
+					"info":"Select a color for the coat"
+				}
+			]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

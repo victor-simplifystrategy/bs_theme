@@ -1,0 +1,274 @@
+{% case section.blocks.size %}
+{% when 1 %}
+	{% assign footer_item_width = 'large--one-whole medium--one-whole small--one-whole' %}
+{% when 2 %}
+	{% assign footer_item_width = 'large--one-half medium--one-half small--one-whole' %}
+{% when 3 %}
+	{% assign footer_item_width = 'large--one-third medium--one-half small--one-whole' %}
+{% when 4 %}
+	{% assign footer_item_width = 'large--one-quarter medium--one-half small--one-whole' %}
+{% endcase %}
+
+    <footer class="site-footer {% if template contains 'product' %}{% if settings.related_products_enable %}{% else %} product-sticker-stop{% endif %}{% endif %}">
+      <div class="wrapper">
+        <div class="grid">
+
+
+        {% for block in section.blocks %}
+
+        	{% case block.type %}
+
+				{% when 'social' %}
+          			<div class="grid__item {{ footer_item_width }} social-media-footer">
+          				<div class="h3 footer-header">{{ 'layout.footer.social_title' | t }}</div>
+          				<ul id="sm-icons" class="clearfix">
+
+          					{% if settings.sm_facebook_link != blank %}
+          						<li id="sm-facebook">
+          							<a href="{{settings.sm_facebook_link}}" target="_blank">
+          								<i class="fa fa-facebook fa-2x"></i>
+          							</a>
+          						</li>
+          					{% endif %}
+
+          					{% if settings.sm_twitter_link != blank %}
+          						<li id="sm-twitter">
+          							<a href="{{settings.sm_twitter_link}}" target="_blank">
+          								<i class="fa fa-twitter fa-2x"></i>
+          							</a>
+          						</li>
+          					{% endif %}
+
+          					{% if settings.sm_youtube_link != blank %}
+          						<li id="sm-youtube">
+          							<a href="{{settings.sm_youtube_link}}" target="_blank">
+          								<i class="fa fa-youtube fa-2x"></i>
+          							</a>
+          						</li>
+          					{% endif %}
+
+          					{% if settings.sm_flickr_link != blank %}
+          						<li id="sm-flickr">
+          							<a href="{{settings.sm_flickr_link}}" target="_blank">
+          								<i class="fa fa-flickr fa-2x"></i>
+          							</a>
+          						</li>
+          					{% endif %}
+
+          					{% if settings.sm_pinterest_link != blank %}
+          						<li id="sm-pinterest">
+          							<a href="{{settings.sm_pinterest_link}}" target="_blank">
+          								<i class="fa fa-pinterest fa-2x"></i>
+          							</a>
+          						</li>
+          					{% endif %}
+
+          					{% if settings.sm_instagram_link != blank %}
+          						<li id="sm-instagram">
+          							<a href="{{settings.sm_instagram_link}}" target="_blank">
+          								<i class="fa fa-instagram fa-2x"></i>
+          							</a>
+          						</li>
+          					{% endif %}
+
+          				</ul>
+          				<div class="h3 footer-header" style="margin-top:20px;">Our Sustainable Fabric</div>
+                      
+                      <a href="https://www.tencel.com/intimate" target="_blank"><img style="max-width:166px; border:none;" type="image" src="{{'tencel-button.png' | asset_img_url:'master' }}" alt="Modal"  /></a>
+          			</div>
+
+			{% when 'menu' %}
+				{%- assign footer_linklist = block.settings.footer_linklist -%}
+				{% if linklists[footer_linklist].links.size > 0 %}
+					<div class="grid__item {{ footer_item_width }} links-footer">
+						<div class="h3 footer-header">{{ block.settings.menu_title | escape }}</div>
+						<ul class="footer-content">
+							{% for link in linklists[footer_linklist].links %}
+								<li {% if link.object.tags and link.object.tags.size > 0 %} class="children"{% endif %}>
+									<a href="{{link.url}}">{{link.title}}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				{% endif %}
+
+			{% when 'text' %}
+
+			  	<div class="grid__item {{ footer_item_width }} content-footer">
+			  		<div class="h3 footer-header">{{ block.settings.title | escape }}</div>
+			  		<div class="rte footer-article">{{ block.settings.richtext }}</div>
+			  	</div>
+
+
+			{% when 'newsletter' %}
+				<div class="grid__item {{ footer_item_width }} newsletter-footer">
+				<div class="h3 footer-header">{{ 'layout.footer.newsletter_title' | t }}</div>
+
+				<form id="email_signup" class="klaviyo_condensed_styling klaviyo_condensed_float klaviyo_condensed_embed_LW6VmH" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+  <input type="hidden" name="g" value="LW6VmH">
+  <div class="klaviyo_field_group">
+    <label for="k_id_email">Newsletter Sign Up</label>
+    <input type="email" value="" name="email" id="k_id_email" placeholder="Your email" />
+  </div>
+  <div class="klaviyo_messages">
+    <div class="success_message" style="display:none;"></div>
+    <div class="error_message" style="display:none;"></div>
+    </div>
+  <div class="klaviyo_form_actions">
+    <button type="submit" class="klaviyo_submit_button">Subscribe</button>
+  </div>
+</form>
+<style type="text/css">
+.klaviyo_styling.klaviyo_condensed_embed_LW6VmH,
+.klaviyo_condensed_styling.klaviyo_condensed_embed_LW6VmH {
+  font-family: "Helvetica Neue", Arial;
+}.klaviyo_styling.klaviyo_condensed_embed_LW6VmH label,
+.klaviyo_condensed_styling.klaviyo_condensed_embed_LW6VmH label {
+  color:#222;
+}.klaviyo_styling.klaviyo_condensed_embed_LW6VmH input[type=text],
+.klaviyo_styling.klaviyo_condensed_embed_LW6VmH input[type=email],
+.klaviyo_condensed_styling.klaviyo_condensed_embed_LW6VmH input[type=text],
+.klaviyo_condensed_styling.klaviyo_condensed_embed_LW6VmH input[type=email] {
+  border-radius: 2px;
+}.klaviyo_styling.klaviyo_condensed_embed_LW6VmH .klaviyo_submit_button,
+.klaviyo_condensed_styling.klaviyo_condensed_embed_LW6VmH .klaviyo_submit_button {
+  background-color:#061C2A;
+  border-radius: 2px;
+}.klaviyo_styling.klaviyo_condensed_embed_LW6VmH .klaviyo_submit_button:hover,
+.klaviyo_condensed_styling.klaviyo_condensed_embed_LW6VmH .klaviyo_submit_button:hover {
+  background-color:#061C2A;
+}
+</style>
+<script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+<script type="text/javascript">
+  KlaviyoSubscribe.attachToForms('#email_signup', {
+    hide_form_on_success: true
+  });
+</script>
+
+
+				</div>
+
+		{% endcase %}
+
+	{% endfor %}
+
+</div>
+
+      <div class="grid bottom--footer">
+
+        <div class="grid__item large--one-half">
+
+	            <a href="/pages/privacy-policy">Privacy Policy</a> | <a href="/pages/terms-and-conditions">Terms and Conditions</a>
+
+        </div>
+
+        {% if section.settings.show_methods_of_payment %}
+        <div class="grid__item large--one-half text-right">
+
+          {% unless shop.enabled_payment_types == empty %}
+            {% assign payment_icons_available = 'amazon_payments,american_express,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,jcb,laser,litecoin,maestro,master,paypal,solo,stripe,switch,visa' | split: ',' %}
+            <ul class="inline-list payment-icons">
+              {% for type in shop.enabled_payment_types %}
+                {% if payment_icons_available contains type %}
+                  <li>
+                    <span class="icon-fallback-text">
+                      <span class="icon icon-{{type}}" aria-hidden="true"></span>
+                      <span class="fallback-text">{{ type | replace: '_',' '}}</span>
+                    </span>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          {% endunless %}
+
+          </div>
+          {% endif %}
+
+      </div>
+
+      </div>
+
+    </footer>
+<script>
+"use strict";
+function popup_bl_tag(bl_tag, bl_pagename = "_blank", w = 430, h = 660) {
+    var l = (screen.width) ? (screen.width - w) / 2 : 100;
+    var t = (screen.height) ? (screen.height - h) / 2 : 100;
+    var settings = 'width=' + w + ',height=' + h + ',top=' + t + ',left=' + l + ',scrollbars=no,location=no,directories=no,status=no,menubar=no,toolbar=no,resizable=no';
+    window.open("http://tag.brightlabel.co/" + bl_tag, bl_pagename, settings);
+}</script>
+{% schema %}
+{
+  "name": "Footer",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_methods_of_payment",
+      "label": "Payment icons"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Contact us"
+        },
+        {
+          "type": "richtext",
+          "id": "richtext",
+          "label": "Text",
+					"default": "<p>Share store details, promotions, or brand content with your customers.</p>"
+        }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_title",
+          "label": "Heading",
+          "default": "Links"
+        },
+        {
+          "type": "link_list",
+          "id": "footer_linklist",
+          "label": "Menu",
+          "default": "footer"
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "Newsletter",
+	  "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "footer_newsletter_description",
+          "label": "Newsletter description"
+        }
+      ]
+    },
+    {
+      "type": "social",
+      "name": "Social icons",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Edit your social settings and accounts in General settings"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,51 @@
+{% if product.type != 'remove_from_search_cat' %}
+
+{%- include 'bold-product' with product, hide_action: 'break', output: 'none' -%}
+{% section 'product-template-multiproduct' %}
+{% section 'product-size_chart' %}
+
+
+
+<!-- Product ID {{product.id}} -->
+<script text="text/javascript">
+  var _learnq = _learnq || [];
+
+  var item = {
+    Name: {{ product.title|json }},
+    ProductID: {{ product.id|json }},
+    Categories: {{ product.collections|map:'title'|json }},
+    ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+    URL: "{{ shop.secure_url }}{{ product.url }}",
+    Brand: {{ product.vendor|json }},
+    Price: {{ product.price|money|json }},
+    CompareAtPrice: {{ product.compare_at_price_max|money|json }}
+  };
+
+  _learnq.push(['track', 'Viewed Product', item]);
+  _learnq.push(['trackViewedItem', {
+    Title: item.Name,
+    ItemId: item.ProductID,
+    Categories: item.Categories,
+    ImageUrl: item.ImageURL,
+    Url: item.URL,
+    Metadata: {
+      Brand: item.Brand,
+      Price: item.Price,
+      CompareAtPrice: item.CompareAtPrice
+    }
+  }]);
+</script>
+
+{% else %}
+
+<div class="grid error-page--wrapper">
+	<div class="grid__item large--two-thirds push--large--one-sixth">
+	<div class="sitewide--title-wrapper">
+		<h1 class="page--title">{{ 'general.404.title' | t }}</h1>
+	</div>
+		<p>{{ 'general.404.subtext_html' | t }}</p>
+	</div>
+</div>
+
+
+{% endif %}

@@ -1,0 +1,186 @@
+<div class="gba-alternating_products">
+  <h2>{{section.settings.title}}</h2>
+  <div class="gba-alternating_product_images">
+    {% for block in section.blocks %}
+    {% assign productHandle =  block.settings.product_handle %}
+    {% assign product = all_products[productHandle] %}
+    {% assign on_sale = false %}
+    {% if product.compare_at_price_max > product.price and product.available %}
+      {% assign on_sale = true %}
+    {% endif %}
+
+    {% comment %}
+      Check if the product is sold out and set a variable to be used below.
+    {% endcomment %}
+    {% assign sold_out = true %}
+    {% if product.available %}
+      {% assign sold_out = false %}
+    {% endif %}    
+    
+    <div class="product featuredProduct_single column {{section.settings.columns}}">
+      <a href="{{product.url}}">	
+      {% for tag in product.tags %}
+        {% if tag == 'no collection swatch' %}	
+            {% assign turnSwatchOff = true %}
+        {% endif %}
+	{% endfor %}  
+        
+      <div class="desktop-coverImage coverImage  hide-on-mobile">
+          <img src="{{block.settings.lifestyle_image | img_url:'500x500', crop: 'center'}}" />
+      </div>
+        
+      <div class="desktopImages hide-on-mobile owl-carousel">
+        {% for image in product.images %}       
+                            {% assign source = image.src | downcase %}
+
+            {% if source contains 'mobile' %}
+                <img class="owl-lazy" data-src="{{ image.src | img_url:'master' }}"  data-color="{{ image.alt | escape | handleize}}" class="img-responsive" />
+            {% endif %}               
+        {% endfor %}
+      </div>                 
+        
+      <div class="mobile-coverImage coverImage hide-on-desktop">
+          <img src="{{block.settings.lifestyle_image | img_url:'500x500', crop: 'center'}}" />
+      </div>   
+        
+              <div class="mobileImages hide-on-desktop owl-carousel">
+              	{% for image in product.images %}       
+                                	{% assign source = image.src | downcase %}
+                
+              		{% if source contains 'mobile' %}
+                		<img class="owl-lazy" data-src="{{ image.src | img_url:'master' }}"  data-color="{{ image.alt | escape | handleize}}" class="img-responsive" />
+              		{% endif %}               
+              	{% endfor %}
+              </div>              
+       
+        
+      <!-- Blue Overlay -->
+      <div class="double-overlay">
+        <span class="overlayText" >
+          <span>{{product.title}}</span>
+        </span> 
+      </div>  
+	  <!-- Blue Overlay -->
+      <!-- Uncomment this if you want Alternating Product Images 
+	  <div class="product_image">
+           <img src="{{product.featured_image | img_url:'500x500', crop: 'center' }}" />
+      </div> 
+	  -->
+     </a>
+      
+  {% unless turnSwatchOff == true %}
+  <div class="swatch hide-on-mobile desktopSwatch">
+	{% for image in product.images %}   
+		{% assign source = image.src | downcase %}
+		{% if source contains 'mobile' %}            		
+		<div data-desktop="{{image.alt | handleize }}" class="swatch-element owl-thumb-item color {{image.alt | handleize }}">
+          <input id="{{product.id}}-{{image.alt | handleize }}" type="radio" name="option-1" required="" qty="0" value="Light Gray" >
+          <label name="Color" for="{{product.id}}-{{image.alt | handleize }}" data-color="{{image.alt | handleize}}" style="background-color: {{image.alt}}; background-image: url({{ image.alt | handle | append: '.jpg' |  asset_url }})"></label>
+ 		</div>              		
+      {% endif %}            
+     {% endfor %}    
+  </div>   
+  {% endunless %}
+      <p class="product-grid--title hide-on-mobile">
+        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+      </p>
+      <p class="product-grid--price ">
+          {% if on_sale %}
+            {% if product.price_varies %}
+              {% capture sale_price %}
+                <span class="money">{{ product.price | money }}</span>
+              {% endcapture %}
+              {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+            {% else %}
+              <span class="product-grid--compare-price"><span class="money">{{ product.compare_at_price | money }}</span></span>
+              <span class="money">{{ product.price | money }}</span>
+            {% endif %}
+          {% else %}
+            {% if product.price_varies %}
+              <span class="product-grid--from-wrapper"></span> <span class="money">{{ product.price | money }}</span>
+            {% else %}
+              <span class="money">{{ product.price | money }}</span>
+            {% endif %}
+          {% endif %}
+      </p>
+
+  {% unless turnSwatchOff == true %}
+  <div class="swatch hide-on-desktop mobileSwatch">
+	{% for image in product.images %}   
+		{% assign source = image.src | downcase %}
+		{% if source contains 'mobile' %}            		
+		<div data-mobile="{{image.alt | handleize }}" class="swatch-element owl-thumb-item color {{image.alt | handleize }}">
+          <input id="{{product.id}}-{{image.alt | handleize }}" type="radio" name="option-1" required="" qty="0" value="Light Gray" >
+          <label name="Color" for="{{product.id}}-{{image.alt | handleize }}" data-color="{{image.alt | handleize}}" style="background-color: {{image.alt}}; background-image: url({{ image.alt | handle | append: '.jpg' |  asset_url }})"></label>
+ 		</div>              		
+      {% endif %}            
+     {% endfor %}    
+  </div>
+  {% endunless %}
+      
+        {% if product.compare_at_price_max > product.price and product.available %}
+          <div class="sale-badge" style="z-index:9;">{{ 'products.product.on_sale' | t }}</div>
+      {% endif %}
+  
+      {% unless product.available %}
+          <div class="sold-out-badge" style="z-index:9;">{{ 'products.product.sold_out' | t }}</div>
+      {% endunless %}  
+      
+      
+    </div>  
+    {% endfor%}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Featured Products 2",
+    "settings": [
+	{
+		"type":"text",
+		"id":"title",
+		"label":"Section Title"
+	},
+	{
+		"type":"select",
+		"id":"columns",
+		"label":"Columns per row",
+		"options":[
+			{
+			"group":"Columns per row",
+			"label":"3",
+			"value":"one_third"
+			},
+			{
+			"group":"Columns per row",
+			"label":"4",
+			"value":"one_fourth"
+			}
+		]
+	}
+	],
+	"blocks":[
+		{
+          "type":"product_block",
+          "name":"Product",
+          "settings":[
+			{
+				"type":"product",
+				"id":"product_handle",
+				"label":"Select a product"
+			},
+			{
+              "type":"image_picker",
+              "label":"Lifestyle Cover Image",
+              "id":"lifestyle_image"
+			}
+          ]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

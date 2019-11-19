@@ -1,0 +1,35 @@
+<div class="logo-section">
+{% for block in section.blocks %}
+	<a class="logo-section__single-logo" href="{{block.settings.url}}"><img src="{{block.settings.image | img_url:'master'}}" /></a>
+{% endfor %}
+</div>
+  
+{% schema %}
+  {
+    "name": "Logo Section",
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Logo",
+        "settings": [
+          {
+            "type":"image_picker",
+            "id":"image",
+            "label":"Image"
+          },
+          {
+            "type":"url",
+            "id":"url",
+            "label":"Link Logo"
+          }
+        ]
+      }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
